@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Matthew Meza — CFO at Kanad Hospital, Al Ain UAE. Senior finance executive across FP&A, revenue cycle, ERP integration, and capital strategy."/>
-<meta property="og:title" content="Matthew Meza — CFO & Finance Executive"/>
-<meta property="og:description" content="CFO · Kanad Hospital · Al Ain, UAE · Johns Hopkins MBA"/>
+<meta name="description" content="Matthew Meza — Senior healthcare finance executive and CFO based in the UAE. Leading finance, strategy, revenue cycle, and digital operations across complex multi-program hospital environments."/>
+<meta property="og:title" content="Matthew Meza — CFO & Healthcare Executive"/>
+<meta property="og:description" content="CFO · Healthcare Finance · Al Ain, UAE · Johns Hopkins MBA"/>
 <meta property="og:url" content="https://matthewmeza.com"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<title>Matthew Meza — CFO & Finance Executive</title>
+<title>Matthew Meza — CFO & Healthcare Executive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Inter:wght@400;900&display=swap" rel="stylesheet"/>
@@ -25,145 +25,35 @@
   --mono:'DM Mono',monospace;
 }
 html{scroll-behavior:smooth;}
-body{
-  font-family:var(--mono);
-  background:var(--black);
-  color:var(--off-white);
-  font-size:14px;
-  line-height:1.7;
-  overflow-x:hidden;
-}
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 3rem;height:56px;
-  background:var(--black);
-  border-bottom:1px solid var(--graphite);
-}
-.nav-logo{
-  font-family:var(--display);
-  font-weight:900;
-  font-size:0.95rem;
-  letter-spacing:-0.02em;
-  text-transform:uppercase;
-  color:var(--off-white);
-  text-decoration:none;
-  display:flex;align-items:center;gap:0.75rem;
-}
-.nav-logo .mm-mark{
-  display:inline-flex;align-items:center;
-  height:28px;width:auto;
-  flex-shrink:0;
-}
+body{font-family:var(--mono);background:var(--black);color:var(--off-white);font-size:14px;line-height:1.7;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:56px;background:var(--black);border-bottom:1px solid var(--graphite);}
+.nav-logo{font-family:var(--display);font-weight:900;font-size:0.95rem;letter-spacing:-0.02em;text-transform:uppercase;color:var(--off-white);text-decoration:none;display:flex;align-items:center;gap:0.75rem;}
+.nav-logo .mm-mark{display:inline-flex;align-items:center;height:28px;width:auto;flex-shrink:0;}
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
-.nav-links a{
-  font-family:var(--mono);
-  font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--muted);text-decoration:none;transition:color 0.15s;
-}
+.nav-links a{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.15s;}
 .nav-links a:hover{color:var(--copper);}
-.nav-cta{
-  color:var(--copper) !important;
-  border:1px solid var(--copper);
-  padding:0.35rem 1rem;
-  letter-spacing:0.15em !important;
-  transition:background 0.15s !important;
-}
+.nav-cta{color:var(--copper) !important;border:1px solid var(--copper);padding:0.35rem 1rem;letter-spacing:0.15em !important;transition:background 0.15s !important;}
 .nav-cta:hover{background:var(--copper) !important;color:var(--black) !important;}
-.hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;justify-content:center;
-  padding:80px 3rem 5rem;
-  position:relative;
-  border-bottom:1px solid var(--graphite);
-}
-.hero-inner{
-  display:grid;
-  grid-template-columns:1fr 420px;
-  gap:4rem;
-  align-items:center;
-}
-.hero-eyebrow{
-  font-family:var(--mono);
-  font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--copper);margin-bottom:2rem;
-  display:flex;align-items:center;gap:0.75rem;
-}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 3rem 5rem;position:relative;border-bottom:1px solid var(--graphite);}
+.hero-inner{display:grid;grid-template-columns:1fr 420px;gap:4rem;align-items:center;}
+.hero-eyebrow{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--copper);margin-bottom:2rem;display:flex;align-items:center;gap:0.75rem;}
 .hero-eyebrow::before{content:'[ ';color:var(--muted);}
 .hero-eyebrow::after{content:' ]';color:var(--muted);}
-h1{
-  font-family:var(--display);
-  font-weight:900;
-  font-size:clamp(4rem,8vw,8.5rem);
-  line-height:0.9;
-  letter-spacing:-0.02em;
-  text-transform:uppercase;
-  color:var(--off-white);
-  margin-bottom:2.5rem;
-}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(4rem,8vw,8.5rem);line-height:0.9;letter-spacing:-0.02em;text-transform:uppercase;color:var(--off-white);margin-bottom:2.5rem;}
 h1 .copper{color:var(--copper);}
-.hero-sub{
-  font-family:var(--mono);
-  font-size:0.82rem;
-  color:var(--muted);
-  line-height:1.85;
-  max-width:460px;
-  padding-left:1rem;
-  border-left:1px solid var(--copper);
-  margin-bottom:3rem;
-}
-.hero-ctas{
-  display:flex;gap:1rem;align-items:stretch;
-  flex-wrap:wrap;
-}
-.btn-primary{
-  background:var(--copper);color:var(--black);
-  padding:0.85rem 2.25rem;font-family:var(--mono);
-  font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;
-  border:none;cursor:pointer;text-decoration:none;
-  display:inline-flex;align-items:center;justify-content:center;
-  transition:background 0.15s;white-space:nowrap;
-  line-height:1;
-}
+.hero-sub{font-family:var(--mono);font-size:0.82rem;color:var(--muted);line-height:1.85;max-width:460px;padding-left:1rem;border-left:1px solid var(--copper);margin-bottom:3rem;}
+.hero-ctas{display:flex;gap:1rem;align-items:stretch;flex-wrap:wrap;}
+.btn-primary{background:var(--copper);color:var(--black);padding:0.85rem 2.25rem;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:background 0.15s;white-space:nowrap;line-height:1;}
 .btn-primary:hover{background:var(--off-white);}
-.btn-ghost{
-  color:var(--off-white);font-family:var(--mono);
-  font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;
-  text-decoration:none;border:1px solid rgba(240,237,232,0.25);
-  padding:0.85rem 2.25rem;
-  display:inline-flex;align-items:center;justify-content:center;
-  transition:border-color 0.15s,color 0.15s;white-space:nowrap;
-  line-height:1;
-}
+.btn-ghost{color:var(--off-white);font-family:var(--mono);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(240,237,232,0.25);padding:0.85rem 2.25rem;display:inline-flex;align-items:center;justify-content:center;transition:border-color 0.15s,color 0.15s;white-space:nowrap;line-height:1;}
 .btn-ghost:hover{border-color:var(--off-white);}
 .hero-photo-wrap{display:flex;flex-direction:column;}
-.hero-photo{
-  width:100%;aspect-ratio:3/4;
-  background:var(--graphite);
-  overflow:hidden;flex-shrink:0;
-}
-.hero-photo img{
-  width:100%;height:100%;
-  object-fit:cover;object-position:center top;
-  display:block;filter:grayscale(20%) contrast(1.08);
-}
-.photo-label{
-  background:var(--copper);
-  padding:0.45rem 1rem;
-  display:flex;justify-content:space-between;
-  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;
-  color:var(--black);flex-shrink:0;
-}
-.ticker{
-  background:var(--graphite);
-  padding:0.6rem 0;overflow:hidden;white-space:nowrap;
-  border-bottom:1px solid var(--graphite);
-}
+.hero-photo{width:100%;aspect-ratio:3/4;background:var(--graphite);overflow:hidden;flex-shrink:0;}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(20%) contrast(1.08);}
+.photo-label{background:var(--copper);padding:0.45rem 1rem;display:flex;justify-content:space-between;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--black);flex-shrink:0;}
+.ticker{background:var(--graphite);padding:0.6rem 0;overflow:hidden;white-space:nowrap;border-bottom:1px solid var(--graphite);}
 .ticker-track{display:inline-flex;animation:ticker 40s linear infinite;}
-.ticker-item{
-  display:inline-flex;align-items:center;gap:0.75rem;
-  padding:0 2rem;border-right:1px solid rgba(200,118,58,0.2);
-}
+.ticker-item{display:inline-flex;align-items:center;gap:0.75rem;padding:0 2rem;border-right:1px solid rgba(200,118,58,0.2);}
 .ticker-sep{color:var(--copper);font-size:0.7rem;}
 .ticker-label{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(240,237,232,0.3);}
 .ticker-val{font-size:0.68rem;color:var(--off-white);letter-spacing:0.06em;}
@@ -173,12 +63,7 @@ h1 .copper{color:var(--copper);}
 .sec-tag{display:flex;align-items:center;gap:1.25rem;margin-bottom:3.5rem;}
 .sec-num{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.22em;color:var(--copper);}
 .sec-line{flex:1;height:1px;background:var(--graphite);}
-h2{
-  font-family:var(--display);font-weight:900;
-  font-size:clamp(2rem,4vw,3.2rem);
-  letter-spacing:-0.02em;text-transform:uppercase;
-  color:var(--off-white);line-height:0.95;
-}
+h2{font-family:var(--display);font-weight:900;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-0.02em;text-transform:uppercase;color:var(--off-white);line-height:0.95;}
 .numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--graphite);}
 .num-card{background:var(--black);padding:2.5rem 2rem;border-top:2px solid transparent;transition:border-color 0.2s;}
 .num-card:hover{border-color:var(--copper);}
@@ -272,10 +157,10 @@ footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-tra
 <section id="hero" class="hero">
   <div class="hero-inner">
     <div class="hero-left">
-      <p class="hero-eyebrow">CFO &middot; Finance Executive &middot; Al Ain UAE</p>
+      <p class="hero-eyebrow">CFO &middot; Healthcare Executive &middot; UAE</p>
       <h1>MATT<br>HEW<br><span class="copper">MEZA</span></h1>
       <p class="hero-sub">
-        Senior finance executive leading a AED&nbsp;250M+ operation across six enterprise functions &mdash; FP&amp;A, capital governance, SAP ERP integration, revenue cycle, and board-level reporting at Kanad Hospital.
+        Senior finance executive leading multi-program hospital operations in the UAE &mdash; spanning financial strategy, revenue cycle, ERP integration, capital governance, and digital infrastructure across a complex, mission-driven institution.
       </p>
       <div class="hero-ctas">
         <a href="#contact" class="btn-primary">Get in touch</a>
@@ -296,36 +181,53 @@ footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-tra
 
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <div class="ticker-item"><span class="ticker-label">Role</span><span class="ticker-sep">|</span><span class="ticker-val">CFO &middot; Kanad Hospital</span></div>
-    <div class="ticker-item"><span class="ticker-label">Revenue</span><span class="ticker-sep">|</span><span class="ticker-val">AED 250M+ Operation</span></div>
-    <div class="ticker-item"><span class="ticker-label">Education</span><span class="ticker-sep">|</span><span class="ticker-val">MBA &middot; Johns Hopkins</span></div>
-    <div class="ticker-item"><span class="ticker-label">Result</span><span class="ticker-sep">|</span><span class="ticker-val">54% YoY Budget Outperformance</span></div>
-    <div class="ticker-item"><span class="ticker-label">Scope</span><span class="ticker-sep">|</span><span class="ticker-val">FP&amp;A &middot; RCM &middot; SAP &middot; Supply Chain</span></div>
+    <div class="ticker-item"><span class="ticker-label">Role</span><span class="ticker-sep">|</span><span class="ticker-val">CFO &middot; Healthcare Executive</span></div>
+    <div class="ticker-item"><span class="ticker-label">Scope</span><span class="ticker-sep">|</span><span class="ticker-val">Six Enterprise Functions</span></div>
+    <div class="ticker-item"><span class="ticker-label">Education</span><span class="ticker-sep">|</span><span class="ticker-val">MBA &middot; Johns Hopkins University</span></div>
+    <div class="ticker-item"><span class="ticker-label">Platform</span><span class="ticker-sep">|</span><span class="ticker-val">SAP S/4HANA &middot; Microsoft Fabric</span></div>
+    <div class="ticker-item"><span class="ticker-label">Focus</span><span class="ticker-sep">|</span><span class="ticker-val">Finance &middot; RCM &middot; Strategy &middot; Digital</span></div>
     <div class="ticker-item"><span class="ticker-label">Location</span><span class="ticker-sep">|</span><span class="ticker-val">Al Ain, United Arab Emirates</span></div>
-    <div class="ticker-item"><span class="ticker-label">Role</span><span class="ticker-sep">|</span><span class="ticker-val">CFO &middot; Kanad Hospital</span></div>
-    <div class="ticker-item"><span class="ticker-label">Revenue</span><span class="ticker-sep">|</span><span class="ticker-val">AED 250M+ Operation</span></div>
-    <div class="ticker-item"><span class="ticker-label">Education</span><span class="ticker-sep">|</span><span class="ticker-val">MBA &middot; Johns Hopkins</span></div>
-    <div class="ticker-item"><span class="ticker-label">Result</span><span class="ticker-sep">|</span><span class="ticker-val">54% YoY Budget Outperformance</span></div>
-    <div class="ticker-item"><span class="ticker-label">Scope</span><span class="ticker-sep">|</span><span class="ticker-val">FP&amp;A &middot; RCM &middot; SAP &middot; Supply Chain</span></div>
+    <div class="ticker-item"><span class="ticker-label">Role</span><span class="ticker-sep">|</span><span class="ticker-val">CFO &middot; Healthcare Executive</span></div>
+    <div class="ticker-item"><span class="ticker-label">Scope</span><span class="ticker-sep">|</span><span class="ticker-val">Six Enterprise Functions</span></div>
+    <div class="ticker-item"><span class="ticker-label">Education</span><span class="ticker-sep">|</span><span class="ticker-val">MBA &middot; Johns Hopkins University</span></div>
+    <div class="ticker-item"><span class="ticker-label">Platform</span><span class="ticker-sep">|</span><span class="ticker-val">SAP S/4HANA &middot; Microsoft Fabric</span></div>
+    <div class="ticker-item"><span class="ticker-label">Focus</span><span class="ticker-sep">|</span><span class="ticker-val">Finance &middot; RCM &middot; Strategy &middot; Digital</span></div>
     <div class="ticker-item"><span class="ticker-label">Location</span><span class="ticker-sep">|</span><span class="ticker-val">Al Ain, United Arab Emirates</span></div>
   </div>
 </div>
 
+<!-- NUMBERS -->
 <section class="section">
   <div class="sec-tag">
     <span class="sec-num">[ 00 ] BY THE NUMBERS</span>
     <div class="sec-line"></div>
   </div>
   <div class="numbers-grid">
-    <div class="num-card"><div class="num-val">250M+</div><div class="num-label">AED operation<br>under management</div></div>
-    <div class="num-card"><div class="num-val">54%</div><div class="num-label">YoY bottom-line<br>improvement</div></div>
-    <div class="num-card"><div class="num-val">50K</div><div class="num-label">claim backlog<br>cleared in 3 months</div></div>
-    <div class="num-card"><div class="num-val">500+</div><div class="num-label">payer &amp; supplier<br>contracts managed</div></div>
+    <div class="num-card">
+      <div class="num-val">Mid-Cap</div>
+      <div class="num-label">Operating budget scale<br>under financial stewardship</div>
+    </div>
+    <div class="num-card">
+      <div class="num-val">~7%</div>
+      <div class="num-label">Vendor cost reduction<br>through supply renegotiation</div>
+    </div>
+    <div class="num-card">
+      <div class="num-val">&gt;50%</div>
+      <div class="num-label">Discretionary cost reduction<br>via improved controllership</div>
+    </div>
+    <div class="num-card">
+      <div class="num-val">56&rarr;Low</div>
+      <div class="num-label">AR days improved through<br>liquidity &amp; collections reform</div>
+    </div>
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="section section-alt">
-  <div class="sec-tag"><span class="sec-num">[ 01 ] PROFILE</span><div class="sec-line"></div></div>
+  <div class="sec-tag">
+    <span class="sec-num">[ 01 ] PROFILE</span>
+    <div class="sec-line"></div>
+  </div>
   <div class="about-grid">
     <div>
       <h2 style="margin-bottom:2rem;">ABOUT</h2>
@@ -338,100 +240,145 @@ footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-tra
         <span class="tag">FP&amp;A Leadership</span>
         <span class="tag">Microsoft Fabric</span>
         <span class="tag">Board Reporting</span>
+        <span class="tag">DOH Compliance</span>
+        <span class="tag">Supply Chain</span>
       </div>
     </div>
     <div class="about-body">
-      <p>Senior finance executive with a record of building and leading high-performing finance organizations across complex, multi-program operations.</p>
-      <p>Currently serving as CFO at Kanad Hospital in Al Ain, UAE &mdash; providing embedded finance partnership to six enterprise functions, owning FP&amp;A, program-level reporting, executive dashboards, pricing governance, and ERP integration across a AED 250M+ operation.</p>
-      <p>Combines deep analytical capability with executive communication skills that translate financial data into strategic decisions at the board and leadership level. Completing an MBA in Financial Management and a Graduate Certificate in Investments at Johns Hopkins University, Carey Business School.</p>
+      <p>Senior healthcare finance executive with a record of building high-performing finance organizations across complex, regulated, multi-program environments.</p>
+      <p>Currently serving as CFO at a private hospital in the UAE, providing embedded financial leadership across six enterprise functions &mdash; including FP&amp;A, revenue cycle management, patient access, supply chain, IT governance, and marketing. Accountable for an annual operating budget in the hundreds of millions of dirhams, with direct ownership of ERP platforms, capital planning, board-level reporting, and regulatory compliance under DOH and UAE frameworks.</p>
+      <p>Known for translating financial complexity into institutional decisions &mdash; building the governance structures, analytics infrastructure, and cross-functional alignment that enable mission-driven healthcare organizations to operate with financial discipline and long-term sustainability. Completing an MBA and Graduate Certificate in Investments at Johns Hopkins University.</p>
     </div>
   </div>
 </section>
 
+<!-- EXPERTISE -->
 <section id="expertise" class="section">
-  <div class="sec-tag"><span class="sec-num">[ 02 ] EXPERTISE</span><div class="sec-line"></div></div>
+  <div class="sec-tag">
+    <span class="sec-num">[ 02 ] EXPERTISE</span>
+    <div class="sec-line"></div>
+  </div>
   <h2>CAPABILITIES</h2>
   <div class="cap-grid">
-    <div class="cap-card"><div class="cap-id">CAP_001</div><h3>Financial Strategy</h3><p>FP&amp;A leadership, zero-based budgeting, bottoms-up financial modeling, variance governance, and board-level capital allocation decisions.</p></div>
-    <div class="cap-card"><div class="cap-id">CAP_002</div><h3>Revenue Cycle</h3><p>RCM vendor transition, hybrid insourcing, payer and supplier contract management across 500+ agreements, and claims backlog clearance.</p></div>
-    <div class="cap-card"><div class="cap-id">CAP_003</div><h3>ERP &amp; Analytics</h3><p>SAP FICO/FM implementation, Microsoft Fabric analytics rollout, real-time finance and clinical dashboards across six departments.</p></div>
-    <div class="cap-card"><div class="cap-id">CAP_004</div><h3>Capital Governance</h3><p>CAPEX governance modernization linking capital requests to ROI and depreciation cycles. Physician compensation reform and ROI alignment.</p></div>
-    <div class="cap-card"><div class="cap-id">CAP_005</div><h3>Operations Leadership</h3><p>Supply chain auto-replenishment, procurement governance, regulatory alignment under DOH and UAE guidelines, and team development.</p></div>
-    <div class="cap-card"><div class="cap-id">CAP_006</div><h3>Investment &amp; Planning</h3><p>Graduate Certificate in Investments (Johns Hopkins). Portfolio theory, valuation, derivatives, and advanced financial modeling.</p></div>
+    <div class="cap-card">
+      <div class="cap-id">CAP_001</div>
+      <h3>Financial Strategy</h3>
+      <p>FP&amp;A leadership, zero-based budgeting, bottoms-up financial modeling, variance governance, and board-level capital allocation. Proven delivery of material budget performance improvement in complex hospital environments.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-id">CAP_002</div>
+      <h3>Revenue Cycle</h3>
+      <p>End-to-end RCM oversight spanning payer contracting, claims integrity, denial management, and vendor strategy. Experienced in hybrid insourcing transitions and managing large-volume contract portfolios across government and insurance payers.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-id">CAP_003</div>
+      <h3>ERP &amp; Analytics</h3>
+      <p>Led enterprise implementation of SAP FICO/FM and InterSystems TrakCare. Built real-time finance and clinical analytics using Microsoft Fabric and Power BI, enabling data-driven decisions across clinical and operational functions.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-id">CAP_004</div>
+      <h3>Capital Governance</h3>
+      <p>Designed and operationalized formal CapEx governance frameworks linking capital requests to ROI, depreciation cycles, and strategic fit. Restructured physician compensation models to align incentives with institutional performance.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-id">CAP_005</div>
+      <h3>Supply Chain &amp; Operations</h3>
+      <p>Led deployment of automated stock replenishment and inventory management systems. Negotiated multi-vendor supply agreements, achieved sustained cost reductions, and maintained regulatory alignment under national procurement programs.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-id">CAP_006</div>
+      <h3>Investment &amp; Planning</h3>
+      <p>Graduate Certificate in Investments from Johns Hopkins. Applied expertise in financial modeling, valuation, portfolio theory, and capital planning to institutional strategy and long-range financial planning.</p>
+    </div>
   </div>
 </section>
 
+<!-- CAREER -->
 <section id="career" class="section section-alt">
-  <div class="sec-tag"><span class="sec-num">[ 03 ] CAREER</span><div class="sec-line"></div></div>
+  <div class="sec-tag">
+    <span class="sec-num">[ 03 ] CAREER</span>
+    <div class="sec-line"></div>
+  </div>
   <h2 style="margin-bottom:3rem;">EXPERIENCE</h2>
   <div class="tl">
+
     <div class="tl-item">
       <div class="tl-date">2023<br>Present</div>
       <div class="tl-divider"></div>
       <div>
-        <div class="tl-org">Kanad Hospital</div>
+        <div class="tl-org">Private Hospital</div>
         <div class="tl-role">Chief Finance Officer &middot; Al Ain, UAE</div>
-        <p class="tl-desc">Embedded finance partner to senior leaders across six divisions, owning FP&amp;A, bottoms-up modeling, and executive reporting across a AED 250M+ operation.</p>
-        <ul class="tl-list">
-          <li>Introduced zero-based budgeting and physician compensation reform, improving bottom-line results by 54% YoY</li>
-          <li>Led SAP FICO/FM implementation and Microsoft Fabric analytics rollout across six departments</li>
-          <li>Directed RCM vendor transition and hybrid insourcing, clearing 50K claim backlog in 3 months</li>
-          <li>Managed 500+ payer and supplier contracts across government, insurance, and institutional funding streams</li>
-          <li>Modernized CAPEX governance, linking capital requests to ROI and depreciation cycles</li>
-          <li>Rolled out hospital-wide auto-replenishment, achieving 100% ERP transaction accuracy</li>
-        </ul>
+        <p class="tl-desc">Consolidated CFO mandate across six enterprise functions in a regulated, mission-driven hospital environment. Accountable for financial performance, enterprise systems, capital governance, and board-level strategy during a period of significant institutional transformation — including a full ERP migration, revenue cycle redesign, and digital infrastructure build-out.</p>
+        <p class="tl-desc" style="margin-top:0.75rem;">Delivered material improvement in budget performance, controllership discipline, and liquidity management. Built the governance frameworks, analytics platforms, and cross-functional operating rhythms that now anchor the institution's financial decision-making.</p>
       </div>
     </div>
+
     <div class="tl-item">
       <div class="tl-date">2021<br>2023</div>
       <div class="tl-divider"></div>
       <div>
         <div class="tl-org">Amazon</div>
         <div class="tl-role">Operations Manager &middot; Fresno, CA &amp; San Antonio, TX</div>
-        <p class="tl-desc">Launched operations for North America's largest robotics facility (SAT3), managing $200M inventory and 125+ associates.</p>
-        <ul class="tl-list">
-          <li>Coordinated 4M+ units/day during network record peaks at launch</li>
-          <li>Improved site ranking from 27th to 5th in six months</li>
-          <li>Designed Continuous Improvement model saving $65K+ in nine weeks, replicated network-wide</li>
-          <li>Cut indirect labor costs by 8% through labor utilization and throughput modeling</li>
-          <li>Ranked #1 in Safety Leadership Index among 87 peers (6% vs. 8% Amazon benchmark)</li>
-        </ul>
+        <p class="tl-desc">Launched and scaled operations at one of North America's largest robotics fulfillment facilities. Managed $200M inventory and 125+ associates through record network volumes. Ranked #1 in Safety Leadership among 87 peers. Continuous improvement model designed during this period was replicated network-wide.</p>
       </div>
     </div>
+
   </div>
 </section>
 
+<!-- EDUCATION -->
 <section id="education" class="section">
-  <div class="sec-tag"><span class="sec-num">[ 04 ] EDUCATION</span><div class="sec-line"></div></div>
+  <div class="sec-tag">
+    <span class="sec-num">[ 04 ] EDUCATION</span>
+    <div class="sec-line"></div>
+  </div>
   <h2>CREDENTIALS</h2>
   <div class="edu-grid">
     <div class="edu-card">
       <div class="edu-year">2026</div>
       <div class="edu-school">Johns Hopkins</div>
       <div class="edu-deg">M.B.A., Financial Management &amp; Public and Private Leadership &middot; Carey Business School</div>
-      <div class="edu-tags"><span class="edu-tag">Finance</span><span class="edu-tag">Strategy</span><span class="edu-tag">Leadership</span><span class="edu-tag">Analytics</span></div>
+      <div class="edu-tags">
+        <span class="edu-tag">Finance</span>
+        <span class="edu-tag">Strategy</span>
+        <span class="edu-tag">Leadership</span>
+        <span class="edu-tag">Healthcare Systems</span>
+      </div>
     </div>
     <div class="edu-card">
       <div class="edu-year">2026</div>
       <div class="edu-school">Johns Hopkins</div>
       <div class="edu-deg">Graduate Certificate, Investments &middot; Carey Business School</div>
-      <div class="edu-tags"><span class="edu-tag">Investments</span><span class="edu-tag">Valuation</span><span class="edu-tag">Derivatives</span><span class="edu-tag">Portfolio Theory</span></div>
+      <div class="edu-tags">
+        <span class="edu-tag">Investments</span>
+        <span class="edu-tag">Valuation</span>
+        <span class="edu-tag">Derivatives</span>
+        <span class="edu-tag">Portfolio Theory</span>
+      </div>
     </div>
     <div class="edu-card">
       <div class="edu-year">2019</div>
       <div class="edu-school">Liberty University</div>
       <div class="edu-deg">B.B.A., Marketing Analytics &middot; Lynchburg, Virginia</div>
-      <div class="edu-tags"><span class="edu-tag">Marketing</span><span class="edu-tag">Analytics</span><span class="edu-tag">NCAA Div. I</span></div>
+      <div class="edu-tags">
+        <span class="edu-tag">Marketing</span>
+        <span class="edu-tag">Analytics</span>
+        <span class="edu-tag">NCAA Div. I Athlete</span>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="contact-section">
   <div class="contact-bg"></div>
   <div class="contact-inner">
-    <div class="sec-tag"><span class="sec-num">[ 05 ] CONTACT</span><div class="sec-line" style="max-width:160px;"></div></div>
+    <div class="sec-tag">
+      <span class="sec-num">[ 05 ] CONTACT</span>
+      <div class="sec-line" style="max-width:160px;"></div>
+    </div>
     <h2 style="margin-bottom:1.25rem;">LET'S<br>CONNECT</h2>
-    <p class="contact-sub">Open to board advisory opportunities, strategic consulting engagements, and select executive conversations across healthcare, finance, and operations.</p>
+    <p class="contact-sub">Open to board advisory roles, strategic consulting engagements, and executive conversations in healthcare finance, operations, and institutional strategy.</p>
     <div class="contact-row">
       <a href="mailto:matt@matthewmeza.com" class="contact-link">matt@matthewmeza.com</a>
       <span class="contact-divider">|</span>
