@@ -45,19 +45,17 @@ nav{
 .nav-logo{
   font-family:var(--display);
   font-weight:900;
-  font-size:1rem;
+  font-size:0.95rem;
   letter-spacing:-0.02em;
   text-transform:uppercase;
   color:var(--off-white);
   text-decoration:none;
-  display:flex;align-items:center;gap:0.5rem;
+  display:flex;align-items:center;gap:0.75rem;
 }
 .nav-logo .mm-mark{
   display:inline-flex;align-items:center;
-  font-size:1rem;font-weight:900;
-  color:var(--copper);
-  letter-spacing:-0.04em;
-  font-family:var(--display);
+  height:28px;width:auto;
+  flex-shrink:0;
 }
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
 .nav-links a{
@@ -79,8 +77,7 @@ nav{
 .hero{
   min-height:100vh;
   display:flex;flex-direction:column;justify-content:center;
-  padding:0 3rem;
-  padding-top:56px;
+  padding:80px 3rem 5rem;
   position:relative;
   border-bottom:1px solid var(--graphite);
 }
@@ -117,32 +114,42 @@ h1 .copper{color:var(--copper);}
   max-width:460px;
   padding-left:1rem;
   border-left:1px solid var(--copper);
-  margin-bottom:2.5rem;
+  margin-bottom:3rem;
 }
-.hero-ctas{display:flex;gap:1rem;align-items:center;}
+.hero-ctas{
+  display:flex;gap:1rem;align-items:stretch;
+  flex-wrap:wrap;
+}
 .btn-primary{
   background:var(--copper);color:var(--black);
-  padding:0.7rem 2rem;font-family:var(--mono);
+  padding:0.85rem 2.25rem;font-family:var(--mono);
   font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;
   border:none;cursor:pointer;text-decoration:none;
-  display:inline-block;transition:background 0.15s;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:background 0.15s;white-space:nowrap;
+  line-height:1;
 }
 .btn-primary:hover{background:var(--off-white);}
 .btn-ghost{
   color:var(--off-white);font-family:var(--mono);
   font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;
-  text-decoration:none;border:1px solid var(--graphite);
-  padding:0.7rem 2rem;transition:border-color 0.15s,color 0.15s;
-  display:inline-block;
+  text-decoration:none;border:1px solid rgba(240,237,232,0.25);
+  padding:0.85rem 2.25rem;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:border-color 0.15s,color 0.15s;white-space:nowrap;
+  line-height:1;
 }
 .btn-ghost:hover{border-color:var(--off-white);}
 
 /* PHOTO */
+.hero-photo-wrap{
+  display:flex;flex-direction:column;
+}
 .hero-photo{
-  position:relative;
   width:100%;aspect-ratio:3/4;
   background:var(--graphite);
   overflow:hidden;
+  flex-shrink:0;
 }
 .hero-photo img{
   width:100%;height:100%;
@@ -152,12 +159,12 @@ h1 .copper{color:var(--copper);}
 }
 .photo-overlay{position:absolute;inset:0;background:rgba(200,118,58,0.05);pointer-events:none;}
 .photo-label{
-  position:absolute;bottom:0;left:0;right:0;
   background:var(--copper);
   padding:0.45rem 1rem;
   display:flex;justify-content:space-between;
   font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;
   color:var(--black);
+  flex-shrink:0;
 }
 
 /* ── TICKER ── */
@@ -331,7 +338,7 @@ footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-tra
 @media(max-width:900px){
   nav{padding:0 1.5rem;}
   .nav-links li:not(:last-child){display:none;}
-  .hero{padding:0 1.5rem;padding-top:56px;}
+  .hero{padding:80px 1.5rem 4rem;}
   .hero-inner{grid-template-columns:1fr;gap:3rem;}
   .hero-photo{max-width:300px;}
   .section{padding:4rem 1.5rem;}
@@ -358,7 +365,7 @@ footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-tra
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#hero">
-    <span class="mm-mark">M/M</span>
+    <img class="mm-mark" src="assets/mm-monogram.png" alt="MM"/>
     MATTHEW MEZA
   </a>
   <ul class="nav-links">
@@ -384,10 +391,9 @@ footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-tra
         <a href="assets/matthew-meza-cv.pdf" class="btn-ghost" download>Download CV</a>
       </div>
     </div>
-    <div>
+    <div class="hero-photo-wrap">
       <div class="hero-photo">
         <img src="assets/meza-headshot.jpg" alt="Matthew Meza"/>
-        <div class="photo-overlay"></div>
       </div>
       <div class="photo-label">
         <span>Matthew Meza</span>
@@ -621,7 +627,7 @@ footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-tra
 </section>
 
 <footer>
-  <p><span class="footer-mark">M/M</span> &nbsp; Matthew Meza &copy; 2026</p>
+  <p><img src="assets/mm-monogram.png" alt="MM" style="height:16px;width:auto;vertical-align:middle;margin-right:8px;opacity:0.6;">&nbsp;Matthew Meza &copy; 2026</p>
   <p>matthewmeza.com &nbsp;<span class="footer-mark">|</span>&nbsp; Al Ain, UAE</p>
 </footer>
 
