@@ -39,8 +39,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-eyebrow{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--copper);margin-bottom:2rem;display:flex;align-items:center;gap:0.75rem;}
 .hero-eyebrow::before{content:'[ ';color:var(--muted);}
 .hero-eyebrow::after{content:' ]';color:var(--muted);}
-h1{font-family:var(--display);font-weight:900;font-size:clamp(4rem,8vw,8.5rem);line-height:0.9;letter-spacing:-0.02em;text-transform:uppercase;color:var(--off-white);margin-bottom:2.5rem;}
-h1 .copper{color:var(--copper);}
+h1{font-family:var(--display);font-weight:900;line-height:0.92;letter-spacing:-0.02em;text-transform:uppercase;color:var(--off-white);margin-bottom:2.5rem;}
+h1 .name-first{font-size:clamp(2.2rem,4.5vw,4.8rem);display:block;opacity:0.75;}
+h1 .name-last{font-size:clamp(4.5rem,9vw,9.5rem);display:block;color:var(--copper);}
 .hero-sub{font-family:var(--mono);font-size:0.82rem;color:var(--muted);line-height:1.85;max-width:460px;padding-left:1rem;border-left:1px solid var(--copper);margin-bottom:3rem;}
 .hero-ctas{display:flex;gap:1rem;align-items:stretch;flex-wrap:wrap;}
 .btn-primary{background:var(--copper);color:var(--black);padding:0.85rem 2.25rem;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:background 0.15s;white-space:nowrap;line-height:1;}
@@ -142,7 +143,12 @@ footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-tra
 
 <nav>
   <a class="nav-logo" href="#hero">
-    <img class="mm-mark" src="assets/mm-monogram.png" alt="MM"/>
+    <svg class="mm-mark" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" fill="#0A0A0A"/>
+      <text x="2" y="24" font-family="Inter,sans-serif" font-weight="900" font-size="22" fill="#F0EDE8" letter-spacing="-1">M</text>
+      <line x1="17" y1="4" x2="13" y2="28" stroke="#C8763A" stroke-width="2.5"/>
+      <text x="16" y="24" font-family="Inter,sans-serif" font-weight="900" font-size="22" fill="#F0EDE8" letter-spacing="-1">M</text>
+    </svg>
     MATTHEW MEZA
   </a>
   <ul class="nav-links">
@@ -158,7 +164,7 @@ footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-tra
   <div class="hero-inner">
     <div class="hero-left">
       <p class="hero-eyebrow">CFO &middot; Healthcare Executive &middot; UAE</p>
-      <h1>MATT<br>HEW<br><span class="copper">MEZA</span></h1>
+      <h1><span class="name-first">Matthew</span><span class="name-last">Meza</span></h1>
       <p class="hero-sub">
         Senior finance executive leading multi-program hospital operations in the UAE &mdash; spanning financial strategy, revenue cycle, ERP integration, capital governance, and digital infrastructure across a complex, mission-driven institution.
       </p>
@@ -390,7 +396,7 @@ footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-tra
 </section>
 
 <footer>
-  <p><img src="assets/mm-monogram.png" alt="MM" style="height:16px;width:auto;vertical-align:middle;margin-right:8px;opacity:0.6;">&nbsp;Matthew Meza &copy; 2026</p>
+  <p><svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;margin-right:8px;opacity:0.5;"><rect width="32" height="32" fill="#0A0A0A"/><text x="2" y="24" font-family="Inter,sans-serif" font-weight="900" font-size="22" fill="#F0EDE8" letter-spacing="-1">M</text><line x1="17" y1="4" x2="13" y2="28" stroke="#C8763A" stroke-width="2.5"/><text x="16" y="24" font-family="Inter,sans-serif" font-weight="900" font-size="22" fill="#F0EDE8" letter-spacing="-1">M</text></svg>&nbsp;Matthew Meza &copy; 2026</p>
   <p>matthewmeza.com &nbsp;<span class="footer-mark">|</span>&nbsp; Al Ain, UAE</p>
 </footer>
 
