@@ -66,35 +66,7 @@ body{
   overflow-x:hidden;
   background:var(--bg);
   transition:background 0.35s,color 0.35s;
-  cursor:none;
 }
-
-/* ── CUSTOM CURSOR ── */
-#cursor{
-  position:fixed;
-  width:8px;height:8px;
-  background:var(--blue);
-  border-radius:50%;
-  pointer-events:none;
-  z-index:9999;
-  transform:translate(-50%,-50%);
-  transition:transform 0.1s,width 0.25s,height 0.25s,opacity 0.25s;
-  mix-blend-mode:normal;
-}
-#cursor-ring{
-  position:fixed;
-  width:32px;height:32px;
-  border:1px solid var(--blue-dim);
-  border-radius:50%;
-  pointer-events:none;
-  z-index:9998;
-  transform:translate(-50%,-50%);
-  transition:transform 0.18s ease-out,width 0.3s,height 0.3s,opacity 0.3s,border-color 0.25s;
-  opacity:0.7;
-}
-body.cursor-hover #cursor{width:12px;height:12px;background:var(--blue);}
-body.cursor-hover #cursor-ring{width:44px;height:44px;border-color:var(--blue);opacity:1;}
-@media(hover:none){#cursor,#cursor-ring{display:none;}body{cursor:auto;}}
 
 /* ── FIXED BACKGROUND ── */
 #bg-photo{position:fixed;inset:0;z-index:0;background:var(--bg);transition:background 0.35s;}
@@ -160,7 +132,7 @@ nav.scrolled{background:var(--nav-bg);border-bottom-color:var(--border);backdrop
   width:34px;height:34px;
   background:transparent;
   border:1px solid var(--border);
-  cursor:none;
+  cursor:pointer;
   display:flex;align-items:center;justify-content:center;
   color:var(--muted);
   transition:border-color 0.2s,color 0.2s,transform 0.3s;
@@ -241,7 +213,7 @@ h1 .name-last::after{
   background:var(--blue);color:#fff;
   padding:0.85rem 2.25rem;font-family:var(--mono);
   font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;
-  border:none;cursor:none;text-decoration:none;
+  border:none;cursor:pointer;text-decoration:none;
   display:inline-flex;align-items:center;justify-content:center;
   transition:background 0.2s,transform 0.15s;
   white-space:nowrap;line-height:1;position:relative;overflow:hidden;
@@ -529,10 +501,6 @@ footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-tra
 </style>
 </head>
 <body>
-
-<!-- CUSTOM CURSOR -->
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
 
 <!-- FIXED BACKGROUND -->
 <div id="bg-photo"><img src="assets/meza-headshot.jpg" alt=""/></div>
@@ -834,26 +802,6 @@ footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-tra
     const next = current === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     localStorage.setItem('mm-theme', next);
-  });
-
-  /* ── CUSTOM CURSOR ── */
-  const cur  = document.getElementById('cursor');
-  const ring = document.getElementById('cursor-ring');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove', function(e){
-    mx=e.clientX; my=e.clientY;
-    cur.style.left=mx+'px'; cur.style.top=my+'px';
-  });
-  function animRing(){
-    rx += (mx-rx)*0.12;
-    ry += (my-ry)*0.12;
-    ring.style.left=rx+'px'; ring.style.top=ry+'px';
-    requestAnimationFrame(animRing);
-  }
-  animRing();
-  document.querySelectorAll('a,button,.cap-card,.num-card,.tl-item,.edu-card,.tag').forEach(function(el){
-    el.addEventListener('mouseenter', function(){ document.body.classList.add('cursor-hover'); });
-    el.addEventListener('mouseleave', function(){ document.body.classList.remove('cursor-hover'); });
   });
 
   /* ── SCROLL BEHAVIOUR ── */
