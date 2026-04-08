@@ -8,91 +8,77 @@
 <meta property="og:description" content="CFO · Operator · Strategist · Al Ain, UAE"/>
 <meta property="og:url" content="https://matthewmeza.com"/>
 <title>Matthew Meza</title>
-
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
-
-<!-- GSAP + ScrollTrigger + Lenis -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-
 <style>
-/* ── RESET ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 
-/* ── TOKENS ── */
 :root,[data-theme="dark"]{
   --bg:#0C0C0B;
   --bg2:#111110;
   --border:rgba(255,255,255,0.07);
   --text:#EEEAE3;
-  --muted:rgba(238,234,227,0.38);
+  --muted:rgba(238,234,227,0.4);
   --muted2:rgba(238,234,227,0.18);
   --blue:#2D6BE4;
-  --blue-soft:rgba(45,107,228,0.12);
+  --blue-soft:rgba(45,107,228,0.1);
   --display:'Syne',sans-serif;
   --mono:'DM Mono',monospace;
   --ease-out:cubic-bezier(0.16,1,0.3,1);
-  --ease-in-out:cubic-bezier(0.76,0,0.24,1);
 }
 [data-theme="light"]{
   --bg:#F4F2EE;
   --bg2:#ECEAE5;
   --border:rgba(0,0,0,0.08);
   --text:#111110;
-  --muted:rgba(17,17,16,0.45);
+  --muted:rgba(17,17,16,0.48);
   --muted2:rgba(17,17,16,0.22);
   --blue:#1547B8;
-  --blue-soft:rgba(21,71,184,0.08);
+  --blue-soft:rgba(21,71,184,0.07);
 }
 
-/* ── BASE ── */
-html{overflow-x:hidden;}
+html{overflow-x:hidden;scroll-behavior:auto;}
 body{
   font-family:var(--mono);
-  color:var(--text);
-  background:var(--bg);
-  font-size:13.5px;
-  line-height:1.75;
+  color:var(--text);background:var(--bg);
+  font-size:13.5px;line-height:1.75;
   overflow-x:hidden;
   transition:background 0.4s,color 0.4s;
 }
 
-/* ── SCROLL PROGRESS ── */
+/* ── PROGRESS ── */
 #progress{
-  position:fixed;top:0;left:0;right:0;
-  height:1px;background:var(--blue);
-  transform-origin:left;transform:scaleX(0);
-  z-index:1000;transition:opacity 0.3s;
-  opacity:0;
+  position:fixed;top:0;left:0;right:0;height:1px;
+  background:var(--blue);transform-origin:left;transform:scaleX(0);
+  z-index:1000;opacity:0;pointer-events:none;
 }
 
 /* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 3rem;height:60px;
-  transition:background 0.4s,border-color 0.4s;
+  padding:0 3.5rem;height:60px;
   border-bottom:1px solid transparent;
+  transition:background 0.4s,border-color 0.4s;
 }
 nav.scrolled{
-  background:color-mix(in srgb,var(--bg) 90%,transparent);
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
   border-bottom-color:var(--border);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
 }
-.nav-left{
-  font-family:var(--mono);font-size:0.6rem;
-  letter-spacing:0.14em;text-transform:uppercase;
+.nav-copyright{
+  font-family:var(--mono);font-size:0.58rem;
+  letter-spacing:0.12em;text-transform:uppercase;
   color:var(--muted);
 }
-.nav-right-group{display:flex;align-items:center;gap:2.5rem;}
+.nav-right{display:flex;align-items:center;gap:2.5rem;}
 .nav-links{display:flex;gap:2.5rem;list-style:none;}
 .nav-links a{
-  font-family:var(--mono);font-size:0.6rem;
+  font-family:var(--mono);font-size:0.58rem;
   letter-spacing:0.14em;text-transform:uppercase;
   color:var(--muted);text-decoration:none;
   position:relative;transition:color 0.2s;
@@ -101,169 +87,218 @@ nav.scrolled{
   content:'';position:absolute;bottom:-3px;left:0;right:0;
   height:1px;background:var(--text);
   transform:scaleX(0);transform-origin:left;
-  transition:transform 0.35s var(--ease-out);
+  transition:transform 0.3s var(--ease-out);
 }
 .nav-links a:hover{color:var(--text);}
 .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
 .nav-links a.active{color:var(--text);}
-
-/* Theme toggle */
 .theme-btn{
-  width:32px;height:32px;background:none;
+  width:30px;height:30px;background:none;
   border:1px solid var(--border);
   display:flex;align-items:center;justify-content:center;
   color:var(--muted);cursor:pointer;
-  transition:border-color 0.2s,color 0.2s,transform 0.4s;
+  transition:border-color 0.2s,color 0.2s,transform 0.35s;
 }
-.theme-btn:hover{border-color:var(--text);color:var(--text);transform:rotate(20deg);}
-.theme-btn svg{width:13px;height:13px;}
-.icon-moon{display:block;}
-.icon-sun{display:none;}
-[data-theme="light"] .icon-moon{display:none;}
-[data-theme="light"] .icon-sun{display:block;}
+.theme-btn:hover{border-color:var(--text);color:var(--text);transform:rotate(18deg);}
+.theme-btn svg{width:13px;height:13px;display:block;}
+.icon-moon{display:block;}.icon-sun{display:none;}
+[data-theme="light"] .icon-moon{display:none;}[data-theme="light"] .icon-sun{display:block;}
 
 /* ── HERO ── */
 .hero{
-  position:relative;height:100vh;min-height:600px;
+  position:relative;
+  height:100svh;min-height:640px;
+  /* Clip the photo but NOT the name text */
   overflow:hidden;
   background:var(--bg);
 }
+/* Photo fills the hero — nearly-square image shown correctly */
 .hero-photo{
-  position:absolute;inset:0;z-index:1;
+  position:absolute;
+  /* Pull photo slightly left so face (center of image) shows well */
+  inset:0;
+  z-index:1;
+  overflow:hidden;
 }
 .hero-photo img{
   width:100%;height:100%;
-  object-fit:cover;object-position:center 20%;
   display:block;
-  filter:grayscale(20%) brightness(0.85) contrast(1.05);
-  transition:filter 0.4s;
+  /* Nearly-square image: position face at viewport center */
+  object-fit:cover;
+  object-position:50% 30%;
+  /* Slight grade: reduce saturation, modest brightness */
+  filter:grayscale(15%) brightness(0.78) contrast(1.08);
+  transition:filter 0.5s;
 }
 [data-theme="light"] .hero-photo img{
-  filter:grayscale(10%) brightness(0.95) contrast(1.02);
+  filter:grayscale(8%) brightness(0.92) contrast(1.04);
+}
+/* Gradient vignette — top-left dark, bottom dark for name readability */
+.hero-photo::after{
+  content:'';position:absolute;inset:0;z-index:2;
+  background:
+    linear-gradient(135deg, rgba(12,12,11,0.55) 0%, transparent 55%),
+    linear-gradient(to top, rgba(12,12,11,0.92) 0%, rgba(12,12,11,0.45) 28%, transparent 55%);
+}
+[data-theme="light"] .hero-photo::after{
+  background:
+    linear-gradient(135deg, rgba(244,242,238,0.45) 0%, transparent 55%),
+    linear-gradient(to top, rgba(244,242,238,0.95) 0%, rgba(244,242,238,0.4) 28%, transparent 55%);
 }
 
-/* Top-left corner info */
-.hero-corner-left{
-  position:absolute;bottom:3.5rem;left:3rem;z-index:10;
+/* All hero UI elements sit above the photo overlay */
+.hero-badge,
+.hero-role,
+.hero-arrow,
+.hero-name{z-index:20;position:absolute;}
+
+/* Bottom-left: location */
+.hero-badge{
+  bottom:clamp(8rem,14vw,12rem);left:3.5rem;
 }
 .hero-location{
-  display:inline-flex;align-items:center;gap:0.6rem;
-  background:rgba(12,12,11,0.55);
-  border:1px solid rgba(255,255,255,0.1);
-  backdrop-filter:blur(8px);
-  padding:0.55rem 1rem;
-  font-family:var(--mono);font-size:0.6rem;
+  display:inline-flex;align-items:center;gap:0.55rem;
+  font-family:var(--mono);font-size:0.58rem;
   letter-spacing:0.12em;text-transform:uppercase;
-  color:rgba(238,234,227,0.7);
+  color:rgba(238,234,227,0.65);
 }
-[data-theme="light"] .hero-location{
-  background:rgba(244,242,238,0.65);
-  border-color:rgba(0,0,0,0.1);
-  color:rgba(17,17,16,0.6);
-}
+[data-theme="light"] .hero-location{color:rgba(17,17,16,0.55);}
 .hero-location-dot{
-  width:6px;height:6px;border-radius:50%;
+  width:5px;height:5px;border-radius:50%;
   background:var(--blue);flex-shrink:0;
-  animation:pulse 2.5s ease infinite;
+  animation:dot-pulse 2.5s ease infinite;
 }
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.7);}}
+@keyframes dot-pulse{
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:0.4;transform:scale(0.65);}
+}
 
-/* Bottom-right descriptor */
+/* Bottom-right: role */
 .hero-role{
-  position:absolute;bottom:3.5rem;right:3rem;z-index:10;
+  bottom:clamp(8rem,14vw,12rem);right:3.5rem;
   text-align:right;
 }
 .hero-role-line{
   display:block;
   font-family:var(--display);font-weight:400;
-  font-size:clamp(1.1rem,2.2vw,1.6rem);
-  color:rgba(238,234,227,0.85);
-  line-height:1.3;
-  letter-spacing:-0.01em;
+  font-size:clamp(1rem,1.9vw,1.45rem);
+  color:rgba(238,234,227,0.82);
+  line-height:1.35;letter-spacing:-0.01em;
 }
-[data-theme="light"] .hero-role-line{color:rgba(17,17,16,0.75);}
+[data-theme="light"] .hero-role-line{color:rgba(17,17,16,0.72);}
 
-/* Diagonal arrow */
+/* Mid-right: arrow */
 .hero-arrow{
-  position:absolute;right:3rem;top:50%;
-  transform:translateY(-50%);z-index:10;
-  font-size:1.5rem;color:rgba(238,234,227,0.4);
-  line-height:1;transition:color 0.2s,transform 0.3s;
+  right:3.5rem;
+  top:50%;transform:translateY(-50%);
+  font-size:1.35rem;
+  color:rgba(238,234,227,0.35);
+  line-height:1;
   cursor:default;
+  transition:color 0.2s,transform 0.3s;
+  user-select:none;
 }
-.hero-arrow:hover{color:rgba(238,234,227,0.8);transform:translateY(-50%) translate(3px,3px);}
-[data-theme="light"] .hero-arrow{color:rgba(17,17,16,0.3);}
-[data-theme="light"] .hero-arrow:hover{color:rgba(17,17,16,0.7);}
+.hero-arrow:hover{
+  color:rgba(238,234,227,0.75);
+  transform:translateY(-50%) translate(3px,3px);
+}
+[data-theme="light"] .hero-arrow{color:rgba(17,17,16,0.28);}
+[data-theme="light"] .hero-arrow:hover{color:rgba(17,17,16,0.65);}
 
-/* Oversized bleeding name */
+/* Oversized name — bleeds off edges */
 .hero-name{
-  position:absolute;bottom:0;left:0;right:0;z-index:5;
-  overflow:hidden;
-  line-height:0.82;
-  padding:0 0 0.02em 0;
+  bottom:0;left:0;right:0;
+  /* overflow hidden to clip the name at bottom of hero,
+     but name is wide enough to bleed left/right which is fine
+     since hero itself is overflow:hidden */
+  line-height:0.8;
   pointer-events:none;
 }
 .hero-name-text{
   display:block;
   font-family:var(--display);font-weight:800;
-  font-size:clamp(5rem,16vw,18rem);
+  /* Deliberately oversized — bleeds off sides */
+  font-size:clamp(4.5rem,14vw,16rem);
   letter-spacing:-0.04em;
   color:var(--text);
   white-space:nowrap;
   text-transform:uppercase;
   will-change:transform;
+  /* Slight left offset so name bleeds naturally */
+  margin-left:-0.02em;
+}
+
+/* Scroll hint */
+.scroll-hint{
+  position:fixed;bottom:2rem;right:3rem;z-index:50;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  transition:opacity 0.4s;
+}
+.scroll-hint-label{
+  writing-mode:vertical-rl;
+  font-family:var(--mono);font-size:0.48rem;
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--muted2);
+}
+.scroll-hint-line{
+  width:1px;height:42px;
+  background:linear-gradient(to bottom,var(--blue),transparent);
+  animation:line-pulse 2s ease infinite;
+}
+@keyframes line-pulse{
+  0%,100%{opacity:0.4;}50%{opacity:1;}
 }
 
 /* ── TICKER ── */
-.ticker-wrap{
+.ticker{
   background:var(--bg2);
-  padding:0.65rem 0;
+  padding:0.6rem 0;
   border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
   overflow:hidden;white-space:nowrap;
-  -webkit-mask:linear-gradient(to right,transparent 0%,#000 8%,#000 92%,transparent 100%);
-  mask:linear-gradient(to right,transparent 0%,#000 8%,#000 92%,transparent 100%);
+  mask:linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%);
+  -webkit-mask:linear-gradient(to right,transparent 0%,#000 7%,#000 93%,transparent 100%);
 }
-.ticker-track{display:inline-flex;animation:ticker 60s linear infinite;}
-.ticker-item{display:inline-flex;align-items:center;gap:0.7rem;padding:0 2.5rem;border-right:1px solid var(--border);}
-.ticker-label{font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted2);}
-.ticker-sep{color:var(--blue);font-size:0.65rem;}
-.ticker-val{font-size:0.68rem;color:var(--text);letter-spacing:0.04em;}
+.ticker-track{display:inline-flex;animation:ticker 65s linear infinite;}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:0.65rem;
+  padding:0 2.25rem;border-right:1px solid var(--border);
+}
+.ticker-label{font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted2);}
+.ticker-sep{color:var(--blue);font-size:0.6rem;}
+.ticker-val{font-size:0.65rem;color:var(--text);letter-spacing:0.04em;}
 @keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
-/* ── SECTIONS ── */
-section.panel{
-  padding:8rem 3rem;
+/* ── PANELS ── */
+.panel{
+  padding:8rem 3.5rem;
   border-bottom:1px solid var(--border);
   transition:background 0.4s;
 }
-section.panel.alt{background:var(--bg2);}
+.panel.alt{background:var(--bg2);}
 
 .sec-label{
   display:flex;align-items:center;gap:1.5rem;
   margin-bottom:5rem;
 }
-.sec-label-num{
-  font-family:var(--mono);font-size:0.55rem;
-  letter-spacing:0.25em;color:var(--blue);
-  text-transform:uppercase;
+.sec-num{
+  font-family:var(--mono);font-size:0.52rem;
+  letter-spacing:0.25em;color:var(--blue);text-transform:uppercase;
+  white-space:nowrap;
 }
-.sec-label-line{flex:1;height:1px;background:var(--border);}
+.sec-line{flex:1;height:1px;background:var(--border);}
 
-/* Section headings */
-.panel h2{
+/* Panel headings with clip reveal */
+.panel-heading{overflow:hidden;margin-bottom:0;}
+.panel-heading h2{
   font-family:var(--display);font-weight:800;
-  font-size:clamp(2.2rem,5vw,4.5rem);
+  font-size:clamp(2rem,5vw,4.5rem);
   letter-spacing:-0.03em;text-transform:uppercase;
   color:var(--text);line-height:0.9;
-  overflow:hidden;
-}
-.panel h2 .line-inner{
-  display:block;
   transform:translateY(110%);
   transition:transform 0.9s var(--ease-out);
 }
-.panel h2.visible .line-inner{transform:translateY(0);}
+.panel-heading.visible h2{transform:translateY(0);}
 
 /* ── NUMBERS ── */
 .nums{
@@ -272,173 +307,173 @@ section.panel.alt{background:var(--bg2);}
   border-top:1px solid var(--border);
   margin-top:4rem;
 }
-.num-item{
-  padding:3.5rem 0 3rem;
+.num-cell{
+  padding:3.5rem 2.5rem 3rem 0;
   border-right:1px solid var(--border);
-  padding-right:2.5rem;
-  padding-left:0;
-  position:relative;
-  opacity:0;transform:translateY(30px);
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateY(28px);
   transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out);
 }
-.num-item:last-child{border-right:none;}
-.num-item.visible{opacity:1;transform:translateY(0);}
-.num-item:nth-child(1){transition-delay:0s;}
-.num-item:nth-child(2){transition-delay:0.12s;}
-.num-item:nth-child(3){transition-delay:0.24s;}
-.num-item:nth-child(4){transition-delay:0.36s;}
-.num-watermark{
-  position:absolute;bottom:0.5rem;right:0.75rem;
+.num-cell:last-child{border-right:none;padding-right:0;}
+.num-cell.visible{opacity:1;transform:translateY(0);}
+.num-cell:nth-child(1){transition-delay:0s;}
+.num-cell:nth-child(2){transition-delay:0.1s;}
+.num-cell:nth-child(3){transition-delay:0.2s;}
+.num-cell:nth-child(4){transition-delay:0.3s;}
+.num-bg{
+  position:absolute;bottom:-0.1em;right:0.5rem;
   font-family:var(--display);font-weight:800;
-  font-size:5rem;color:var(--text);opacity:0.03;
-  line-height:1;pointer-events:none;letter-spacing:-0.04em;
+  font-size:5.5rem;line-height:1;
+  color:var(--text);opacity:0.025;
+  pointer-events:none;letter-spacing:-0.04em;
 }
 .num-val{
   font-family:var(--display);font-weight:800;
-  font-size:clamp(2.5rem,4vw,3.8rem);
+  font-size:clamp(2.4rem,3.8vw,3.6rem);
   letter-spacing:-0.03em;color:var(--blue);
-  line-height:1;margin-bottom:0.75rem;
+  line-height:1;margin-bottom:0.8rem;
+  position:relative;z-index:1;
 }
 .num-label{
-  font-family:var(--mono);font-size:0.58rem;
+  font-family:var(--mono);font-size:0.56rem;
   letter-spacing:0.16em;text-transform:uppercase;
   color:var(--muted);line-height:1.7;
+  position:relative;z-index:1;
 }
 
 /* ── ABOUT ── */
-.about-grid{
+.about-layout{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:220px 1fr;
   gap:6rem;
-  align-items:start;
   margin-top:5rem;
+  align-items:start;
 }
-.about-tags{display:flex;flex-direction:column;gap:0.4rem;margin-top:3rem;}
+.about-sidebar{}
+.tag-list{display:flex;flex-direction:column;gap:0.35rem;margin-top:0.5rem;}
 .atag{
-  font-family:var(--mono);font-size:0.58rem;
+  font-family:var(--mono);font-size:0.56rem;
   letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--blue);
-  padding:0.2rem 0;
+  color:var(--blue);padding:0.18rem 0;
   border-bottom:1px solid transparent;
   width:fit-content;
-  transition:border-color 0.2s,padding-left 0.2s;
-  cursor:default;
+  transition:border-color 0.2s,padding-left 0.25s var(--ease-out);
 }
-.atag:hover{border-bottom-color:var(--blue);padding-left:0.4rem;}
-.about-body{padding-top:0.25rem;}
+.atag:hover{border-bottom-color:var(--blue);padding-left:0.45rem;}
+.about-content{}
 .about-lead{
-  font-family:'Syne',sans-serif;
-  font-weight:400;font-style:italic;
-  font-size:clamp(1rem,1.8vw,1.2rem);
-  color:var(--text);
-  line-height:1.7;
-  padding-left:1.25rem;
-  border-left:1px solid var(--blue);
-  margin-bottom:2rem;
-  opacity:0.9;
+  font-family:var(--display);font-style:italic;font-weight:400;
+  font-size:clamp(0.95rem,1.7vw,1.15rem);
+  color:var(--text);line-height:1.75;
+  padding-left:1.25rem;border-left:1px solid var(--blue);
+  margin-bottom:2rem;max-width:560px;
 }
-.about-body p{
-  font-family:var(--mono);
-  font-size:0.82rem;color:var(--muted);
-  line-height:2;margin-bottom:1.25rem;
+.about-body{
+  font-family:var(--mono);font-size:0.8rem;
+  color:var(--muted);line-height:2.05;
+  margin-bottom:1.1rem;max-width:580px;
 }
 
 /* ── CAPABILITIES ── */
 .cap-list{margin-top:4rem;}
 .cap-row{
   display:grid;
-  grid-template-columns:80px 1fr;
-  gap:2rem;
+  grid-template-columns:90px 1fr;
+  gap:2.5rem;
   padding:2.5rem 0;
   border-top:1px solid var(--border);
-  align-items:start;
   position:relative;
-  transition:background 0.2s;
+  transition:background 0.25s;
 }
 .cap-row:last-child{border-bottom:1px solid var(--border);}
-.cap-row::after{
+.cap-row::before{
   content:'';position:absolute;
-  left:0;top:0;bottom:0;width:2px;
+  left:0;top:0;bottom:0;width:1.5px;
   background:var(--blue);
   transform:scaleY(0);transform-origin:top;
   transition:transform 0.4s var(--ease-out);
 }
-.cap-row:hover::after{transform:scaleY(1);}
+.cap-row:hover::before{transform:scaleY(1);}
 .cap-row:hover{background:var(--blue-soft);}
-.cap-num{
-  font-family:var(--mono);font-size:0.55rem;
+.cap-id{
+  font-family:var(--mono);font-size:0.52rem;
   letter-spacing:0.2em;color:var(--muted2);
-  text-transform:uppercase;padding-top:0.2rem;
-  transition:color 0.2s;
+  text-transform:uppercase;padding-top:0.15rem;
+  transition:color 0.25s;
 }
-.cap-row:hover .cap-num{color:var(--blue);}
-.cap-content h3{
+.cap-row:hover .cap-id{color:var(--blue);}
+.cap-title{
   font-family:var(--display);font-weight:700;
-  font-size:1.1rem;letter-spacing:-0.01em;
+  font-size:1.05rem;letter-spacing:-0.01em;
   text-transform:uppercase;color:var(--text);
-  margin-bottom:0.65rem;line-height:1.1;
+  margin-bottom:0.6rem;line-height:1.1;
 }
-.cap-content p{
-  font-family:var(--mono);font-size:0.73rem;
-  color:var(--muted);line-height:1.85;
-  max-width:580px;
+.cap-desc{
+  font-family:var(--mono);font-size:0.72rem;
+  color:var(--muted);line-height:1.85;max-width:600px;
 }
 
 /* ── CAREER ── */
 .career-list{margin-top:4rem;}
-.career-item{
+.career-entry{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:4rem;
   padding:3.5rem 0;
   border-top:1px solid var(--border);
-  display:grid;
-  grid-template-columns:200px 1fr;
-  gap:4rem;align-items:start;
+  position:relative;
+  transition:padding-left 0.3s var(--ease-out);
 }
-.career-item:last-child{border-bottom:1px solid var(--border);}
-.career-meta{}
+.career-entry:last-child{border-bottom:1px solid var(--border);}
+.career-entry::before{
+  content:'';position:absolute;
+  left:0;top:0;bottom:0;width:1px;
+  background:var(--border);
+  transition:background 0.3s;
+}
+.career-entry:hover::before{background:var(--blue);}
 .career-date{
-  font-family:var(--mono);font-size:0.58rem;
+  font-family:var(--mono);font-size:0.56rem;
   letter-spacing:0.14em;color:var(--blue);
-  text-transform:uppercase;margin-bottom:1rem;
-  line-height:1.6;
+  text-transform:uppercase;line-height:1.65;
+  padding-top:0.2rem;
 }
-.career-body{}
 .career-org{
   font-family:var(--display);font-weight:800;
-  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  font-size:clamp(1.7rem,3.2vw,2.6rem);
   letter-spacing:-0.03em;text-transform:uppercase;
-  color:var(--text);margin-bottom:0.3rem;
-  line-height:1;
+  color:var(--text);line-height:1;margin-bottom:0.3rem;
 }
+.career-arrow{
+  display:inline-block;font-size:0.85rem;
+  color:var(--muted2);
+  opacity:0;transform:translateX(-4px);
+  transition:opacity 0.2s,transform 0.25s,color 0.2s;
+  margin-left:0.45rem;
+  vertical-align:middle;
+}
+.career-entry:hover .career-arrow{opacity:1;transform:translateX(0);color:var(--blue);}
 .career-role{
-  font-family:var(--mono);font-size:0.6rem;
+  font-family:var(--mono);font-size:0.58rem;
   letter-spacing:0.14em;text-transform:uppercase;
   color:var(--blue);margin-bottom:1.25rem;
 }
 .career-desc{
-  font-family:var(--mono);font-size:0.78rem;
+  font-family:var(--mono);font-size:0.77rem;
   color:var(--muted);line-height:1.95;
-  max-width:560px;margin-bottom:0.85rem;
+  max-width:580px;margin-bottom:0.8rem;
 }
-.career-arrow{
-  display:inline-block;
-  font-size:0.9rem;color:var(--muted2);
-  opacity:0;transform:translateX(-6px);
-  transition:opacity 0.2s,transform 0.2s,color 0.2s;
-  margin-left:0.5rem;
-}
-.career-item:hover .career-arrow{opacity:1;transform:translateX(0);color:var(--blue);}
 
 /* ── EDUCATION ── */
 .edu-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:var(--border);
+  gap:1px;background:var(--border);
   margin-top:4rem;
 }
 .edu-card{
   background:var(--bg);
-  padding:2.75rem 2.25rem;
+  padding:2.75rem 2.5rem;
   position:relative;overflow:hidden;
   transition:background 0.3s;
 }
@@ -451,165 +486,151 @@ section.panel.alt{background:var(--bg2);}
 }
 .edu-card:hover::before{transform:scaleX(1);}
 .edu-card:hover{background:var(--blue-soft);}
-.edu-year-watermark{
-  position:absolute;bottom:-0.5rem;right:1rem;
+.edu-year-bg{
+  position:absolute;bottom:-0.2rem;right:1rem;
   font-family:var(--display);font-weight:800;
-  font-size:4.5rem;opacity:0.04;
-  color:var(--text);letter-spacing:-0.04em;
-  pointer-events:none;line-height:1;
+  font-size:4.5rem;opacity:0.035;color:var(--text);
+  line-height:1;pointer-events:none;letter-spacing:-0.04em;
 }
 .edu-year{
-  font-family:var(--mono);font-size:0.55rem;
+  font-family:var(--mono);font-size:0.52rem;
   letter-spacing:0.2em;color:var(--blue);
   text-transform:uppercase;margin-bottom:1rem;
 }
 .edu-school{
   font-family:var(--display);font-weight:800;
-  font-size:1.4rem;letter-spacing:-0.02em;
+  font-size:1.35rem;letter-spacing:-0.02em;
   text-transform:uppercase;color:var(--text);
   margin-bottom:0.5rem;line-height:1;
 }
 .edu-deg{
-  font-family:var(--mono);font-size:0.7rem;
+  font-family:var(--mono);font-size:0.68rem;
   color:var(--muted);line-height:1.65;margin-bottom:1.25rem;
 }
 .edu-tags{display:flex;flex-wrap:wrap;gap:0.3rem;}
 .edu-tag{
-  font-family:var(--mono);font-size:0.55rem;
+  font-family:var(--mono);font-size:0.52rem;
   letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--blue);
-  border:1px solid var(--border);
-  padding:0.15rem 0.5rem;
+  color:var(--blue);border:1px solid var(--border);
+  padding:0.14rem 0.5rem;
   transition:border-color 0.2s;
 }
-.edu-card:hover .edu-tag{border-color:rgba(45,107,228,0.35);}
+.edu-card:hover .edu-tag{border-color:rgba(45,107,228,0.3);}
 
 /* ── CONTACT ── */
-.contact-inner{max-width:800px;padding-top:3rem;}
-.contact-statement{
+.contact-inner{max-width:720px;padding-top:2.5rem;}
+.contact-heading{
   font-family:var(--display);font-weight:800;
   font-size:clamp(2rem,5vw,4rem);
-  letter-spacing:-0.03em;
+  letter-spacing:-0.03em;text-transform:uppercase;
   color:var(--text);line-height:1;
-  margin-bottom:3.5rem;
-  text-transform:uppercase;
+  margin-bottom:3rem;
 }
-.contact-sub{
-  font-family:var(--mono);font-size:0.82rem;
+.contact-para{
+  font-family:var(--mono);font-size:0.8rem;
   color:var(--muted);line-height:1.95;
-  max-width:480px;margin-bottom:3.5rem;
+  max-width:460px;margin-bottom:3rem;
 }
-.contact-loc{
-  font-family:var(--mono);font-size:0.6rem;
+.contact-meta{
+  font-family:var(--mono);font-size:0.56rem;
   letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--muted2);margin-bottom:2rem;
+  color:var(--muted2);margin-bottom:1.75rem;
 }
-.contact-links{display:flex;gap:2.5rem;align-items:center;flex-wrap:wrap;}
+.contact-links{display:flex;gap:2.5rem;flex-wrap:wrap;}
 .contact-link{
-  font-family:var(--mono);font-size:0.68rem;
+  font-family:var(--mono);font-size:0.65rem;
   letter-spacing:0.14em;text-transform:uppercase;
   color:var(--text);text-decoration:none;
-  position:relative;padding-bottom:3px;
+  position:relative;padding-bottom:2px;
 }
 .contact-link::after{
   content:'';position:absolute;
   bottom:0;left:0;right:0;height:1px;
   background:var(--blue);
   transform:scaleX(0);transform-origin:left;
-  transition:transform 0.35s var(--ease-out);
+  transition:transform 0.3s var(--ease-out);
 }
 .contact-link:hover::after{transform:scaleX(1);}
 .contact-glow{
-  position:absolute;right:-5%;bottom:-20%;
-  width:600px;height:600px;
-  background:radial-gradient(circle,rgba(45,107,228,0.06) 0%,transparent 70%);
+  position:absolute;right:-5%;bottom:-10%;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(45,107,228,0.055) 0%,transparent 70%);
   pointer-events:none;
 }
 
 /* ── FOOTER ── */
 footer{
-  padding:1.75rem 3rem;
+  padding:1.5rem 3.5rem;
   display:flex;justify-content:space-between;align-items:center;
-  background:var(--bg2);
-  border-top:1px solid var(--border);
+  background:var(--bg2);border-top:1px solid var(--border);
   transition:background 0.4s;
 }
 footer p{
-  font-family:var(--mono);font-size:0.58rem;
-  letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--muted2);
+  font-family:var(--mono);font-size:0.55rem;
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--muted2);
 }
-.footer-accent{color:var(--blue);}
+.ft-accent{color:var(--blue);}
 
-/* ── REVEAL UTILITY ── */
+/* ── REVEAL ── */
 .reveal{
-  opacity:0;
-  transform:translateY(35px);
+  opacity:0;transform:translateY(32px);
   transition:opacity 0.85s var(--ease-out),transform 0.85s var(--ease-out);
 }
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal.d1{transition-delay:0.1s;}
-.reveal.d2{transition-delay:0.2s;}
-.reveal.d3{transition-delay:0.3s;}
-
-/* ── SCROLL HINT ── */
-.scroll-hint{
-  position:fixed;bottom:2.5rem;right:2.75rem;z-index:50;
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  opacity:1;transition:opacity 0.4s;
-}
-.scroll-hint-text{
-  writing-mode:vertical-rl;
-  font-family:var(--mono);font-size:0.5rem;
-  letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--muted2);
-}
-.scroll-hint-line{
-  width:1px;height:44px;
-  background:linear-gradient(to bottom,var(--blue),transparent);
-  animation:scrollLine 2s ease infinite;
-}
-@keyframes scrollLine{
-  0%,100%{opacity:0.4;transform:scaleY(1);}
-  50%{opacity:1;transform:scaleY(1.2);}
-}
+.reveal.in{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.08s;}
+.d2{transition-delay:0.16s;}
+.d3{transition-delay:0.24s;}
 
 /* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .panel{padding:7rem 2.5rem;}
+  nav{padding:0 2.5rem;}
+  .hero-badge{left:2.5rem;}
+  .hero-role{right:2.5rem;}
+  .hero-arrow{right:2.5rem;}
+}
 @media(max-width:900px){
   nav{padding:0 1.5rem;}
   .nav-links li:not(:last-child){display:none;}
-  section.panel{padding:5rem 1.5rem;}
-  .hero-corner-left,.hero-role{font-size:0.8em;}
+  .panel{padding:5.5rem 1.5rem;}
+  .hero-badge{left:1.5rem;bottom:clamp(6rem,12vw,9rem);}
+  .hero-role{right:1.5rem;bottom:clamp(6rem,12vw,9rem);}
+  .hero-arrow{right:1.5rem;}
+  .hero-name-text{font-size:clamp(3.5rem,13vw,7rem);}
   .nums{grid-template-columns:1fr 1fr;}
-  .num-item{border-right:none;border-bottom:1px solid var(--border);}
-  .about-grid{grid-template-columns:1fr;gap:3rem;}
-  .cap-row{grid-template-columns:60px 1fr;gap:1rem;}
-  .career-item{grid-template-columns:1fr;gap:1rem;}
+  .num-cell{padding-right:1.5rem;}
+  .num-cell:nth-child(2){border-right:none;}
+  .num-cell:nth-child(3){border-right:1px solid var(--border);}
+  .about-layout{grid-template-columns:1fr;gap:3rem;}
+  .about-body,.about-lead{max-width:100%;}
+  .cap-row{grid-template-columns:70px 1fr;gap:1.25rem;}
+  .cap-desc{max-width:100%;}
+  .career-entry{grid-template-columns:1fr;gap:1rem;}
+  .career-desc{max-width:100%;}
   .edu-grid{grid-template-columns:1fr;}
-  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem;}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.25rem;}
   .scroll-hint{display:none;}
-  .hero-name-text{font-size:clamp(3.5rem,14vw,7rem);}
 }
 @media(max-width:600px){
   .nums{grid-template-columns:1fr;}
-  .contact-links{flex-direction:column;align-items:flex-start;gap:1.25rem;}
+  .num-cell{border-right:none !important;padding-right:0;}
+  .hero-role{display:none;}
+  .contact-links{flex-direction:column;gap:1.25rem;}
+  .hero-name-text{font-size:clamp(3rem,15vw,5.5rem);}
 }
-
-/* ── REDUCED MOTION ── */
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:0.01ms !important;transition-duration:0.01ms !important;}
+  *{animation-duration:0.01ms !important;transition-duration:0.01ms !important;}
 }
 </style>
 </head>
 <body>
 
-<!-- Scroll progress -->
 <div id="progress"></div>
 
-<!-- Nav -->
+<!-- NAV -->
 <nav id="site-nav">
-  <span class="nav-left">© Matthew Meza</span>
-  <div class="nav-right-group">
+  <span class="nav-copyright">© Matthew Meza</span>
+  <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#about" data-section="about">Profile</a></li>
       <li><a href="#expertise" data-section="expertise">Work</a></li>
@@ -631,43 +652,35 @@ footer p{
   </div>
 </nav>
 
-<!-- Scroll hint -->
+<!-- SCROLL HINT -->
 <div class="scroll-hint" id="scroll-hint">
-  <span class="scroll-hint-text">Scroll</span>
+  <span class="scroll-hint-label">Scroll</span>
   <div class="scroll-hint-line"></div>
 </div>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-photo">
-    <img src="assets/meza-headshot.jpg" alt="Matthew Meza"/>
+    <img src="assets/meza-headshot.jpg" alt="Matthew Meza" id="hero-img"/>
   </div>
-
-  <!-- Bottom-left location badge -->
-  <div class="hero-corner-left" id="hero-badge">
+  <div class="hero-badge" id="hero-badge">
     <div class="hero-location">
       <span class="hero-location-dot"></span>
       Al Ain, United Arab Emirates
     </div>
   </div>
-
-  <!-- Mid-right diagonal arrow -->
   <div class="hero-arrow" id="hero-arrow">&#x2198;</div>
-
-  <!-- Bottom-right role -->
   <div class="hero-role" id="hero-role">
     <span class="hero-role-line">CFO &amp; Executive</span>
     <span class="hero-role-line">Operator &amp; Strategist</span>
   </div>
-
-  <!-- Oversized bleeding name -->
   <div class="hero-name" id="hero-name">
     <span class="hero-name-text" id="hero-name-text">Matthew Meza</span>
   </div>
 </section>
 
-<!-- ── TICKER ── -->
-<div class="ticker-wrap" aria-hidden="true">
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
   <div class="ticker-track">
     <div class="ticker-item"><span class="ticker-label">Current</span><span class="ticker-sep">|</span><span class="ticker-val">CFO · Kanad Hospital, UAE</span></div>
     <div class="ticker-item"><span class="ticker-label">Prior</span><span class="ticker-sep">|</span><span class="ticker-val">Operations Manager · Amazon</span></div>
@@ -684,143 +697,139 @@ footer p{
   </div>
 </div>
 
-<!-- ── NUMBERS ── -->
+<!-- NUMBERS -->
 <section class="panel" id="numbers">
   <div class="sec-label reveal">
-    <span class="sec-label-num">00 — By the Numbers</span>
-    <div class="sec-label-line"></div>
+    <span class="sec-num">00 — By the Numbers</span>
+    <div class="sec-line"></div>
   </div>
   <div class="nums">
-    <div class="num-item">
-      <div class="num-watermark">01</div>
+    <div class="num-cell">
+      <div class="num-bg">01</div>
       <div class="num-val" data-count="200" data-prefix="$" data-suffix="M+">$0</div>
       <div class="num-label">Inventory managed<br>at Amazon peak operations</div>
     </div>
-    <div class="num-item">
-      <div class="num-watermark">02</div>
-      <div class="num-val" data-count="6" data-suffix="">0</div>
+    <div class="num-cell">
+      <div class="num-bg">02</div>
+      <div class="num-val" data-count="6">0</div>
       <div class="num-label">Enterprise functions<br>led simultaneously as CFO</div>
     </div>
-    <div class="num-item">
-      <div class="num-watermark">03</div>
+    <div class="num-cell">
+      <div class="num-bg">03</div>
       <div class="num-val" data-count="54" data-suffix="%">0%</div>
       <div class="num-label">Budget performance<br>improvement, FY24</div>
     </div>
-    <div class="num-item">
-      <div class="num-watermark">04</div>
+    <div class="num-cell">
+      <div class="num-bg">04</div>
       <div class="num-val" data-typewriter="Zero → Live">Zero → Live</div>
       <div class="num-label">ERP platforms built<br>from scratch</div>
     </div>
   </div>
 </section>
 
-<!-- ── ABOUT ── -->
+<!-- ABOUT -->
 <section class="panel alt" id="about">
   <div class="sec-label reveal">
-    <span class="sec-label-num">01 — Profile</span>
-    <div class="sec-label-line"></div>
+    <span class="sec-num">01 — Profile</span>
+    <div class="sec-line"></div>
   </div>
-  <h2><span class="line-inner">About</span></h2>
-  <div class="about-grid">
-    <div>
-      <div class="about-tags">
-        <span class="atag reveal d1">Financial Strategy</span>
+  <div class="panel-heading"><h2>About</h2></div>
+  <div class="about-layout">
+    <div class="about-sidebar">
+      <div class="tag-list">
+        <span class="atag reveal">Financial Strategy</span>
         <span class="atag reveal d1">Operational Leadership</span>
         <span class="atag reveal d2">Revenue Cycle</span>
-        <span class="atag reveal d2">ERP Implementation</span>
-        <span class="atag reveal d3">Capital Governance</span>
-        <span class="atag reveal d3">Board Reporting</span>
-        <span class="atag reveal d1">Systems Thinking</span>
-        <span class="atag reveal d2">Team Development</span>
-        <span class="atag reveal d3">Mission-Driven Orgs</span>
-        <span class="atag reveal d1">Supply Chain</span>
+        <span class="atag reveal">ERP Implementation</span>
+        <span class="atag reveal d1">Capital Governance</span>
+        <span class="atag reveal d2">Board Reporting</span>
+        <span class="atag reveal">Systems Thinking</span>
+        <span class="atag reveal d1">Team Development</span>
+        <span class="atag reveal d2">Mission-Driven Orgs</span>
+        <span class="atag reveal">Supply Chain</span>
       </div>
     </div>
-    <div class="about-body">
+    <div class="about-content">
       <p class="about-lead reveal">There's a version of finance that just keeps score. I've always been more interested in what the numbers are trying to say.</p>
-      <p class="reveal d1">My job is to build the financial and operational infrastructure that lets organizations focus on what they're actually here to do. That's looked different at each stage — managing $200M in inventory through record-peak volumes at Amazon, then joining Kanad Hospital in Abu Dhabi during one of the more complex transformations a healthcare institution can go through: a full ERP from scratch, a revenue cycle redesign, and six enterprise functions brought under one financial framework for the first time.</p>
-      <p class="reveal d2">I'm still early in a career I take seriously. I hold an MBA and Graduate Certificate in Investments from Johns Hopkins, and I'm genuinely interested in the work of building institutions that last — whether that's in healthcare, nonprofits, or wherever good organizations need someone willing to roll up their sleeves and get the foundations right.</p>
+      <p class="about-body reveal d1">My job is to build the financial and operational infrastructure that lets organizations focus on what they're actually here to do. That's looked different at each stage — managing $200M in inventory through record-peak volumes at Amazon, then joining Kanad Hospital in Abu Dhabi during one of the more complex transformations a healthcare institution can go through: a full ERP from scratch, a revenue cycle redesign, and six enterprise functions brought under one financial framework for the first time.</p>
+      <p class="about-body reveal d2">I'm still early in a career I take seriously. I hold an MBA and Graduate Certificate in Investments from Johns Hopkins, and I'm genuinely interested in the work of building institutions that last — whether that's in healthcare, nonprofits, or wherever good organizations need someone willing to roll up their sleeves and get the foundations right.</p>
     </div>
   </div>
 </section>
 
-<!-- ── CAPABILITIES ── -->
+<!-- EXPERTISE -->
 <section class="panel" id="expertise">
   <div class="sec-label reveal">
-    <span class="sec-label-num">02 — Expertise</span>
-    <div class="sec-label-line"></div>
+    <span class="sec-num">02 — Expertise</span>
+    <div class="sec-line"></div>
   </div>
-  <h2><span class="line-inner">Capabilities</span></h2>
+  <div class="panel-heading"><h2>Capabilities</h2></div>
   <div class="cap-list">
     <div class="cap-row reveal">
-      <div class="cap-num">CAP_001</div>
-      <div class="cap-content">
-        <h3>Financial Strategy</h3>
-        <p>FP&amp;A, zero-based budgeting, bottoms-up modeling, and the variance governance that keeps institutions honest month to month. I build frameworks leadership can actually use, not just report against.</p>
+      <div class="cap-id">CAP_001</div>
+      <div>
+        <div class="cap-title">Financial Strategy</div>
+        <div class="cap-desc">FP&amp;A, zero-based budgeting, bottoms-up modeling, and the variance governance that keeps institutions honest month to month. I build frameworks leadership can actually use, not just report against.</div>
       </div>
     </div>
     <div class="cap-row reveal d1">
-      <div class="cap-num">CAP_002</div>
-      <div class="cap-content">
-        <h3>Revenue Cycle</h3>
-        <p>From payer contracting to claims integrity to collections reform. I've led large-scale RCM transitions, including a hybrid insourcing strategy that cleared a significant claims backlog within three months.</p>
+      <div class="cap-id">CAP_002</div>
+      <div>
+        <div class="cap-title">Revenue Cycle</div>
+        <div class="cap-desc">From payer contracting to claims integrity to collections reform. I've led large-scale RCM transitions, including a hybrid insourcing strategy that cleared a significant claims backlog within three months.</div>
       </div>
     </div>
     <div class="cap-row reveal d2">
-      <div class="cap-num">CAP_003</div>
-      <div class="cap-content">
-        <h3>ERP &amp; Analytics</h3>
-        <p>Led two enterprise platform implementations from zero to live. I care about building systems that surface the right information at the right time — not just systems that technically function.</p>
+      <div class="cap-id">CAP_003</div>
+      <div>
+        <div class="cap-title">ERP &amp; Analytics</div>
+        <div class="cap-desc">Led two enterprise platform implementations from zero to live. I care about building systems that surface the right information at the right time — not just systems that technically function.</div>
       </div>
     </div>
     <div class="cap-row reveal">
-      <div class="cap-num">CAP_004</div>
-      <div class="cap-content">
-        <h3>Capital Governance</h3>
-        <p>I design CapEx frameworks that connect investment requests to ROI, depreciation cycles, and strategic fit. The goal is decisions that hold up over time, made with the right rigor from the start.</p>
+      <div class="cap-id">CAP_004</div>
+      <div>
+        <div class="cap-title">Capital Governance</div>
+        <div class="cap-desc">I design CapEx frameworks that connect investment requests to ROI, depreciation cycles, and strategic fit. The goal is decisions that hold up over time, made with the right rigor from the start.</div>
       </div>
     </div>
     <div class="cap-row reveal d1">
-      <div class="cap-num">CAP_005</div>
-      <div class="cap-content">
-        <h3>Supply Chain &amp; Operations</h3>
-        <p>Before healthcare, Amazon. The operational discipline from that environment — clear systems, tight accountability, data-grounded decisions — is something I've brought into every supply chain and procurement challenge since.</p>
+      <div class="cap-id">CAP_005</div>
+      <div>
+        <div class="cap-title">Supply Chain &amp; Operations</div>
+        <div class="cap-desc">Before healthcare, Amazon. The operational discipline from that environment — clear systems, tight accountability, data-grounded decisions — is something I've brought into every supply chain and procurement challenge since.</div>
       </div>
     </div>
     <div class="cap-row reveal d2">
-      <div class="cap-num">CAP_006</div>
-      <div class="cap-content">
-        <h3>Investment &amp; Planning</h3>
-        <p>Trained in portfolio theory, valuation, and derivatives at Johns Hopkins. I apply that thinking to institutional capital planning and long-range financial strategy, with a particular interest in mission-aligned organizations.</p>
+      <div class="cap-id">CAP_006</div>
+      <div>
+        <div class="cap-title">Investment &amp; Planning</div>
+        <div class="cap-desc">Trained in portfolio theory, valuation, and derivatives at Johns Hopkins. I apply that thinking to institutional capital planning and long-range financial strategy, with a particular interest in mission-aligned organizations.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── CAREER ── -->
+<!-- CAREER -->
 <section class="panel alt" id="career">
   <div class="sec-label reveal">
-    <span class="sec-label-num">03 — Career</span>
-    <div class="sec-label-line"></div>
+    <span class="sec-num">03 — Career</span>
+    <div class="sec-line"></div>
   </div>
-  <h2><span class="line-inner">Experience</span></h2>
+  <div class="panel-heading"><h2>Experience</h2></div>
   <div class="career-list">
-    <div class="career-item reveal">
-      <div class="career-meta">
-        <div class="career-date">2023<br>Present</div>
-      </div>
-      <div class="career-body">
+    <div class="career-entry reveal">
+      <div class="career-date">2023<br>Present</div>
+      <div>
         <div class="career-org">Kanad Hospital<span class="career-arrow">→</span></div>
         <div class="career-role">Chief Finance Officer · Al Ain, UAE</div>
         <p class="career-desc">Kanad is one of Abu Dhabi's premier maternity hospitals. When I joined, the institution was mid-transformation: a full ERP from the ground up, a revenue cycle redesign, and six enterprise functions — finance, RCM, supply chain, IT, patient access, and marketing — brought under one financial framework for the first time.</p>
         <p class="career-desc">We delivered a 54% improvement in budget performance in the first fiscal year. There's still meaningful work ahead, and I'm glad to be part of it.</p>
       </div>
     </div>
-    <div class="career-item reveal d2">
-      <div class="career-meta">
-        <div class="career-date">2021<br>2023</div>
-      </div>
-      <div class="career-body">
+    <div class="career-entry reveal d2">
+      <div class="career-date">2021<br>2023</div>
+      <div>
         <div class="career-org">Amazon<span class="career-arrow">→</span></div>
         <div class="career-role">Operations Manager · Fresno, CA &amp; San Antonio, TX</div>
         <p class="career-desc">I helped launch SAT3 — one of the largest robotics fulfillment facilities in North America. $200M in inventory, 125+ associates, record-peak throughput from day one. The facility moved from 27th to 5th in national performance rankings within six months.</p>
@@ -830,16 +839,16 @@ footer p{
   </div>
 </section>
 
-<!-- ── EDUCATION ── -->
+<!-- EDUCATION -->
 <section class="panel" id="education">
   <div class="sec-label reveal">
-    <span class="sec-label-num">04 — Education</span>
-    <div class="sec-label-line"></div>
+    <span class="sec-num">04 — Education</span>
+    <div class="sec-line"></div>
   </div>
-  <h2><span class="line-inner">Credentials</span></h2>
+  <div class="panel-heading"><h2>Credentials</h2></div>
   <div class="edu-grid">
     <div class="edu-card reveal d1">
-      <div class="edu-year-watermark">2026</div>
+      <div class="edu-year-bg">2026</div>
       <div class="edu-year">2026</div>
       <div class="edu-school">Johns Hopkins</div>
       <div class="edu-deg">M.B.A., Financial Management &amp; Public and Private Leadership · Carey Business School</div>
@@ -849,7 +858,7 @@ footer p{
       </div>
     </div>
     <div class="edu-card reveal d2">
-      <div class="edu-year-watermark">2026</div>
+      <div class="edu-year-bg">2026</div>
       <div class="edu-year">2026</div>
       <div class="edu-school">Johns Hopkins</div>
       <div class="edu-deg">Graduate Certificate, Investments · Carey Business School</div>
@@ -859,7 +868,7 @@ footer p{
       </div>
     </div>
     <div class="edu-card reveal d3">
-      <div class="edu-year-watermark">2019</div>
+      <div class="edu-year-bg">2019</div>
       <div class="edu-year">2019</div>
       <div class="edu-school">Liberty University</div>
       <div class="edu-deg">B.B.A., Marketing Analytics · Lynchburg, Virginia</div>
@@ -871,17 +880,17 @@ footer p{
   </div>
 </section>
 
-<!-- ── CONTACT ── -->
+<!-- CONTACT -->
 <section class="panel alt" id="contact" style="position:relative;overflow:hidden;">
   <div class="contact-glow"></div>
   <div class="sec-label reveal">
-    <span class="sec-label-num">05 — Contact</span>
-    <div class="sec-label-line"></div>
+    <span class="sec-num">05 — Contact</span>
+    <div class="sec-line"></div>
   </div>
   <div class="contact-inner">
-    <div class="contact-statement reveal">Let's<br>Connect</div>
-    <p class="contact-sub reveal d1">If you're building something that matters and need someone who has worked both sides of the operator and strategist line — I'd like to hear about it.</p>
-    <div class="contact-loc reveal d2">Al Ain, UAE · Available for remote advisory &amp; consulting</div>
+    <div class="contact-heading reveal">Let's<br>Connect</div>
+    <p class="contact-para reveal d1">If you're building something that matters and need someone who has worked both sides of the operator and strategist line — I'd like to hear about it.</p>
+    <div class="contact-meta reveal d2">Al Ain, UAE · Available for remote advisory &amp; consulting</div>
     <div class="contact-links reveal d2">
       <a href="mailto:matt@matthewmeza.com" class="contact-link">matt@matthewmeza.com</a>
       <a href="https://www.linkedin.com/in/matthewameza" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
@@ -889,192 +898,180 @@ footer p{
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <p>
-    <svg width="20" height="11" viewBox="0 0 44 22" fill="none" style="vertical-align:middle;margin-right:7px;opacity:0.45;">
+    <svg width="18" height="10" viewBox="0 0 44 22" fill="none" style="vertical-align:middle;margin-right:6px;opacity:0.4;">
       <text x="0" y="18" font-family="Syne,sans-serif" font-weight="800" font-size="19" fill="var(--text)">M</text>
       <line x1="22" y1="0" x2="17" y2="22" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round"/>
       <text x="21" y="18" font-family="Syne,sans-serif" font-weight="800" font-size="19" fill="var(--text)">M</text>
     </svg>
     Matthew Meza &copy; <span id="yr"></span>
   </p>
-  <p>matthewmeza.com <span class="footer-accent">·</span> Al Ain, UAE</p>
+  <p>matthewmeza.com <span class="ft-accent">·</span> Al Ain, UAE</p>
 </footer>
 
 <script>
 (function(){
   'use strict';
 
-  /* ── YEAR ── */
+  /* Year */
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  /* ── THEME ── */
+  /* Theme */
   const html = document.documentElement;
-  const themeBtn = document.getElementById('theme-btn');
+  const btn  = document.getElementById('theme-btn');
   const saved = localStorage.getItem('mm-theme');
   if(saved) html.setAttribute('data-theme', saved);
-  themeBtn.addEventListener('click', function(){
+  btn.addEventListener('click', function(){
     const next = (html.getAttribute('data-theme')||'dark') === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     localStorage.setItem('mm-theme', next);
   });
 
-  /* ── LENIS SMOOTH SCROLL ── */
-  const lenis = new Lenis({
-    duration: 1.4,
-    easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+  /* ── LENIS ── */
+  var lenis = new Lenis({
+    duration: 1.35,
+    easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10*t)); },
     smoothWheel: true,
-    wheelMultiplier: 0.9,
+    wheelMultiplier: 0.85,
   });
   function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
 
-  /* ── GSAP + SCROLLTRIGGER ── */
+  /* ── GSAP ── */
   gsap.registerPlugin(ScrollTrigger);
-
-  /* Feed Lenis into ScrollTrigger */
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add(function(time){ lenis.raf(time * 1000); });
   gsap.ticker.lagSmoothing(0);
 
-  /* ── SCROLL PROGRESS BAR ── */
-  const progress = document.getElementById('progress');
+  /* Progress bar */
+  var prog = document.getElementById('progress');
   lenis.on('scroll', function(e){
-    const pct = e.progress;
-    gsap.set(progress, {scaleX: pct, opacity: pct > 0.01 ? 1 : 0});
+    prog.style.opacity = e.progress > 0.005 ? '1' : '0';
+    gsap.set(prog, {scaleX: e.progress});
   });
 
-  /* ── NAV SCROLL STATE ── */
-  const nav = document.getElementById('site-nav');
-  const scrollHint = document.getElementById('scroll-hint');
+  /* Nav + scroll hint */
+  var nav  = document.getElementById('site-nav');
+  var hint = document.getElementById('scroll-hint');
   lenis.on('scroll', function(e){
     nav.classList.toggle('scrolled', e.animatedScroll > 80);
-    scrollHint.style.opacity = e.animatedScroll > 120 ? '0' : '1';
-    scrollHint.style.pointerEvents = e.animatedScroll > 120 ? 'none' : 'auto';
+    hint.style.opacity = e.animatedScroll > 100 ? '0' : '1';
+    hint.style.pointerEvents = e.animatedScroll > 100 ? 'none' : 'auto';
   });
 
-  /* ── ACTIVE NAV ── */
-  const sections = ['about','expertise','career','education','contact'];
-  const navLinks = document.querySelectorAll('.nav-links a[data-section]');
-  const secObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
+  /* Active nav */
+  var sections = ['about','expertise','career','education','contact'];
+  var navLinks = document.querySelectorAll('.nav-links a[data-section]');
+  var secObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
         navLinks.forEach(function(a){ a.classList.remove('active'); });
-        const link = document.querySelector('.nav-links a[data-section="'+entry.target.id+'"]');
-        if(link) link.classList.add('active');
+        var lk = document.querySelector('.nav-links a[data-section="'+e.target.id+'"]');
+        if(lk) lk.classList.add('active');
       }
     });
   },{threshold:0.3});
   sections.forEach(function(id){
-    const el = document.getElementById(id);
+    var el = document.getElementById(id);
     if(el) secObs.observe(el);
   });
 
   /* ── HERO ENTRANCE ── */
-  const heroTl = gsap.timeline({delay:0.1});
-  heroTl
-    .fromTo('#hero-badge',
-      {opacity:0, y:20},
-      {opacity:1, y:0, duration:0.9, ease:'power3.out'}, 0.2)
-    .fromTo('#hero-role',
-      {opacity:0, y:20},
-      {opacity:1, y:0, duration:0.9, ease:'power3.out'}, 0.35)
-    .fromTo('#hero-arrow',
-      {opacity:0, scale:0.8},
-      {opacity:1, scale:1, duration:0.7, ease:'back.out(1.7)'}, 0.5)
+  gsap.set(['#hero-badge','#hero-role','#hero-arrow','#hero-name-text'],{opacity:0});
+  var htl = gsap.timeline({delay:0.15});
+  htl
+    .to('#hero-badge',  {opacity:1, y:0, duration:0.9, ease:'power3.out'}, 0.25)
+    .to('#hero-role',   {opacity:1, y:0, duration:0.9, ease:'power3.out'}, 0.38)
+    .to('#hero-arrow',  {opacity:1, scale:1, duration:0.65, ease:'back.out(1.5)'}, 0.52)
     .fromTo('#hero-name-text',
-      {y:'110%', opacity:0},
-      {y:'0%', opacity:1, duration:1.1, ease:'power4.out'}, 0.15);
+      {yPercent:115, opacity:0},
+      {yPercent:0, opacity:1, duration:1.15, ease:'power4.out'}, 0.18);
 
-  /* ── HERO NAME PARALLAX ── */
+  /* Hero name parallax on scroll */
   gsap.to('#hero-name-text', {
-    yPercent: -22,
+    yPercent: -20,
     ease:'none',
     scrollTrigger:{
       trigger:'.hero',
       start:'top top',
       end:'bottom top',
-      scrub: true,
+      scrub:true,
     }
   });
 
   /* ── HEADING REVEALS ── */
-  document.querySelectorAll('.panel h2').forEach(function(h2){
+  document.querySelectorAll('.panel-heading').forEach(function(ph){
     ScrollTrigger.create({
-      trigger: h2,
-      start: 'top 88%',
-      onEnter: function(){ h2.classList.add('visible'); }
+      trigger: ph,
+      start: 'top 87%',
+      onEnter: function(){ ph.classList.add('visible'); }
     });
   });
 
-  /* ── SCROLL REVEALS (generic) ── */
-  const revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        revealObs.unobserve(entry.target);
+  /* ── GENERIC REVEALS ── */
+  var revObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        revObs.unobserve(e.target);
       }
     });
-  },{threshold:0.1, rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
+  },{threshold:0.08, rootMargin:'0px 0px -35px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
 
-  /* ── NUMBER COUNTERS ── */
-  function animCount(el, target, prefix, suffix){
-    const dur = 1500;
-    const start = performance.now();
-    function tick(now){
-      const progress = Math.min((now - start) / dur, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      el.textContent = prefix + Math.round(ease * target) + suffix;
-      if(progress < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-  const ctrObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        const el = entry.target;
-        animCount(el, parseInt(el.dataset.count), el.dataset.prefix||'', el.dataset.suffix||'');
-        ctrObs.unobserve(el);
-      }
-    });
-  },{threshold:0.6});
-  document.querySelectorAll('[data-count]').forEach(function(el){ ctrObs.observe(el); });
-
-  /* Number card reveal via ScrollTrigger */
-  document.querySelectorAll('.num-item').forEach(function(card){
+  /* ── NUMBER REVEALS ── */
+  document.querySelectorAll('.num-cell').forEach(function(card){
     ScrollTrigger.create({
       trigger: card,
-      start: 'top 85%',
+      start: 'top 88%',
       onEnter: function(){ card.classList.add('visible'); }
     });
   });
 
+  /* ── COUNTERS ── */
+  function countUp(el, target, prefix, suffix){
+    var dur = 1500, t0 = performance.now();
+    function tick(now){
+      var p = Math.min((now-t0)/dur, 1);
+      var ease = 1 - Math.pow(1-p, 3);
+      el.textContent = prefix + Math.round(ease*target) + suffix;
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  var ctrObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var el = e.target;
+        countUp(el, parseInt(el.dataset.count)||0, el.dataset.prefix||'', el.dataset.suffix||'');
+        ctrObs.unobserve(el);
+      }
+    });
+  },{threshold:0.35, rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('[data-count]').forEach(function(el){ ctrObs.observe(el); });
+
   /* ── TYPEWRITER ── */
-  const twObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        const el = entry.target;
-        const text = el.dataset.typewriter;
-        el.textContent = '';
-        let i = 0;
-        function type(){
-          if(i < text.length){ el.textContent += text[i]; i++; setTimeout(type, 55); }
-        }
-        setTimeout(type, 300);
+  var twObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var el = e.target, text = el.dataset.typewriter;
+        el.textContent = ''; var i = 0;
+        function type(){ if(i<text.length){ el.textContent+=text[i++]; setTimeout(type,52); } }
+        setTimeout(type, 280);
         twObs.unobserve(el);
       }
     });
-  },{threshold:0.6});
+  },{threshold:0.4});
   document.querySelectorAll('[data-typewriter]').forEach(function(el){ twObs.observe(el); });
 
-  /* ── NAV LINKS SMOOTH ── */
+  /* ── SMOOTH NAV CLICKS ── */
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
-      const id = a.getAttribute('href').slice(1);
-      const target = document.getElementById(id);
-      if(target){ e.preventDefault(); lenis.scrollTo(target, {offset:-80, duration:1.6}); }
+      var id = a.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if(target){ e.preventDefault(); lenis.scrollTo(target, {offset:-70, duration:1.6}); }
     });
   });
 
