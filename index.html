@@ -1,553 +1,1671 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Matthew Meza — CFO, operator, and strategist. Building the financial and operational systems that let mission-driven organizations do more of what they're here to do."/>
-<meta property="og:title" content="Matthew Meza"/>
-<meta property="og:description" content="CFO · Operator · Strategist · Al Ain, UAE"/>
-<meta property="og:url" content="https://matthewmeza.com"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<title>Matthew Meza</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Inter:wght@400;900&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root,[data-theme="dark"]{
-  --bg:#0A0A0A;--bg-alt:#141414;--surface:#1E1E1E;--border:#2A2A2A;
-  --blue:#2D6BE4;--blue-dim:rgba(45,107,228,0.2);--blue-glow:rgba(45,107,228,0.07);
-  --text:#F0EDE8;--muted:rgba(240,237,232,0.42);--muted2:rgba(240,237,232,0.2);
-  --nav-bg:rgba(10,10,10,0.97);
-  --overlay-r:linear-gradient(to right,rgba(10,10,10,0.92) 0%,rgba(10,10,10,0.55) 45%,rgba(10,10,10,0.2) 100%);
-  --overlay-t:linear-gradient(to top,rgba(10,10,10,1) 0%,rgba(10,10,10,0.85) 20%,rgba(10,10,10,0.4) 50%,rgba(10,10,10,0) 75%);
-  --content-fade:linear-gradient(to bottom,transparent,#0A0A0A);
-  --photo-filter:grayscale(30%) contrast(1.0) brightness(0.7);
-  --hero-sub-color:rgba(240,237,232,0.58);--about-first:rgba(240,237,232,0.88);
-  --display:'Inter',sans-serif;--serif:'Libre Baskerville',Georgia,serif;--mono:'DM Mono',monospace;
-}
-[data-theme="light"]{
-  --bg:#F5F4F0;--bg-alt:#ECEAE4;--surface:#E2E0D8;--border:#D0CEC6;
-  --blue:#1a54c8;--blue-dim:rgba(26,84,200,0.18);--blue-glow:rgba(26,84,200,0.06);
-  --text:#0E0E0E;--muted:rgba(14,14,14,0.52);--muted2:rgba(14,14,14,0.3);
-  --nav-bg:rgba(245,244,240,0.97);
-  --overlay-r:linear-gradient(to right,rgba(245,244,240,0.94) 0%,rgba(245,244,240,0.65) 45%,rgba(245,244,240,0.25) 100%);
-  --overlay-t:linear-gradient(to top,rgba(245,244,240,1) 0%,rgba(245,244,240,0.88) 20%,rgba(245,244,240,0.45) 50%,rgba(245,244,240,0) 75%);
-  --content-fade:linear-gradient(to bottom,transparent,#F5F4F0);
-  --photo-filter:grayscale(15%) contrast(1.05) brightness(0.95);
-  --hero-sub-color:rgba(14,14,14,0.6);--about-first:rgba(14,14,14,0.88);
-}
-html{scroll-behavior:smooth;}
-body{font-family:var(--mono);color:var(--text);font-size:14px;line-height:1.7;overflow-x:hidden;background:var(--bg);transition:background 0.35s,color 0.35s;}
-#bg-photo{position:fixed;inset:0;z-index:0;background:var(--bg);transition:background 0.35s;}
-#bg-photo img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;filter:var(--photo-filter);transition:filter 0.4s;}
-#bg-overlay{position:fixed;inset:0;z-index:1;background:var(--overlay-r),var(--overlay-t);transition:background 0.4s;}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:56px;background:transparent;border-bottom:1px solid transparent;transition:background 0.35s,border-color 0.35s;}
-nav.scrolled{background:var(--nav-bg);border-bottom-color:var(--border);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
-.nav-logo{font-family:var(--display);font-weight:900;font-size:0.95rem;letter-spacing:-0.02em;text-transform:uppercase;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:0.75rem;transition:color 0.3s;}
-.nav-right{display:flex;align-items:center;gap:1.5rem;}
-.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
-.nav-links a{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;position:relative;}
-.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform 0.25s ease;}
-.nav-links a:hover{color:var(--text);}
-.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
-.nav-links a.active{color:var(--text);}
-.nav-cta{color:var(--blue) !important;border:1px solid var(--blue);padding:0.35rem 1rem;letter-spacing:0.15em !important;transition:background 0.15s,color 0.15s !important;}
-.nav-cta:hover{background:var(--blue) !important;color:#fff !important;}
-.nav-cta::after{display:none !important;}
-.theme-toggle{width:34px;height:34px;background:transparent;border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color 0.2s,color 0.2s,transform 0.3s;flex-shrink:0;padding:0;border-radius:0;}
-.theme-toggle:hover{border-color:var(--blue);color:var(--blue);transform:rotate(15deg);}
-.theme-toggle svg{width:15px;height:15px;display:block;}
-.icon-moon{display:block;}.icon-sun{display:none;}
-[data-theme="light"] .icon-moon{display:none;}[data-theme="light"] .icon-sun{display:block;}
-#page{position:relative;z-index:10;}
-.hero{min-height:100vh;display:flex;align-items:flex-end;padding:0 3rem 6rem;background:transparent;position:relative;}
-.hero-inner{max-width:600px;position:relative;z-index:2;}
-.hero-inner>*{opacity:0;transform:translateY(22px);}
-.hero-inner.loaded .hero-eyebrow{animation:fadeUp 0.7s 0.2s ease forwards;}
-.hero-inner.loaded h1{animation:fadeUp 0.8s 0.38s ease forwards;}
-.hero-inner.loaded .hero-sub{animation:fadeUp 0.7s 0.58s ease forwards;}
-.hero-inner.loaded .btn-primary{animation:fadeUp 0.6s 0.74s ease forwards;}
-.hero-eyebrow{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);margin-bottom:1.75rem;display:flex;align-items:center;gap:0.75rem;}
-.hero-eyebrow::before{content:'[ ';color:var(--muted2);}
-.hero-eyebrow::after{content:' ]';color:var(--muted2);}
-h1{font-family:var(--display);font-weight:900;line-height:0.9;letter-spacing:-0.02em;text-transform:uppercase;color:var(--text);margin-bottom:2rem;transition:color 0.35s;}
-h1 .name-first{font-size:clamp(2rem,4vw,4.5rem);display:block;opacity:0.6;}
-h1 .name-last{font-size:clamp(5rem,10vw,10.5rem);display:block;line-height:0.85;position:relative;overflow:hidden;}
-h1 .name-last::after{content:'';position:absolute;inset:0;background:var(--bg);transform:translateX(-101%);transition:transform 0s;}
-.hero-inner.loaded h1 .name-last::after{animation:revealSweep 0.9s 0.4s cubic-bezier(0.77,0,0.18,1) forwards;}
-@keyframes revealSweep{0%{transform:translateX(-101%);}45%{transform:translateX(0%);}55%{transform:translateX(0%);}100%{transform:translateX(101%);}}
-.hero-sub{font-family:var(--mono);font-size:0.82rem;color:var(--hero-sub-color);line-height:1.85;max-width:440px;padding-left:1rem;border-left:2px solid var(--blue);margin-bottom:2.5rem;transition:color 0.35s,border-color 0.35s;}
-.btn-primary{background:var(--blue);color:#fff;padding:0.85rem 2.25rem;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:background 0.2s,transform 0.15s;white-space:nowrap;line-height:1;position:relative;overflow:hidden;}
-.btn-primary::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.12);transform:translateX(-100%);transition:transform 0.35s ease;}
-.btn-primary:hover::before{transform:translateX(0);}
-.btn-primary:hover{background:#1a54c8;}
-.btn-primary:active{transform:scale(0.98);}
-.hero-scroll{position:fixed;bottom:2rem;right:3rem;z-index:20;display:flex;flex-direction:column;align-items:center;gap:6px;font-family:var(--mono);font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted2);transition:opacity 0.4s;}
-.hero-scroll::after{content:'';display:block;width:1px;height:40px;background:linear-gradient(to bottom,var(--blue),transparent);animation:scrollPulse 2s ease infinite;}
-@keyframes scrollPulse{0%,100%{opacity:0.4;transform:scaleY(1);}50%{opacity:1;transform:scaleY(1.15);}}
-.content{background:var(--bg);position:relative;transition:background 0.35s;}
-.content::before{content:'';display:block;height:120px;background:var(--content-fade);margin-top:-120px;pointer-events:none;}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-delay-1{transition-delay:0.1s;}.reveal-delay-2{transition-delay:0.2s;}.reveal-delay-3{transition-delay:0.3s;}.reveal-delay-4{transition-delay:0.4s;}.reveal-delay-5{transition-delay:0.5s;}
-.heading-reveal{overflow:hidden;}
-.heading-reveal h2{transform:translateY(100%);transition:transform 0.75s cubic-bezier(0.16,1,0.3,1);}
-.heading-reveal.visible h2{transform:translateY(0);}
-.ticker{background:var(--bg-alt);padding:0.75rem 0;overflow:hidden;white-space:nowrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);transition:background 0.35s;}
-.ticker-track{display:inline-flex;animation:ticker 55s linear infinite;}
-.ticker-item{display:inline-flex;align-items:center;gap:0.75rem;padding:0 2.5rem;border-right:1px solid var(--border);}
-.ticker-sep{color:var(--blue);font-size:0.7rem;}
-.ticker-label{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted2);}
-.ticker-val{font-size:0.72rem;font-weight:400;color:var(--text);letter-spacing:0.06em;}
-@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-.section{padding:7rem 3rem;border-bottom:1px solid var(--border);transition:background 0.35s;}
-.section-alt{background:var(--bg-alt);}
-.sec-tag{display:flex;align-items:center;gap:1.25rem;margin-bottom:4rem;}
-.sec-num{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.22em;color:var(--blue);}
-.sec-line{flex:1;height:1px;background:var(--border);}
-h2{font-family:var(--display);font-weight:900;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-0.02em;text-transform:uppercase;color:var(--text);line-height:0.95;transition:color 0.35s;}
-.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
-.num-card{background:var(--bg);padding:3rem 2rem;border-top:2px solid transparent;transition:border-color 0.3s,background 0.3s;position:relative;overflow:hidden;}
-.num-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:0;background:var(--blue-glow);transition:height 0.4s ease;}
-.num-card:hover::before{height:100%;}
-.num-card:hover{border-color:var(--blue);}
-.num-val{font-family:var(--display);font-weight:900;font-size:2.8rem;letter-spacing:-0.02em;color:var(--blue);line-height:1;margin-bottom:0.6rem;position:relative;z-index:1;}
-.num-label{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);line-height:1.6;position:relative;z-index:1;}
-.about-grid{display:grid;grid-template-columns:260px 1fr;gap:5rem;align-items:start;}
-.about-tags{display:flex;flex-direction:column;gap:0.5rem;margin-top:0.25rem;}
-.tag{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--blue);border:1px solid var(--border);padding:0.3rem 0.75rem;width:fit-content;transition:border-color 0.2s,background 0.2s,transform 0.2s;}
-.tag:hover{border-color:var(--blue);background:var(--blue-glow);transform:translateX(4px);}
-.about-body p{font-family:var(--mono);font-size:0.85rem;color:var(--muted);line-height:1.95;margin-bottom:1.25rem;transition:color 0.35s;}
-.about-body p:first-child{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--about-first);line-height:1.75;border-left:2px solid var(--blue);padding-left:1.25rem;margin-bottom:1.75rem;}
-.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3rem;}
-.cap-card{background:var(--bg);padding:2.5rem 2rem;border-top:2px solid transparent;transition:border-color 0.3s,background 0.3s,transform 0.3s;cursor:default;position:relative;overflow:hidden;}
-.cap-card::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);}
-.cap-card:hover::after{transform:scaleX(1);}
-.cap-card:hover{background:var(--blue-glow);transform:translateY(-2px);}
-.cap-id{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.2em;color:var(--muted2);margin-bottom:1rem;transition:color 0.3s;}
-.cap-card:hover .cap-id{color:var(--blue);}
-.cap-card h3{font-family:var(--display);font-weight:900;font-size:1.05rem;letter-spacing:-0.01em;text-transform:uppercase;color:var(--text);margin-bottom:0.75rem;line-height:1.15;transition:color 0.35s;}
-.cap-card p{font-size:0.73rem;color:var(--muted);line-height:1.8;}
-.tl{display:flex;flex-direction:column;}
-.tl-item{display:grid;grid-template-columns:160px 1px 1fr;gap:2.5rem;padding:3rem 0;border-bottom:1px solid var(--border);align-items:start;transition:background 0.2s;}
-.tl-item:first-child{border-top:1px solid var(--border);}
-.tl-date{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);padding-top:0.25rem;line-height:1.6;}
-.tl-divider{background:var(--border);align-self:stretch;transition:background 0.3s;}
-.tl-item:hover .tl-divider{background:var(--blue);}
-.tl-org{font-family:var(--display);font-weight:900;font-size:1.75rem;letter-spacing:-0.02em;text-transform:uppercase;color:var(--text);margin-bottom:0.25rem;line-height:1;transition:color 0.35s;}
-.tl-role{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;}
-.tl-desc{font-size:0.78rem;color:var(--muted);line-height:1.85;max-width:540px;margin-bottom:0.75rem;}
-.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3rem;}
-.edu-card{background:var(--bg);padding:2.5rem 2rem;border-top:2px solid var(--blue);transition:background 0.3s,transform 0.3s;position:relative;}
-.edu-card:hover{background:var(--blue-glow);transform:translateY(-2px);}
-.edu-year{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;color:var(--blue);margin-bottom:0.75rem;}
-.edu-school{font-family:var(--display);font-weight:900;font-size:1.5rem;letter-spacing:-0.02em;text-transform:uppercase;color:var(--text);margin-bottom:0.4rem;line-height:1;transition:color 0.35s;}
-.edu-deg{font-family:var(--mono);font-size:0.72rem;color:var(--muted);line-height:1.65;margin-bottom:1rem;}
-.edu-tags{display:flex;flex-wrap:wrap;gap:0.35rem;}
-.edu-tag{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);border:1px solid var(--border);padding:0.2rem 0.55rem;opacity:0.8;transition:border-color 0.2s,opacity 0.2s;}
-.edu-card:hover .edu-tag{border-color:var(--blue);opacity:1;}
-.contact-section{padding:8rem 3rem;position:relative;overflow:hidden;transition:background 0.35s;}
-.contact-bg{position:absolute;right:0;top:0;bottom:0;width:50%;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;opacity:0.4;}
-.contact-glow{position:absolute;right:15%;top:50%;transform:translateY(-50%);width:400px;height:400px;background:radial-gradient(circle,var(--blue-dim) 0%,transparent 70%);pointer-events:none;}
-.contact-inner{position:relative;z-index:1;max-width:600px;}
-.contact-sub{font-family:var(--mono);font-size:0.85rem;color:var(--muted);line-height:1.9;max-width:460px;margin-bottom:3rem;}
-.contact-row{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;}
-.contact-link{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue-dim);padding-bottom:3px;transition:color 0.2s,border-color 0.2s,letter-spacing 0.2s;}
-.contact-link:hover{color:var(--text);border-color:var(--text);letter-spacing:0.2em;}
-.contact-divider{color:var(--border);}
-footer{padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;background:var(--bg-alt);border-top:1px solid var(--border);transition:background 0.35s;}
-footer p{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted2);}
-.footer-mark{color:var(--blue);}
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-@media(max-width:900px){
-  nav{padding:0 1.5rem;}.nav-links li:not(:last-child){display:none;}
-  .hero{padding:0 1.5rem 5rem;}.hero-scroll{display:none;}
-  .section{padding:4.5rem 1.5rem;}.numbers-grid{grid-template-columns:1fr 1fr;}
-  .about-grid{grid-template-columns:1fr;gap:2.5rem;}.cap-grid{grid-template-columns:1fr 1fr;}
-  .tl-item{grid-template-columns:1fr;gap:0.5rem;}.tl-divider{display:none;}
-  .edu-grid{grid-template-columns:1fr;}.contact-section{padding:4.5rem 1.5rem;}
-  footer{padding:1.5rem;flex-direction:column;gap:0.5rem;text-align:center;}
-}
-@media(max-width:600px){
-  .cap-grid{grid-template-columns:1fr;}.numbers-grid{grid-template-columns:1fr 1fr;}
-  .contact-row{flex-direction:column;align-items:flex-start;}.contact-divider{display:none;}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matthew Meza — Where systems meet mission.</title>
+  <meta name="description" content="CFO · Kanad Hospital · Al Ain, UAE. Building the financial and operational infrastructure that lets mission-driven institutions focus on what they're actually there to do. Ex-Amazon. Johns Hopkins MBA 2026.">
+  <meta property="og:title" content="Matthew Meza — Where systems meet mission.">
+  <meta property="og:description" content="CFO · Kanad Hospital · Al Ain, UAE. Financial and operational infrastructure for mission-driven institutions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://matthewmeza.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ════════════════════════════════════════════
+       DESIGN TOKENS — THE BRIDGE
+    ════════════════════════════════════════════ */
+    :root {
+      --void:          #0F0F18;
+      --void2:         #141421;
+      --card:          #181828;
+      --card2:         #1E293B;
+      --cobalt:        #3B82F6;
+      --cobalt-light:  #60A5FA;
+      --cobalt-dim:    rgba(59,130,246,0.10);
+      --cobalt-border: rgba(59,130,246,0.22);
+      --cobalt-glow:   rgba(59,130,246,0.06);
+      --ice:           #DDEAFE;
+      --slate:         #94A3B8;
+      --mid:           #64748B;
+      --white:         #F8FAFC;
+      --border:        rgba(255,255,255,0.07);
+      --border-cobalt: rgba(59,130,246,0.15);
+      --sans:          'DM Sans', sans-serif;
+      --mono:          'IBM Plex Mono', monospace;
+      --nav-h:         68px;
+      --max-w:         1200px;
+      --pad:           clamp(24px, 5vw, 64px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--void);
+      color: var(--white);
+      font-family: var(--sans);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Film grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.028;
+      pointer-events: none;
+      z-index: 9998;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ════════════════════════════════════════════
+       LAYOUT PRIMITIVES
+    ════════════════════════════════════════════ */
+    .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding-left: var(--pad);
+      padding-right: var(--pad);
+    }
+
+    /* ════════════════════════════════════════════
+       NAVIGATION
+    ════════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--nav-h);
+      z-index: 1000;
+      background: rgba(15,15,24,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.4s;
+    }
+    .nav.elevated { border-bottom-color: var(--border-cobalt); }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-brand-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+    .nav-brand-role {
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+      line-height: 1;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--cobalt-light); }
+
+    .nav-cta {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white) !important;
+      background: var(--cobalt);
+      padding: 9px 18px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .nav-cta:hover { opacity: 0.84; }
+
+    /* Hamburger mobile */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--mid);
+      transition: background 0.2s;
+    }
+    .nav-hamburger:hover span { background: var(--cobalt); }
+
+    /* Mobile nav drawer */
+    .nav-drawer {
+      position: fixed;
+      inset: var(--nav-h) 0 0 0;
+      background: rgba(15,15,24,0.97);
+      backdrop-filter: blur(16px);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      transform: translateY(-100%);
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+      pointer-events: none;
+    }
+    .nav-drawer.open {
+      transform: translateY(0);
+      pointer-events: all;
+    }
+    .nav-drawer a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--slate);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-drawer a:hover { color: var(--cobalt); }
+    .nav-drawer .drawer-cta {
+      color: var(--white);
+      background: var(--cobalt);
+      padding: 12px 28px;
+      border-radius: 4px;
+    }
+
+    /* ════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      grid-template-rows: 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ambient cobalt glow top-right */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -240px;
+      right: -160px;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(59,130,246,0.055) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-content {
+      padding-top: calc(var(--nav-h) + 80px);
+      padding-bottom: 80px;
+      padding-left: var(--pad);
+      padding-right: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      /* Align with max-width container */
+      margin-left: max(0px, calc((100vw - var(--max-w)) / 2));
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cobalt);
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--cobalt);
+      flex-shrink: 0;
+    }
+
+    .hero-name {
+      font-size: clamp(60px, 7.5vw, 108px);
+      font-weight: 700;
+      line-height: 0.93;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 36px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .hero-name .cobalt { color: var(--cobalt); }
+
+    .hero-tagline {
+      font-size: clamp(19px, 2.2vw, 26px);
+      font-weight: 300;
+      color: var(--ice);
+      line-height: 1.4;
+      margin-bottom: 18px;
+      max-width: 500px;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    .hero-statement {
+      font-size: 15px;
+      color: var(--slate);
+      line-height: 1.75;
+      max-width: 460px;
+      margin-bottom: 52px;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    /* Credentials strip */
+    .hero-credentials {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      opacity: 0;
+    }
+    .credential-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .cred-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .cred-label {
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .cred-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    /* Hero image column */
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+      background: var(--card);
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      filter: grayscale(12%) contrast(1.06) brightness(0.96);
+      transition: transform 8s ease;
+    }
+    .hero-image:hover img { transform: scale(1.02); }
+
+    /* Cobalt vertical accent bar */
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--cobalt);
+      z-index: 2;
+    }
+
+    /* Bottom fade into page */
+    .hero-image-scrim {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 220px;
+      background: linear-gradient(to top, var(--void) 0%, transparent 100%);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: var(--pad);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 2;
+      opacity: 0;
+    }
+    .scroll-track {
+      width: 36px;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .scroll-track::after {
+      content: '';
+      position: absolute;
+      left: -100%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--cobalt);
+      animation: scanline 2.2s ease-in-out infinite;
+    }
+    @keyframes scanline {
+      0%   { left: -100%; }
+      100% { left: 100%; }
+    }
+    .scroll-label {
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    /* ════════════════════════════════════════════
+       BUTTONS
+    ════════════════════════════════════════════ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 26px;
+      border-radius: 4px;
+      transition: opacity 0.2s, transform 0.2s, background 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--cobalt);
+      color: var(--white);
+    }
+    .btn-primary:hover { opacity: 0.84; transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cobalt-light);
+      border: 1px solid var(--cobalt-border);
+    }
+    .btn-outline:hover {
+      background: var(--cobalt-dim);
+      border-color: rgba(59,130,246,0.4);
+    }
+
+    /* ════════════════════════════════════════════
+       SECTION STRUCTURE
+    ════════════════════════════════════════════ */
+    .section {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .sec-eyebrow {
+      display: block;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cobalt);
+      margin-bottom: 20px;
+    }
+
+    .sec-title {
+      font-size: clamp(36px, 4.5vw, 58px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 28px;
+    }
+
+    .sec-intro {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--ice);
+      line-height: 1.75;
+      max-width: 640px;
+      margin-bottom: 72px;
+      opacity: 0.88;
+    }
+
+    /* ════════════════════════════════════════════
+       POSITIONING BLOCK
+    ════════════════════════════════════════════ */
+    .positioning-box {
+      background: var(--cobalt-dim);
+      border: 1px solid var(--cobalt-border);
+      border-radius: 12px;
+      padding: 44px 52px;
+      margin-bottom: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .positioning-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--cobalt);
+    }
+    .pb-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cobalt);
+      margin-bottom: 18px;
+      display: block;
+    }
+    .pb-statement {
+      font-size: clamp(17px, 2vw, 22px);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+    .pb-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ice);
+      line-height: 1.75;
+      opacity: 0.82;
+    }
+
+    /* ════════════════════════════════════════════
+       THREE CROSSINGS
+    ════════════════════════════════════════════ */
+    .crossings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .crossing-card {
+      background: var(--card);
+      padding: 44px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .crossing-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--cobalt);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+    }
+    .crossing-card:hover { background: rgba(24,24,40,0.95); }
+    .crossing-card:hover::after { transform: scaleX(1); }
+
+    .crossing-num {
+      display: block;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cobalt);
+      margin-bottom: 24px;
+    }
+    .crossing-from {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .crossing-arrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .crossing-arrow-line {
+      width: 20px;
+      height: 1px;
+      background: var(--cobalt);
+      opacity: 0.6;
+    }
+    .crossing-to {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--cobalt-light);
+    }
+    .crossing-desc {
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .crossing-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .crossing-tags::before {
+      content: attr(data-label);
+      display: block;
+      width: 100%;
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 10px;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--cobalt-light);
+      background: var(--cobalt-dim);
+      border: 1px solid var(--cobalt-border);
+      padding: 3px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    /* ════════════════════════════════════════════
+       CAPABILITIES
+    ════════════════════════════════════════════ */
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .cap-card {
+      background: var(--card);
+      padding: 36px 32px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.25s;
+    }
+    .cap-card:hover { background: rgba(24,24,40,0.7); }
+    .cap-card:nth-child(3n) { border-right: none; }
+    .cap-card:nth-last-child(-n+3) { border-bottom: none; }
+
+    .cap-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--cobalt-dim);
+      border: 1px solid var(--cobalt-border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+    .cap-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--cobalt);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .cap-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.005em;
+      line-height: 1.35;
+    }
+    .cap-desc {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    /* ════════════════════════════════════════════
+       PROOF / METRICS
+    ════════════════════════════════════════════ */
+    .proof-section {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .proof-header {
+      padding: 88px 0 0;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 64px;
+      border-top: 1px solid var(--border);
+    }
+    .metric-item {
+      padding: 52px 40px;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    .metric-item:last-child { border-right: none; }
+    .metric-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cobalt) 0%, transparent 100%);
+      opacity: 0.5;
+    }
+    .metric-number {
+      font-size: clamp(42px, 4vw, 60px);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 2px;
+    }
+    .metric-number .prefix {
+      font-size: 0.45em;
+      color: var(--cobalt);
+      margin-top: 0.12em;
+    }
+    .metric-number .suffix {
+      font-size: 0.5em;
+      color: var(--cobalt);
+      margin-top: 0.1em;
+    }
+    .metric-number .counter { display: inline; }
+    .metric-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 12px;
+    }
+    .metric-desc {
+      font-size: 12px;
+      color: var(--slate);
+      line-height: 1.65;
+    }
+    .proof-footer {
+      padding: 36px 0 72px;
+      border-top: 1px solid var(--border);
+      margin-top: 0;
+    }
+    .proof-footer-inner {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .pf-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .pf-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .pf-value {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--slate);
+      letter-spacing: 0.04em;
+    }
+
+    /* ════════════════════════════════════════════
+       AUDIENCES
+    ════════════════════════════════════════════ */
+    .audiences-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .audience-card {
+      background: var(--card);
+      padding: 44px 40px;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      transition: background 0.25s;
+    }
+    .audience-card:hover { background: rgba(24,24,40,0.88); }
+    .audience-num {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--cobalt);
+      flex-shrink: 0;
+      padding-top: 4px;
+      width: 20px;
+    }
+    .audience-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.005em;
+      line-height: 1.3;
+    }
+    .audience-desc {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.68;
+    }
+
+    /* ════════════════════════════════════════════
+       CONNECT CTA
+    ════════════════════════════════════════════ */
+    .connect-section { padding: 120px 0; }
+
+    .connect-box {
+      background: var(--cobalt);
+      border-radius: 16px;
+      padding: 80px 72px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 72px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* subtle texture in cobalt box */
+    .connect-box::before {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+      pointer-events: none;
+    }
+    .connect-box::after {
+      content: '';
+      position: absolute;
+      bottom: -120px;
+      right: -120px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.06);
+      pointer-events: none;
+    }
+
+    .connect-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 22px;
+    }
+    .connect-headline {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.022em;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .connect-body {
+      font-size: 16px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      max-width: 480px;
+      font-weight: 300;
+    }
+    .connect-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+    .btn-connect {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .btn-connect svg {
+      width: 13px;
+      height: 13px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .btn-connect-white {
+      background: #fff;
+      color: var(--cobalt);
+    }
+    .btn-connect-white:hover { background: rgba(255,255,255,0.9); }
+    .btn-connect-ghost {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+    }
+    .btn-connect-ghost:hover { background: rgba(255,255,255,0.2); }
+
+    /* ════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════ */
+    .footer {
+      padding: 52px 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+    .footer-brand-text {
+      font-size: 13px;
+      color: var(--mid);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--cobalt); }
+    .footer-meta {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════════════════
+       SCROLL ANIMATION SYSTEM
+    ════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.72s ease, transform 0.72s ease;
+    }
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
+    .reveal-delay-5 { transition-delay: 0.40s; }
+    .reveal-delay-6 { transition-delay: 0.48s; }
+
+    /* ════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .hero {
+        grid-template-columns: 1fr 340px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .hero-content {
+        padding-top: calc(var(--nav-h) + 60px);
+        padding-right: var(--pad);
+        margin-left: 0;
+        order: 2;
+      }
+      .hero-image {
+        height: 380px;
+        order: 1;
+      }
+      .hero::after { display: none; }
+      .hero-scroll { display: none; }
+      .crossings-grid { grid-template-columns: 1fr; }
+      .capabilities-grid { grid-template-columns: 1fr 1fr; }
+      .cap-card:nth-child(3n) { border-right: 1px solid var(--border); }
+      .cap-card:nth-child(even) { border-right: none; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .metric-item:nth-child(even) { border-right: none; }
+      .metric-item:nth-child(n+3) { border-top: 1px solid var(--border); }
+      .audiences-grid { grid-template-columns: 1fr; }
+      .connect-box {
+        grid-template-columns: 1fr;
+        padding: 56px 40px;
+        gap: 40px;
+      }
+      .nav-links { display: none; }
+      .nav-cta-desktop { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    @media (max-width: 640px) {
+      .capabilities-grid { grid-template-columns: 1fr; }
+      .cap-card { border-right: none !important; }
+      .cap-card:nth-last-child(-n+3) { border-bottom: 1px solid var(--border); }
+      .cap-card:last-child { border-bottom: none; }
+      .connect-box { padding: 40px 28px; }
+      .hero-credentials { display: none; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .proof-footer-inner { flex-wrap: wrap; }
+    }
+
+    @media (max-width: 480px) {
+      .metrics-grid { grid-template-columns: 1fr; }
+      .metric-item { border-right: none; }
+      .metric-item:nth-child(n+2) { border-top: 1px solid var(--border); }
+    }
+  </style>
 </head>
-<body>
 
-<div id="bg-photo"><img src="assets/meza-headshot.jpg" alt=""/></div>
-<div id="bg-overlay"></div>
+<body class="js-ready">
 
-<nav id="site-nav">
-  <a class="nav-logo" href="#hero">
-    <svg width="44" height="22" viewBox="0 0 44 22" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block;">
-      <text x="0" y="18" font-family="Inter,sans-serif" font-weight="900" font-size="19" fill="var(--text)">M</text>
-      <line x1="22" y1="0" x2="17" y2="22" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round"/>
-      <text x="21" y="18" font-family="Inter,sans-serif" font-weight="900" font-size="19" fill="var(--text)">M</text>
-    </svg>
-    MATTHEW MEZA
-  </a>
-  <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="#about" data-section="about">Profile</a></li>
-      <li><a href="#expertise" data-section="expertise">Expertise</a></li>
-      <li><a href="#career" data-section="career">Career</a></li>
-      <li><a href="#education" data-section="education">Education</a></li>
-      <li><a href="#contact" class="nav-cta" data-section="contact">Contact</a></li>
+<!-- ════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand" aria-label="Matthew Meza — home">
+      <svg width="30" height="30" viewBox="0 0 76 76" fill="none" aria-hidden="true">
+        <path d="M8 44 Q38 8 68 44" stroke="#3B82F6" stroke-width="1.8" fill="none" opacity=".5"/>
+        <line x1="20" y1="44" x2="20" y2="66" stroke="#3B82F6" stroke-width="1.3" opacity=".4"/>
+        <line x1="56" y1="44" x2="56" y2="66" stroke="#3B82F6" stroke-width="1.3" opacity=".4"/>
+        <line x1="6" y1="66" x2="70" y2="66" stroke="#3B82F6" stroke-width="1.3" opacity=".4"/>
+        <path d="M14 64 L14 26 L38 50 L62 26 L62 64" stroke="#3B82F6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <div>
+        <div class="nav-brand-name">Matthew Meza</div>
+        <div class="nav-brand-role">CFO · Kanad Hospital</div>
+      </div>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#bridge">01 — The Bridge</a></li>
+      <li><a href="#capabilities">02 — Capabilities</a></li>
+      <li><a href="#proof">03 — Proof</a></li>
+      <li><a href="#audiences">04 — Audiences</a></li>
     </ul>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="4"/>
-        <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
+
+    <a href="#connect" class="btn nav-cta nav-cta-desktop">Connect</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
   </div>
 </nav>
 
-<div class="hero-scroll" id="scroll-hint">Scroll</div>
-
-<div id="page">
-  <section id="hero" class="hero">
-    <div class="hero-inner" id="hero-inner">
-      <p class="hero-eyebrow">Executive &middot; Operator &middot; Strategist</p>
-      <h1>
-        <span class="name-first">Matthew</span>
-        <span class="name-last">Meza</span>
-      </h1>
-      <p class="hero-sub">
-        I've built financial systems from the ground up &mdash; at Amazon-scale operations and inside mission-driven hospitals. Every environment has been different. The fundamentals have stayed the same.
-      </p>
-      <a href="#about" class="btn-primary">View profile</a>
-    </div>
-  </section>
-
-  <div class="content">
-
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <div class="ticker-item"><span class="ticker-label">Current</span><span class="ticker-sep">|</span><span class="ticker-val">CFO &middot; Kanad Hospital, UAE</span></div>
-        <div class="ticker-item"><span class="ticker-label">Prior</span><span class="ticker-sep">|</span><span class="ticker-val">Operations Manager &middot; Amazon</span></div>
-        <div class="ticker-item"><span class="ticker-label">Education</span><span class="ticker-sep">|</span><span class="ticker-val">MBA &middot; Johns Hopkins University</span></div>
-        <div class="ticker-item"><span class="ticker-label">Scope</span><span class="ticker-sep">|</span><span class="ticker-val">Finance &middot; Operations &middot; Strategy</span></div>
-        <div class="ticker-item"><span class="ticker-label">Based</span><span class="ticker-sep">|</span><span class="ticker-val">Al Ain, United Arab Emirates</span></div>
-        <div class="ticker-item"><span class="ticker-label">Open to</span><span class="ticker-sep">|</span><span class="ticker-val">Advisory &middot; Consulting &middot; Board Roles</span></div>
-        <div class="ticker-item"><span class="ticker-label">Current</span><span class="ticker-sep">|</span><span class="ticker-val">CFO &middot; Kanad Hospital, UAE</span></div>
-        <div class="ticker-item"><span class="ticker-label">Prior</span><span class="ticker-sep">|</span><span class="ticker-val">Operations Manager &middot; Amazon</span></div>
-        <div class="ticker-item"><span class="ticker-label">Education</span><span class="ticker-sep">|</span><span class="ticker-val">MBA &middot; Johns Hopkins University</span></div>
-        <div class="ticker-item"><span class="ticker-label">Scope</span><span class="ticker-sep">|</span><span class="ticker-val">Finance &middot; Operations &middot; Strategy</span></div>
-        <div class="ticker-item"><span class="ticker-label">Based</span><span class="ticker-sep">|</span><span class="ticker-val">Al Ain, United Arab Emirates</span></div>
-        <div class="ticker-item"><span class="ticker-label">Open to</span><span class="ticker-sep">|</span><span class="ticker-val">Advisory &middot; Consulting &middot; Board Roles</span></div>
-      </div>
-    </div>
-
-    <!-- NUMBERS -->
-    <section class="section">
-      <div class="sec-tag reveal">
-        <span class="sec-num">[ 00 ] BY THE NUMBERS</span>
-        <div class="sec-line"></div>
-      </div>
-      <div class="numbers-grid">
-        <div class="num-card reveal reveal-delay-1">
-          <div class="num-val" data-count="200" data-prefix="$" data-suffix="M+">$0</div>
-          <div class="num-label">Inventory managed<br>at Amazon peak operations</div>
-        </div>
-        <div class="num-card reveal reveal-delay-2">
-          <div class="num-val" data-count="6" data-suffix="">0</div>
-          <div class="num-label">Enterprise functions<br>led simultaneously as CFO</div>
-        </div>
-        <div class="num-card reveal reveal-delay-3">
-          <div class="num-val" data-count="54" data-suffix="%">0%</div>
-          <div class="num-label">Budget performance<br>improvement, FY24</div>
-        </div>
-        <div class="num-card reveal reveal-delay-4">
-          <div class="num-val" data-typewriter="Zero → Live">Zero &rarr; Live</div>
-          <div class="num-label">ERP platforms built<br>from scratch</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section section-alt">
-      <div class="sec-tag reveal">
-        <span class="sec-num">[ 01 ] PROFILE</span>
-        <div class="sec-line"></div>
-      </div>
-      <div class="about-grid">
-        <div>
-          <div class="heading-reveal reveal"><h2>ABOUT</h2></div>
-          <div class="about-tags" style="margin-top:2rem;">
-            <span class="tag reveal reveal-delay-1">Financial Strategy</span>
-            <span class="tag reveal reveal-delay-1">Operational Leadership</span>
-            <span class="tag reveal reveal-delay-2">Revenue Cycle</span>
-            <span class="tag reveal reveal-delay-2">ERP Implementation</span>
-            <span class="tag reveal reveal-delay-3">Capital Governance</span>
-            <span class="tag reveal reveal-delay-3">Board Reporting</span>
-            <span class="tag reveal reveal-delay-4">Systems Thinking</span>
-            <span class="tag reveal reveal-delay-4">Team Development</span>
-            <span class="tag reveal reveal-delay-5">Mission-Driven Orgs</span>
-            <span class="tag reveal reveal-delay-5">Supply Chain</span>
-          </div>
-        </div>
-        <div class="about-body">
-          <p class="reveal">There's a version of finance that just keeps score. I've always been more interested in what the numbers are trying to say.</p>
-          <p class="reveal reveal-delay-1">My job is to build the financial and operational infrastructure that lets organizations focus on what they're actually here to do. That's looked different at each stage &mdash; managing $200M in inventory through record-peak volumes at Amazon, then joining Kanad Hospital in Abu Dhabi during one of the more complex transformations a healthcare institution can go through: a full ERP from scratch, a revenue cycle redesign, and six enterprise functions brought under one financial framework for the first time.</p>
-          <p class="reveal reveal-delay-2">I'm still early in a career I take seriously. I hold an MBA and Graduate Certificate in Investments from Johns Hopkins, and I'm genuinely interested in the work of building institutions that last &mdash; whether that's in healthcare, nonprofits, or wherever good organizations need someone willing to roll up their sleeves and get the foundations right.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERTISE -->
-    <section id="expertise" class="section">
-      <div class="sec-tag reveal">
-        <span class="sec-num">[ 02 ] EXPERTISE</span>
-        <div class="sec-line"></div>
-      </div>
-      <div class="heading-reveal reveal"><h2>CAPABILITIES</h2></div>
-      <div class="cap-grid">
-        <div class="cap-card reveal reveal-delay-1">
-          <div class="cap-id">CAP_001</div>
-          <h3>Financial Strategy</h3>
-          <p>FP&amp;A, zero-based budgeting, bottoms-up modeling, and the variance governance that keeps institutions honest month to month. I build frameworks leadership can actually use, not just report against.</p>
-        </div>
-        <div class="cap-card reveal reveal-delay-2">
-          <div class="cap-id">CAP_002</div>
-          <h3>Revenue Cycle</h3>
-          <p>From payer contracting to claims integrity to collections reform. I've led large-scale RCM transitions, including a hybrid insourcing strategy that cleared a significant claims backlog within three months.</p>
-        </div>
-        <div class="cap-card reveal reveal-delay-3">
-          <div class="cap-id">CAP_003</div>
-          <h3>ERP &amp; Analytics</h3>
-          <p>Led two enterprise platform implementations from zero to live. I care about building systems that surface the right information at the right time &mdash; not just systems that technically function.</p>
-        </div>
-        <div class="cap-card reveal reveal-delay-1">
-          <div class="cap-id">CAP_004</div>
-          <h3>Capital Governance</h3>
-          <p>I design CapEx frameworks that connect investment requests to ROI, depreciation cycles, and strategic fit. The goal is decisions that hold up over time, made with the right rigor from the start.</p>
-        </div>
-        <div class="cap-card reveal reveal-delay-2">
-          <div class="cap-id">CAP_005</div>
-          <h3>Supply Chain &amp; Operations</h3>
-          <p>Before healthcare, Amazon. The operational discipline from that environment &mdash; clear systems, tight accountability, data-grounded decisions &mdash; is something I've brought into every supply chain and procurement challenge since.</p>
-        </div>
-        <div class="cap-card reveal reveal-delay-3">
-          <div class="cap-id">CAP_006</div>
-          <h3>Investment &amp; Planning</h3>
-          <p>Trained in portfolio theory, valuation, and derivatives at Johns Hopkins. I apply that thinking to institutional capital planning and long-range financial strategy, with a particular interest in mission-aligned organizations.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CAREER -->
-    <section id="career" class="section section-alt">
-      <div class="sec-tag reveal">
-        <span class="sec-num">[ 03 ] CAREER</span>
-        <div class="sec-line"></div>
-      </div>
-      <div class="heading-reveal reveal"><h2 style="margin-bottom:3rem;">EXPERIENCE</h2></div>
-      <div class="tl">
-
-        <div class="tl-item reveal">
-          <div class="tl-date">2023<br>Present</div>
-          <div class="tl-divider"></div>
-          <div>
-            <div class="tl-org">Kanad Hospital</div>
-            <div class="tl-role">Chief Finance Officer &middot; Al Ain, UAE</div>
-            <p class="tl-desc">Kanad is one of Abu Dhabi's premier maternity hospitals. When I joined, the institution was mid-transformation: a full ERP from the ground up, a revenue cycle redesign, and six enterprise functions &mdash; finance, RCM, supply chain, IT, patient access, and marketing &mdash; brought under one financial framework for the first time.</p>
-            <p class="tl-desc">We delivered a 54% improvement in budget performance in the first fiscal year. There's still meaningful work ahead, and I'm glad to be part of it.</p>
-          </div>
-        </div>
-
-        <div class="tl-item reveal reveal-delay-2">
-          <div class="tl-date">2021<br>2023</div>
-          <div class="tl-divider"></div>
-          <div>
-            <div class="tl-org">Amazon</div>
-            <div class="tl-role">Operations Manager &middot; Fresno, CA &amp; San Antonio, TX</div>
-            <p class="tl-desc">I helped launch SAT3 &mdash; one of the largest robotics fulfillment facilities in North America. $200M in inventory, 125+ associates, record-peak throughput from day one. The facility moved from 27th to 5th in national performance rankings within six months.</p>
-            <p class="tl-desc">A continuous improvement model I developed during that period was adopted across the network. What I took from Amazon &mdash; a respect for clear systems, accountable teams, and decisions grounded in data &mdash; has shaped how I approach every operational challenge since.</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="section">
-      <div class="sec-tag reveal">
-        <span class="sec-num">[ 04 ] EDUCATION</span>
-        <div class="sec-line"></div>
-      </div>
-      <div class="heading-reveal reveal"><h2>CREDENTIALS</h2></div>
-      <div class="edu-grid">
-        <div class="edu-card reveal reveal-delay-1">
-          <div class="edu-year">2026</div>
-          <div class="edu-school">Johns Hopkins</div>
-          <div class="edu-deg">M.B.A., Financial Management &amp; Public and Private Leadership &middot; Carey Business School</div>
-          <div class="edu-tags">
-            <span class="edu-tag">Finance</span><span class="edu-tag">Strategy</span>
-            <span class="edu-tag">Leadership</span><span class="edu-tag">Healthcare Systems</span>
-          </div>
-        </div>
-        <div class="edu-card reveal reveal-delay-2">
-          <div class="edu-year">2026</div>
-          <div class="edu-school">Johns Hopkins</div>
-          <div class="edu-deg">Graduate Certificate, Investments &middot; Carey Business School</div>
-          <div class="edu-tags">
-            <span class="edu-tag">Investments</span><span class="edu-tag">Valuation</span>
-            <span class="edu-tag">Derivatives</span><span class="edu-tag">Portfolio Theory</span>
-          </div>
-        </div>
-        <div class="edu-card reveal reveal-delay-3">
-          <div class="edu-year">2019</div>
-          <div class="edu-school">Liberty University</div>
-          <div class="edu-deg">B.B.A., Marketing Analytics &middot; Lynchburg, Virginia</div>
-          <div class="edu-tags">
-            <span class="edu-tag">Marketing</span><span class="edu-tag">Analytics</span>
-            <span class="edu-tag">NCAA Div. I Athlete</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section">
-      <div class="contact-bg"></div>
-      <div class="contact-glow"></div>
-      <div class="contact-inner">
-        <div class="sec-tag reveal">
-          <span class="sec-num">[ 05 ] CONTACT</span>
-          <div class="sec-line" style="max-width:160px;"></div>
-        </div>
-        <div class="heading-reveal reveal"><h2 style="margin-bottom:1.5rem;">LET'S<br>CONNECT</h2></div>
-        <p class="contact-sub reveal reveal-delay-1">If you're building something that matters and need someone who has worked both sides of the operator and strategist line &mdash; I'd like to hear about it.</p>
-        <div class="contact-row reveal reveal-delay-2">
-          <a href="mailto:matt@matthewmeza.com" class="contact-link">matt@matthewmeza.com</a>
-          <span class="contact-divider">|</span>
-          <a href="https://www.linkedin.com/in/matthewameza" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>
-        <svg width="36" height="18" viewBox="0 0 44 22" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;margin-right:8px;opacity:0.55;">
-          <text x="0" y="18" font-family="Inter,sans-serif" font-weight="900" font-size="19" fill="var(--text)">M</text>
-          <line x1="22" y1="0" x2="17" y2="22" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round"/>
-          <text x="21" y="18" font-family="Inter,sans-serif" font-weight="900" font-size="19" fill="var(--text)">M</text>
-        </svg>
-        &nbsp;Matthew Meza &copy; 2026
-      </p>
-      <p>matthewmeza.com &nbsp;<span class="footer-mark">|</span>&nbsp; Al Ain, UAE</p>
-    </footer>
-
-  </div>
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <a href="#bridge" class="drawer-link">01 — The Bridge</a>
+  <a href="#capabilities" class="drawer-link">02 — Capabilities</a>
+  <a href="#proof" class="drawer-link">03 — Proof</a>
+  <a href="#audiences" class="drawer-link">04 — Audiences</a>
+  <a href="#connect" class="drawer-cta">Connect</a>
 </div>
 
+
+<!-- ════════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<section class="hero" id="hero" aria-label="Matthew Meza — hero">
+
+  <div class="hero-content">
+    <span class="hero-eyebrow" id="h-eyebrow">
+      CFO · Kanad Hospital · Al Ain, UAE
+    </span>
+
+    <h1 class="hero-name" id="h-name">
+      Matthew<br>
+      <span class="cobalt">Meza.</span>
+    </h1>
+
+    <p class="hero-tagline" id="h-tagline">
+      Where systems<br>meet mission.
+    </p>
+
+    <p class="hero-statement" id="h-statement">
+      Building the financial and operational infrastructure that lets mission-driven institutions focus on what they're actually there to do.
+    </p>
+
+    <div class="hero-actions" id="h-actions">
+      <a href="#connect" class="btn btn-primary">Connect</a>
+      <a href="#bridge" class="btn btn-outline">The Bridge →</a>
+    </div>
+
+    <div class="hero-credentials" id="h-creds">
+      <div class="credential-item">
+        <span class="cred-value">Amazon</span>
+        <span class="cred-label">Prior Role</span>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="credential-item">
+        <span class="cred-value">JHU MBA '26</span>
+        <span class="cred-label">Education</span>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="credential-item">
+        <span class="cred-value">Al Ain, UAE</span>
+        <span class="cred-label">Location</span>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="credential-item">
+        <span class="cred-value">GCC · Global</span>
+        <span class="cred-label">Market</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img
+      src="assets/meza-headshot.jpg"
+      alt="Matthew Meza — CFO, Kanad Hospital"
+      loading="eager"
+      onerror="this.parentElement.classList.add('no-photo'); this.style.display='none';"
+    >
+    <div class="hero-image-scrim"></div>
+  </div>
+
+  <div class="hero-scroll" id="h-scroll">
+    <div class="scroll-track"></div>
+    <span class="scroll-label">Scroll</span>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     01 — THE BRIDGE
+════════════════════════════════════ -->
+<section class="section" id="bridge" aria-labelledby="bridge-title">
+  <div class="wrap">
+    <span class="sec-eyebrow reveal">01 — The Bridge</span>
+    <h2 class="sec-title reveal reveal-delay-1" id="bridge-title">
+      The positioning<br>is the strategy.
+    </h2>
+    <p class="sec-intro reveal reveal-delay-2">
+      The executives who create the most durable value are not the deepest experts in one world. They are the ones who carry operational intelligence across contexts that never otherwise communicate. Matthew's career is the proof of concept.
+    </p>
+
+    <div class="positioning-box reveal reveal-delay-2">
+      <span class="pb-label">Positioning Statement</span>
+      <p class="pb-statement">
+        Matthew Meza builds the financial and operational infrastructure that lets mission-driven institutions focus on what they're actually there to do.
+      </p>
+      <p class="pb-sub">
+        Not by importing best practices from adjacent industries — by living in radically different worlds and translating what he finds.
+      </p>
+    </div>
+
+    <div class="crossings-grid">
+      <div class="crossing-card reveal reveal-delay-1">
+        <span class="crossing-num">Crossing 01</span>
+        <div class="crossing-from">Amazon</div>
+        <div class="crossing-arrow">
+          <div class="crossing-arrow-line"></div>
+          <span class="crossing-to">→ Kanad Hospital</span>
+        </div>
+        <p class="crossing-desc">
+          Amazon-scale operational discipline — $200M inventory, 125+ associates, robotics fulfillment at peak throughput — translated into hospital supply chain, procurement reform, and ERP implementation built from zero.
+        </p>
+        <div class="crossing-tags" data-label="What transferred">
+          <span class="tag">CI Systems</span>
+          <span class="tag">Accountability Frameworks</span>
+          <span class="tag">Data-Driven Decisions</span>
+        </div>
+      </div>
+
+      <div class="crossing-card reveal reveal-delay-2">
+        <span class="crossing-num">Crossing 02</span>
+        <div class="crossing-from">Corporate</div>
+        <div class="crossing-arrow">
+          <div class="crossing-arrow-line"></div>
+          <span class="crossing-to">→ Mission</span>
+        </div>
+        <p class="crossing-desc">
+          Financial rigor applied inside a purpose-driven institution where the constraint isn't margin optimization — it's mission integrity. 54% budget performance improvement in year one without compromising care quality.
+        </p>
+        <div class="crossing-tags" data-label="What transferred">
+          <span class="tag">Zero-Based Budgeting</span>
+          <span class="tag">Variance Governance</span>
+          <span class="tag">Outcome-Oriented Design</span>
+        </div>
+      </div>
+
+      <div class="crossing-card reveal reveal-delay-3">
+        <span class="crossing-num">Crossing 03</span>
+        <div class="crossing-from">West</div>
+        <div class="crossing-arrow">
+          <div class="crossing-arrow-line"></div>
+          <span class="crossing-to">→ Gulf</span>
+        </div>
+        <p class="crossing-desc">
+          US-trained financial and operational leadership executed inside one of the world's most complex healthcare markets. Al Ain is not a footnote — it is where the actual work happens.
+        </p>
+        <div class="crossing-tags" data-label="What transferred">
+          <span class="tag">Market Fluency</span>
+          <span class="tag">Institutional Relationships</span>
+          <span class="tag">Regional Credibility</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     02 — CAPABILITIES
+════════════════════════════════════ -->
+<section class="section" id="capabilities" aria-labelledby="cap-title">
+  <div class="wrap">
+    <span class="sec-eyebrow reveal">02 — Capabilities</span>
+    <h2 class="sec-title reveal reveal-delay-1" id="cap-title">
+      Six functions.<br>One mandate.
+    </h2>
+    <p class="sec-intro reveal reveal-delay-2">
+      Consolidated oversight across the full range of hospital operations — each function built or rebuilt to operate with institutional-grade discipline inside a mission-driven environment.
+    </p>
+
+    <div class="capabilities-grid">
+
+      <div class="cap-card reveal reveal-delay-1">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="cap-title">Finance & Capital Governance</h3>
+        <p class="cap-desc">Board-level financial reporting, IFRS-compliant accounting, capital allocation, and treasury. Full P&L ownership with zero-based budget governance built from the ground up.</p>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-2">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="cap-title">Revenue Cycle Management</h3>
+        <p class="cap-desc">End-to-end RCM covering claims, payer contracts, denial management, and IFRS 9 / ECL-compliant receivables. Significant reductions in AR days and collection risk exposure.</p>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-3">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        </div>
+        <h3 class="cap-title">IT Governance</h3>
+        <p class="cap-desc">Full ERP implementation ownership, IT governance framework design, and digital infrastructure oversight — built from zero with internal talent developed at every layer.</p>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-1">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h3 class="cap-title">Supply Chain & Procurement</h3>
+        <p class="cap-desc">Amazon-trained procurement discipline applied to hospital supply chain. CI framework cut procurement cycle time by a third. Vendor governance, formulary management, and inventory optimization.</p>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-2">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="cap-title">Patient Access & Experience</h3>
+        <p class="cap-desc">Registration, scheduling, insurance verification, and patient throughput — designed to make the front end of care as precise and accountable as the financial back end.</p>
+      </div>
+
+      <div class="cap-card reveal reveal-delay-3">
+        <div class="cap-icon">
+          <svg viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        </div>
+        <h3 class="cap-title">Strategy & Capital Projects</h3>
+        <p class="cap-desc">Board-level strategic planning, capital governance, and organizational design. Business development, market entry analysis, and marketing aligned to institutional positioning.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     03 — PROOF
+════════════════════════════════════ -->
+<section class="proof-section" id="proof" aria-labelledby="proof-title">
+  <div class="wrap">
+    <div class="proof-header">
+      <span class="sec-eyebrow reveal">03 — Proof</span>
+      <h2 class="sec-title reveal reveal-delay-1" id="proof-title">
+        The work,<br>in numbers.
+      </h2>
+    </div>
+  </div>
+
+  <div class="metrics-grid" role="list">
+    <div class="metric-item reveal reveal-delay-1" role="listitem">
+      <div class="metric-number">
+        <span class="counter" data-target="54">0</span><span class="suffix">%</span>
+      </div>
+      <span class="metric-label">Budget Performance</span>
+      <p class="metric-desc">Budget-to-actual improvement in year one at Kanad — built on zero-based governance and real-time variance reporting.</p>
+    </div>
+    <div class="metric-item reveal reveal-delay-2" role="listitem">
+      <div class="metric-number">
+        <span class="prefix">$</span><span class="counter" data-target="200">0</span><span class="suffix">M+</span>
+      </div>
+      <span class="metric-label">Inventory Oversight</span>
+      <p class="metric-desc">Amazon operations at scale — robotics fulfillment, 125+ associates, peak throughput across a global network.</p>
+    </div>
+    <div class="metric-item reveal reveal-delay-3" role="listitem">
+      <div class="metric-number">
+        <span class="counter" data-target="6">0</span>
+      </div>
+      <span class="metric-label">Functions Consolidated</span>
+      <p class="metric-desc">Finance, RCM, IT governance, supply chain, patient access, and marketing — unified under single executive leadership.</p>
+    </div>
+    <div class="metric-item reveal reveal-delay-4" role="listitem">
+      <div class="metric-number">
+        <span class="counter" data-target="2">0</span>
+      </div>
+      <span class="metric-label">ERP Implementations</span>
+      <p class="metric-desc">Full implementation cycles completed — from system selection through go-live and post-implementation governance. Built to last.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="proof-footer">
+      <div class="proof-footer-inner">
+        <span class="pf-label">Education</span>
+        <div class="pf-line"></div>
+        <span class="pf-value">Executive MBA · Johns Hopkins University · 2026 · Co-Terminal Certificate in Investments</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     04 — AUDIENCES
+════════════════════════════════════ -->
+<section class="section" id="audiences" aria-labelledby="aud-title">
+  <div class="wrap">
+    <span class="sec-eyebrow reveal">04 — Audiences</span>
+    <h2 class="sec-title reveal reveal-delay-1" id="aud-title">
+      Built in three<br>worlds. Applied<br>in yours.
+    </h2>
+    <p class="sec-intro reveal reveal-delay-2">
+      The Bridge positioning speaks to a specific set of institutions and leaders — those where financial rigor and mission integrity must coexist without compromise.
+    </p>
+
+    <div class="audiences-grid">
+      <div class="audience-card reveal reveal-delay-1">
+        <span class="audience-num">A1</span>
+        <div>
+          <h3 class="audience-title">GCC Healthcare Boards & Governance</h3>
+          <p class="audience-desc">Board advisory and independent director roles across Abu Dhabi, Dubai, and the wider Gulf region. Regional credibility backed by institutional finance depth and mission alignment.</p>
+        </div>
+      </div>
+
+      <div class="audience-card reveal reveal-delay-2">
+        <span class="audience-num">A2</span>
+        <div>
+          <h3 class="audience-title">PE-Backed Healthcare Operators</h3>
+          <p class="audience-desc">Private equity firms holding hospital and clinic assets seeking CFO talent or advisory with both operational depth and institutional finance fluency — not just oversight.</p>
+        </div>
+      </div>
+
+      <div class="audience-card reveal reveal-delay-3">
+        <span class="audience-num">A3</span>
+        <div>
+          <h3 class="audience-title">International Organizations Entering MENA</h3>
+          <p class="audience-desc">Health systems, consulting firms, and investors seeking MENA market entry guidance from someone who operates there — not visits. Al Ain is the operating context, not the footnote.</p>
+        </div>
+      </div>
+
+      <div class="audience-card reveal reveal-delay-4">
+        <span class="audience-num">A4</span>
+        <div>
+          <h3 class="audience-title">Mission-Driven Institutions Needing Transformation</h3>
+          <p class="audience-desc">Nonprofits, faith-based health systems, and foundations that need financial transformation without losing their soul. The Bridge speaks directly to this tension.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     05 — CONNECT
+════════════════════════════════════ -->
+<section class="connect-section" id="connect" aria-labelledby="connect-title">
+  <div class="wrap">
+    <div class="connect-box reveal">
+      <div>
+        <span class="connect-label">05 — Connect</span>
+        <h2 class="connect-headline" id="connect-title">
+          The infrastructure<br>work starts here.
+        </h2>
+        <p class="connect-body">
+          Every organization that engages gets the accumulated intelligence of three radically different operational worlds — applied with the discipline of Amazon, the purpose of a mission hospital, and the market fluency of someone who actually lives in the Gulf.
+        </p>
+      </div>
+
+      <div class="connect-actions">
+        <a href="mailto:matt@matthewmeza.com" class="btn-connect btn-connect-white">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          matt@matthewmeza.com
+        </a>
+        <a href="https://linkedin.com/in/matthewameza" target="_blank" rel="noopener noreferrer" class="btn-connect btn-connect-ghost">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/matthewameza
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
+     FOOTER
+════════════════════════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <a href="#" class="footer-brand" aria-label="Matthew Meza — home">
+        <svg width="22" height="22" viewBox="0 0 76 76" fill="none" aria-hidden="true">
+          <path d="M8 44 Q38 8 68 44" stroke="#3B82F6" stroke-width="1.8" fill="none" opacity=".5"/>
+          <line x1="20" y1="44" x2="20" y2="66" stroke="#3B82F6" stroke-width="1.3" opacity=".4"/>
+          <line x1="56" y1="44" x2="56" y2="66" stroke="#3B82F6" stroke-width="1.3" opacity=".4"/>
+          <line x1="6" y1="66" x2="70" y2="66" stroke="#3B82F6" stroke-width="1.3" opacity=".4"/>
+          <path d="M14 64 L14 26 L38 50 L62 26 L62 64" stroke="#3B82F6" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="footer-brand-text">Matthew Meza · matthewmeza.com</span>
+      </a>
+
+      <ul class="footer-links" role="list">
+        <li><a href="mailto:matt@matthewmeza.com">Email</a></li>
+        <li><a href="https://linkedin.com/in/matthewameza" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+
+      <div class="footer-meta">
+        © 2026 Matthew Meza<br>Al Ain, United Arab Emirates
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
 <script>
-(function(){
-  const html   = document.documentElement;
-  const toggle = document.getElementById('theme-toggle');
-  const saved  = localStorage.getItem('mm-theme');
-  if(saved) html.setAttribute('data-theme', saved);
-  toggle.addEventListener('click', function(){
-    const current = html.getAttribute('data-theme') || 'dark';
-    const next = current === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('mm-theme', next);
-  });
+(function () {
+  'use strict';
 
-  const nav  = document.getElementById('site-nav');
-  const hint = document.getElementById('scroll-hint');
-  window.addEventListener('scroll', function(){
+  /* ── NAV: scroll state ── */
+  const nav = document.getElementById('nav');
+  let lastScroll = 0;
+
+  function onScroll() {
     const y = window.scrollY;
-    nav.classList.toggle('scrolled', y > 60);
-    hint.style.opacity = y > 80 ? '0' : '1';
-    hint.style.pointerEvents = y > 80 ? 'none' : 'auto';
-  }, {passive:true});
-
-  const sections = ['about','expertise','career','education','contact'];
-  const navLinks = document.querySelectorAll('.nav-links a[data-section]');
-  const secObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        navLinks.forEach(function(a){ a.classList.remove('active'); });
-        const link = document.querySelector('.nav-links a[data-section="'+entry.target.id+'"]');
-        if(link) link.classList.add('active');
-      }
-    });
-  },{threshold:0.35});
-  sections.forEach(function(id){
-    const el = document.getElementById(id);
-    if(el) secObs.observe(el);
-  });
-
-  window.addEventListener('load', function(){
-    setTimeout(function(){
-      document.getElementById('hero-inner').classList.add('loaded');
-    }, 100);
-  });
-
-  const revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        revealObs.unobserve(entry.target);
-      }
-    });
-  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal,.heading-reveal').forEach(function(el){
-    revealObs.observe(el);
-  });
-
-  function animateCount(el, target, prefix, suffix){
-    const duration = 1400;
-    const start = performance.now();
-    function tick(now){
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      const val = Math.round(ease * target);
-      el.textContent = prefix + val + suffix;
-      if(progress < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
+    nav.classList.toggle('elevated', y > 60);
+    lastScroll = y;
   }
-  const counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        const el = entry.target;
-        animateCount(el, parseInt(el.dataset.count), el.dataset.prefix||'', el.dataset.suffix||'');
-        counterObs.unobserve(el);
-      }
-    });
-  },{threshold:0.5});
-  document.querySelectorAll('[data-count]').forEach(function(el){ counterObs.observe(el); });
+  window.addEventListener('scroll', onScroll, { passive: true });
 
-  const twObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        const el = entry.target;
-        const text = el.dataset.typewriter;
-        el.textContent = '';
-        let i = 0;
-        function type(){
-          if(i < text.length){ el.textContent += text[i]; i++; setTimeout(type, 55); }
-        }
-        setTimeout(type, 300);
-        twObs.unobserve(el);
-      }
+  /* ── MOBILE HAMBURGER ── */
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('drawer');
+  let drawerOpen  = false;
+
+  function toggleDrawer(force) {
+    drawerOpen = typeof force === 'boolean' ? force : !drawerOpen;
+    drawer.classList.toggle('open', drawerOpen);
+    hamburger.setAttribute('aria-expanded', String(drawerOpen));
+    document.body.style.overflow = drawerOpen ? 'hidden' : '';
+  }
+
+  hamburger.addEventListener('click', function () { toggleDrawer(); });
+
+  drawer.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { toggleDrawer(false); });
+  });
+
+  /* ── SMOOTH SCROLL FOR ANCHORS ── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      const id = this.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 68;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
     });
-  },{threshold:0.5});
-  document.querySelectorAll('[data-typewriter]').forEach(function(el){ twObs.observe(el); });
+  });
+
+  /* ── HERO ENTRANCE ANIMATION ── */
+  function animateHero() {
+    const seq = [
+      { el: '#h-eyebrow',   delay: 0.15 },
+      { el: '#h-name',      delay: 0.30 },
+      { el: '#h-tagline',   delay: 0.52 },
+      { el: '#h-statement', delay: 0.66 },
+      { el: '#h-actions',   delay: 0.78 },
+      { el: '#h-creds',     delay: 0.92 },
+      { el: '#h-scroll',    delay: 1.10 },
+    ];
+
+    seq.forEach(function (item) {
+      const el = document.querySelector(item.el);
+      if (!el) return;
+      setTimeout(function () {
+        el.style.transition = 'opacity 0.72s ease, transform 0.72s ease';
+        el.style.opacity    = '1';
+        el.style.transform  = 'translateY(0)';
+      }, item.delay * 1000);
+    });
+  }
+
+  /* ── SCROLL REVEAL (IntersectionObserver) ── */
+  function initReveal() {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
+  /* ── COUNTER ANIMATION ── */
+  function runCounter(el) {
+    const target   = parseInt(el.getAttribute('data-target'), 10);
+    const duration = 1600;
+    const start    = performance.now();
+
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased    = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function initCounters() {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          runCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll('.counter').forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
+  /* ── GSAP PARALLAX ON HERO IMAGE ── */
+  function initGSAP() {
+    if (typeof gsap === 'undefined') return;
+    if (typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+  }
+
+  /* ── INIT ── */
+  function init() {
+    animateHero();
+    initReveal();
+    initCounters();
+
+    // GSAP when loaded
+    window.addEventListener('load', initGSAP);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
 })();
 </script>
+
 </body>
 </html>
