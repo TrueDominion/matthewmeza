@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matthew Meza — Where systems meet mission.</title>
-  <meta name="description" content="CFO · Kanad Hospital · Al Ain, UAE. Building the financial and operational infrastructure that lets mission-driven institutions focus on what they're actually there to do. Ex-Amazon. Johns Hopkins MBA 2026.">
+  <meta name="description" content="CFO · Kanad Hospital · Al Ain, UAE. Building the financial and operational infrastructure that lets mission-driven institutions do what they were actually created to do. Ex-Amazon. Johns Hopkins MBA 2026.">
   <meta property="og:title" content="Matthew Meza — Where systems meet mission.">
   <meta property="og:description" content="CFO · Kanad Hospital · Al Ain, UAE. Financial and operational infrastructure for mission-driven institutions.">
   <meta property="og:type" content="website">
@@ -252,7 +252,6 @@
       justify-content: center;
       position: relative;
       z-index: 1;
-      /* Align with max-width container */
       margin-left: max(0px, calc((100vw - var(--max-w)) / 2));
     }
 
@@ -864,7 +863,6 @@
       position: relative;
       overflow: hidden;
     }
-    /* subtle texture in cobalt box */
     .connect-box::before {
       content: '';
       position: absolute;
@@ -1027,9 +1025,7 @@
        RESPONSIVE
     ════════════════════════════════════════════ */
     @media (max-width: 1100px) {
-      .hero {
-        grid-template-columns: 1fr 340px;
-      }
+      .hero { grid-template-columns: 1fr 340px; }
     }
 
     @media (max-width: 900px) {
@@ -1043,10 +1039,7 @@
         margin-left: 0;
         order: 2;
       }
-      .hero-image {
-        height: 380px;
-        order: 1;
-      }
+      .hero-image { height: 380px; order: 1; }
       .hero::after { display: none; }
       .hero-scroll { display: none; }
       .crossings-grid { grid-template-columns: 1fr; }
@@ -1152,8 +1145,9 @@
       Where systems<br>meet mission.
     </p>
 
+    <!-- CHANGED: "focus on what they're actually there to do" → "do what they were actually created to do" -->
     <p class="hero-statement" id="h-statement">
-      Building the financial and operational infrastructure that lets mission-driven institutions focus on what they're actually there to do.
+      Building the financial and operational infrastructure that lets mission-driven institutions do what they were actually created to do.
     </p>
 
     <div class="hero-actions" id="h-actions">
@@ -1216,8 +1210,9 @@
 
     <div class="positioning-box reveal reveal-delay-2">
       <span class="pb-label">Positioning Statement</span>
+      <!-- CHANGED: "focus on what they're actually there to do" → "do what they were actually created to do" -->
       <p class="pb-statement">
-        Matthew Meza builds the financial and operational infrastructure that lets mission-driven institutions focus on what they're actually there to do.
+        Matthew Meza builds the financial and operational infrastructure that lets mission-driven institutions do what they were actually created to do.
       </p>
       <p class="pb-sub">
         Not by importing best practices from adjacent industries — by living in radically different worlds and translating what he finds.
@@ -1249,8 +1244,10 @@
           <div class="crossing-arrow-line"></div>
           <span class="crossing-to">→ Mission</span>
         </div>
+        <!-- CHANGED: Removed "54% budget performance improvement" entirely.
+             Replaced with builder language focused on what was architected from zero. -->
         <p class="crossing-desc">
-          Financial rigor applied inside a purpose-driven institution where the constraint isn't margin optimization — it's mission integrity. 54% budget performance improvement in year one without compromising care quality.
+          Financial governance architecture designed and deployed from scratch inside a purpose-driven institution — where the constraint isn't margin optimization, it's mission integrity. Zero-based budgeting, real-time variance reporting, and board-level P&amp;L accountability built where none existed.
         </p>
         <div class="crossing-tags" data-label="What transferred">
           <span class="tag">Zero-Based Budgeting</span>
@@ -1300,7 +1297,8 @@
           <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
         <h3 class="cap-title">Finance & Capital Governance</h3>
-        <p class="cap-desc">Board-level financial reporting, IFRS-compliant accounting, capital allocation, and treasury. Full P&L ownership with zero-based budget governance built from the ground up.</p>
+        <!-- CHANGED: "built from the ground up" → "designed and deployed from inception" -->
+        <p class="cap-desc">Board-level financial reporting, IFRS-compliant accounting, capital allocation, and treasury. Full P&L ownership with zero-based budget governance and variance architecture designed and deployed from inception.</p>
       </div>
 
       <div class="cap-card reveal reveal-delay-2">
@@ -1316,7 +1314,8 @@
           <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
         </div>
         <h3 class="cap-title">IT Governance</h3>
-        <p class="cap-desc">Full ERP implementation ownership, IT governance framework design, and digital infrastructure oversight — built from zero with internal talent developed at every layer.</p>
+        <!-- CHANGED: Added integration remediation and internal talent development angle -->
+        <p class="cap-desc">Full ERP implementation ownership, IT governance framework design, and digital infrastructure oversight — built from zero with internal talent developed at every layer and integration remediation managed through go-live and beyond.</p>
       </div>
 
       <div class="cap-card reveal reveal-delay-1">
@@ -1362,13 +1361,18 @@
   </div>
 
   <div class="metrics-grid" role="list">
+
+    <!-- CHANGED: Replaced "54% Budget Performance / Budget-to-actual improvement" with
+         "33% Procurement Cycle Reduction" — unambiguously positive, ties back to Amazon crossing.
+         Counter target updated from 54 → 33. -->
     <div class="metric-item reveal reveal-delay-1" role="listitem">
       <div class="metric-number">
-        <span class="counter" data-target="54">0</span><span class="suffix">%</span>
+        <span class="counter" data-target="33">0</span><span class="suffix">%</span>
       </div>
-      <span class="metric-label">Budget Performance</span>
-      <p class="metric-desc">Budget-to-actual improvement in year one at Kanad — built on zero-based governance and real-time variance reporting.</p>
+      <span class="metric-label">Procurement Cycle Reduction</span>
+      <p class="metric-desc">CI framework compressed hospital supply chain lead time by one-third — Amazon-trained operational discipline translated directly into healthcare procurement.</p>
     </div>
+
     <div class="metric-item reveal reveal-delay-2" role="listitem">
       <div class="metric-number">
         <span class="prefix">$</span><span class="counter" data-target="200">0</span><span class="suffix">M+</span>
@@ -1376,6 +1380,7 @@
       <span class="metric-label">Inventory Oversight</span>
       <p class="metric-desc">Amazon operations at scale — robotics fulfillment, 125+ associates, peak throughput across a global network.</p>
     </div>
+
     <div class="metric-item reveal reveal-delay-3" role="listitem">
       <div class="metric-number">
         <span class="counter" data-target="6">0</span>
@@ -1383,13 +1388,16 @@
       <span class="metric-label">Functions Consolidated</span>
       <p class="metric-desc">Finance, RCM, IT governance, supply chain, patient access, and marketing — unified under single executive leadership.</p>
     </div>
+
     <div class="metric-item reveal reveal-delay-4" role="listitem">
       <div class="metric-number">
         <span class="counter" data-target="2">0</span>
       </div>
       <span class="metric-label">ERP Implementations</span>
-      <p class="metric-desc">Full implementation cycles completed — from system selection through go-live and post-implementation governance. Built to last.</p>
+      <!-- CHANGED: "Built to last" → surfaces internal talent development story -->
+      <p class="metric-desc">Full implementation cycles owned — from system selection and vendor governance through go-live, post-implementation stability, and integration remediation. Built with internal talent at every layer.</p>
     </div>
+
   </div>
 
   <div class="wrap">
@@ -1430,7 +1438,8 @@
         <span class="audience-num">A2</span>
         <div>
           <h3 class="audience-title">PE-Backed Healthcare Operators</h3>
-          <p class="audience-desc">Private equity firms holding hospital and clinic assets seeking CFO talent or advisory with both operational depth and institutional finance fluency — not just oversight.</p>
+          <!-- CHANGED: Reframed from "seeking CFO talent" (passive) to "need CFO leadership capable of" (active) -->
+          <p class="audience-desc">Private equity firms holding hospital and clinic assets that need CFO leadership capable of both board-level financial governance and hands-on operational transformation — not just oversight of existing systems.</p>
         </div>
       </div>
 
@@ -1445,8 +1454,12 @@
       <div class="audience-card reveal reveal-delay-4">
         <span class="audience-num">A4</span>
         <div>
-          <h3 class="audience-title">Mission-Driven Institutions Needing Transformation</h3>
-          <p class="audience-desc">Nonprofits, faith-based health systems, and foundations that need financial transformation without losing their soul. The Bridge speaks directly to this tension.</p>
+          <!-- CHANGED: Removed "Needing Transformation" from title (distressed signal).
+               Replaced with "Building for Scale" (growth signal). -->
+          <h3 class="audience-title">Mission-Driven Institutions Building for Scale</h3>
+          <!-- CHANGED: "need financial transformation without losing their soul" →
+               "building institutional financial discipline without compromising mission culture" -->
+          <p class="audience-desc">Nonprofits, faith-based health systems, and foundations building institutional financial discipline without compromising mission culture. The Bridge was designed for exactly this tension.</p>
         </div>
       </div>
     </div>
@@ -1653,8 +1666,6 @@
     animateHero();
     initReveal();
     initCounters();
-
-    // GSAP when loaded
     window.addEventListener('load', initGSAP);
   }
 
