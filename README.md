@@ -1,24 +1,37 @@
 # matthewmeza.com
 
-## Repository file structure
+Personal site built on [Magic Portfolio](https://once-ui.com/products/magic-portfolio) by Once UI (Next.js), exported as a static site and hosted on Cloudflare Pages.
 
-matthewmeza.com/
-├── index.html
-├── _redirects
-├── _headers
-├── README.md
-└── assets/
-    ├── meza-headshot.jpg        ← your photo (exact filename required)
-    └── matthew-meza-cv.pdf      ← your resume (exact filename required)
+## Edit content
 
-## Assets not included in this repo
-Add both files to the /assets folder before pushing:
-- meza-headshot.jpg (3:4 portrait, minimum 800px wide)
-- matthew-meza-cv.pdf
+| What | Where |
+|---|---|
+| Name, role, email, socials, home page copy, metrics, audiences, About page (experience, education, capabilities) | `src/resources/content.tsx` |
+| Theme, colors, fonts, enabled pages, domain | `src/resources/once-ui.config.ts` |
+| Case studies (Work page) | `src/app/work/projects/*.mdx` (one file per case study; newest `publishedAt` lists first) |
+| Images (avatar, social share card, case study covers) | `public/images/` |
 
-## Deployment
-Hosted on Cloudflare Pages.
-Push to main branch → auto-deploys.
+`assets/meza-headshot.jpg` is the full resolution original and is not deployed. Web versions live in `public/images/`.
 
-## To update the site
-Edit index.html, commit, push. Cloudflare redeploys in ~30 seconds.
+## Local development
+
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # static export to /out
+```
+
+## Deployment (Cloudflare Pages)
+
+Project settings → Builds & deployments:
+
+- Framework preset: **None** (or Next.js (Static HTML Export))
+- Build command: `npm run build`
+- Build output directory: `out`
+- Environment variable: `NODE_VERSION` = `22`
+
+Push to `main` and Cloudflare rebuilds automatically.
+
+## License
+
+The template is licensed CC BY-NC 4.0 (see `LICENSE`). The "Build your portfolio with Once UI" footer credit is required unless a Once UI Pro license is purchased.
