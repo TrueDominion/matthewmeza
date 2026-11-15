@@ -83,43 +83,43 @@ const home: Home = {
         value: "2",
         label: "ERP implementations",
         description:
-          "Full implementation cycles owned, from system selection and vendor governance through go-live, stabilization, and integration remediation.",
+          "Full implementation cycles owned, from system selection and vendor governance through go-live and stabilization.",
       },
     ],
   },
   audiences: {
     display: true,
-    title: "Built in three worlds. Applied in yours.",
+    title: "Built in three worlds. Applied where it counts.",
     description:
-      "For institutions and leaders where financial rigor and mission integrity must coexist without compromise.",
+      "The experience is most useful where financial rigor and mission integrity have to coexist.",
     items: [
       {
-        title: "GCC Institutional Boards and Governance",
+        title: "Governance and Board Reporting",
         description:
-          "Board advisory and independent director roles across Abu Dhabi, Dubai, and the wider Gulf. Regional credibility backed by institutional finance depth and cross-sector operating experience.",
+          "Financial governance that gives boards a clear, timely, and defensible view of performance, risk, and capital.",
       },
       {
-        title: "PE-Backed and Institutional Operators",
+        title: "Operational Transformation",
         description:
-          "Assets that need executive leadership capable of both board-level financial governance and hands-on operational transformation, not just oversight of existing systems.",
+          "Turning functions that run on effort into functions that run on systems, with accountability built into how the work is done.",
       },
       {
-        title: "International Organizations Entering MENA",
+        title: "Healthcare in the Gulf",
         description:
-          "Health systems, consulting firms, and investors seeking market entry guidance from someone who operates in the region, not visits it.",
+          "Operating context, not theory. Finance and operations leadership inside one of the region's most demanding regulatory environments.",
       },
       {
-        title: "Complex Institutions Building for Scale",
+        title: "Mission-Driven Institutions",
         description:
-          "Nonprofits, government-linked entities, foundations, and mission-driven organizations building institutional financial discipline without compromising operational culture.",
+          "Building institutional financial discipline without compromising the culture and purpose that make the organization worth running.",
       },
     ],
   },
   connect: {
     display: true,
-    title: "The infrastructure work starts here.",
+    title: "Let's talk.",
     description:
-      "Every engagement gets the accumulated intelligence of three radically different operational worlds: the discipline of Amazon, the financial rigor of a board-level CFO, and the market fluency of someone who actually operates in the Gulf.",
+      "Always glad to connect with leaders working on finance, governance, and healthcare operations, in the Gulf and beyond.",
   },
 };
 
@@ -182,8 +182,8 @@ const about: About = {
             to hospital supply chain, vendor governance, and inventory.
           </>,
           <>
-            Owned ERP implementation from system selection through go-live and integration
-            remediation, building internal talent at every layer.
+            Owned ERP implementation from system selection through go-live, building internal
+            talent at every layer.
           </>,
         ],
         images: [],

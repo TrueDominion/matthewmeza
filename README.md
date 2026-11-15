@@ -34,4 +34,4 @@ Push to `main` and Cloudflare rebuilds automatically.
 
 ## License
 
-The template is licensed CC BY-NC 4.0 (see `LICENSE`). The "Build your portfolio with Once UI" footer credit is required unless a Once UI Pro license is purchased.
+Built on [Magic Portfolio](https://once-ui.com/products/magic-portfolio) by Once UI, licensed CC BY-NC 4.0 (see `LICENSE`). The visible footer credit was removed; Once UI asks for it to stay unless a Pro license is held.
