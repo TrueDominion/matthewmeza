@@ -185,7 +185,7 @@ export default function Home() {
           <Row fillWidth paddingLeft="64" horizontal="end">
             <Line maxWidth={48} />
           </Row>
-          <SectionHeading eyebrow="Audiences" title={home.audiences.title} />
+          <SectionHeading eyebrow="Focus areas" title={home.audiences.title} />
           <Column fillWidth paddingX="l" s={{ paddingX: "8" }}>
             <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
               {home.audiences.description}
