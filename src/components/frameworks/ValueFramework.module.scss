@@ -33,7 +33,7 @@
   position: absolute;
   inset: auto 0 -40% 0;
   height: 70%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(251, 191, 36, 0.07), transparent 70%);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 90, 31, 0.05), transparent 70%);
   pointer-events: none;
   z-index: -1;
 }
@@ -184,7 +184,7 @@
 .risk {
   min-width: min(420px, 100%);
   background:
-    linear-gradient(180deg, rgba(56, 189, 248, 0.06), transparent),
+    linear-gradient(180deg, rgba(15, 27, 51, 0.05), transparent),
     var(--page-background);
 }
 
@@ -207,9 +207,9 @@
 
 .valuation {
   min-width: min(420px, 100%);
-  border-color: rgba(251, 191, 36, 0.35);
+  border-color: rgba(255, 90, 31, 0.45);
   background:
-    linear-gradient(180deg, rgba(251, 191, 36, 0.08), transparent),
+    linear-gradient(180deg, rgba(255, 90, 31, 0.06), transparent),
     var(--page-background);
 
   .sub {
@@ -380,9 +380,9 @@
 .failure {
   margin: 4px 0 0;
   padding: 12px 14px;
-  border-left: 2px solid #f97316;
+  border-left: 2px solid var(--orange);
   border-radius: 0 var(--radius-m) var(--radius-m) 0;
-  background: rgba(249, 115, 22, 0.07);
+  background: rgba(255, 90, 31, 0.07);
   font-size: 14px;
   line-height: 21px;
   color: var(--neutral-on-background-medium);
@@ -395,7 +395,7 @@
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #f97316;
+  color: var(--neutral-on-background-strong);
 }
 
 .connected {

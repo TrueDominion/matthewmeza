@@ -1,320 +1,140 @@
-import {
-  Heading,
-  Text,
-  Button,
-  Avatar,
-  RevealFx,
-  Column,
-  Badge,
-  Row,
-  Schema,
-  Meta,
-  Line,
-  Grid,
-  Background,
-} from "@once-ui-system/core";
-import { home, about, person, baseURL, social } from "@/resources";
-import { Projects } from "@/components/work/Projects";
-
-export async function generateMetadata() {
-  const metadata = Meta.generate({
-    title: home.title,
-    description: home.description,
-    baseURL: baseURL,
-    path: home.path,
-    image: home.image,
-  });
-  // Meta.generate writes a canonical only alongside language alternates.
-  return { ...metadata, alternates: { canonical: metadata.openGraph.url } };
-}
-
-function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) {
-  return (
-    <Column fillWidth gap="8" paddingX="l" s={{ paddingX: "8" }}>
-      <Text variant="label-default-s" onBackground="brand-weak">
-        {eyebrow}
-      </Text>
-      <Heading as="h2" variant="display-strong-xs" wrap="balance">
-        {title}
-      </Heading>
-    </Column>
-  );
-}
+import Link from "next/link";
+import { approach, capabilities, connect, focus, framework, hero, metrics, site } from "@/content";
+import { Truss } from "@/components/Truss";
+import { Section, SectionHead } from "@/components/Section";
+import { ArrowRight, LinkedIn, Mail } from "@/components/Icons";
 
 export default function Home() {
-  const linkedin = social.find((item) => item.name === "LinkedIn");
-
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
-      <Schema
-        as="webPage"
-        baseURL={baseURL}
-        path={home.path}
-        title={home.title}
-        description={home.description}
-        image={home.image}
-        author={{
-          name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
-
+    <>
       {/* Hero */}
-      <Column fillWidth horizontal="center" gap="m">
-        <Column maxWidth="s" horizontal="center" align="center">
-          {home.featured.display && (
-            <RevealFx
-              fillWidth
-              horizontal="center"
-              paddingTop="16"
-              paddingBottom="32"
-              paddingLeft="12"
-            >
-              <Badge
-                background="brand-alpha-weak"
-                paddingX="12"
-                paddingY="4"
-                onBackground="neutral-strong"
-                textVariant="label-default-s"
-                arrow={false}
-                href={home.featured.href}
-              >
-                <Row paddingY="2">{home.featured.title}</Row>
-              </Badge>
-            </RevealFx>
-          )}
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
-            </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={200} fillWidth horizontal="center" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-              {home.subline}
-            </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={400} horizontal="center" paddingLeft="12">
-            <Row gap="12" wrap horizontal="center">
-              <Button
-                id="about"
-                data-border="rounded"
-                href={about.path}
-                variant="secondary"
-                size="m"
-                weight="default"
-                arrowIcon
-              >
-                <Row gap="8" vertical="center" paddingRight="4">
-                  {about.avatar.display && (
-                    <Avatar
-                      marginRight="8"
-                      style={{ marginLeft: "-0.75rem" }}
-                      src={person.avatar}
-                      size="m"
-                      aria-hidden
-                    />
-                  )}
-                  About Matthew
-                </Row>
-              </Button>
-              <Button
-                data-border="rounded"
-                href={`mailto:${person.email}`}
-                variant="primary"
-                size="m"
-                weight="default"
-                prefixIcon="email"
-              >
-                Connect
-              </Button>
-            </Row>
-          </RevealFx>
-        </Column>
-      </Column>
-
-      {/* Proof */}
-      {home.proof.display && (
-        <RevealFx translateY="16" delay={600} fillWidth>
-          <Column fillWidth gap="l" marginTop="l">
-            <SectionHeading eyebrow="Proof" title={home.proof.title} />
-            <Grid
-              fillWidth
-              columns="4"
-              gap="12"
-              paddingX="l"
-              m={{ columns: "2" }}
-              s={{ columns: "1", paddingX: "0" }}
-            >
-              {home.proof.metrics.map((metric) => (
-                <Column
-                  key={metric.label}
-                  fillWidth
-                  padding="l"
-                  gap="8"
-                  radius="l"
-                  border="neutral-alpha-weak"
-                  background="surface"
-                >
-                  <Text variant="display-strong-s" onBackground="brand-strong">
-                    {metric.value}
-                  </Text>
-                  <Text variant="label-strong-s">{metric.label}</Text>
-                  <Text variant="body-default-s" onBackground="neutral-weak">
-                    {metric.description}
-                  </Text>
-                </Column>
-              ))}
-            </Grid>
-          </Column>
-        </RevealFx>
-      )}
-
-      {/* Case studies */}
-      <Column fillWidth gap="l">
-        <Row fillWidth paddingRight="64">
-          <Line maxWidth={48} />
-        </Row>
-        <SectionHeading eyebrow="The Bridge" title="Three crossings. One operating model." />
-        <Projects range={[1, 3]} />
-      </Column>
-
-      {/* Audiences */}
-      {home.audiences.display && (
-        <Column fillWidth gap="l">
-          <Row fillWidth paddingLeft="64" horizontal="end">
-            <Line maxWidth={48} />
-          </Row>
-          <SectionHeading eyebrow="Focus areas" title={home.audiences.title} />
-          <Column fillWidth paddingX="l" s={{ paddingX: "8" }}>
-            <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
-              {home.audiences.description}
-            </Text>
-          </Column>
-          <Grid fillWidth columns="2" gap="12" paddingX="l" s={{ columns: "1", paddingX: "0" }}>
-            {home.audiences.items.map((item, index) => (
-              <Column
-                key={item.title}
-                fillWidth
-                padding="l"
-                gap="8"
-                radius="l"
-                border="neutral-alpha-weak"
-                background="surface"
-              >
-                <Text variant="label-default-s" onBackground="brand-weak">
-                  {`A${index + 1}`}
-                </Text>
-                <Heading as="h3" variant="heading-strong-m">
-                  {item.title}
-                </Heading>
-                <Text variant="body-default-s" onBackground="neutral-weak">
-                  {item.description}
-                </Text>
-              </Column>
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="container">
+          <Truss className="hero__truss" />
+          <p className="eyebrow eyebrow--center">{hero.eyebrow}</p>
+          <h1 id="hero-title" className="hero__title">
+            {hero.headlineLead} <span className="underline">{hero.headlineMark}</span>
+          </h1>
+          <p className="hero__sub">{hero.subline}</p>
+          <div className="hero__actions">
+            <a className="btn btn--primary" href={`mailto:${site.email}`}>
+              Get in touch <ArrowRight />
+            </a>
+            <Link className="btn btn--secondary" href="/about/">
+              About Matthew <ArrowRight />
+            </Link>
+          </div>
+          <dl className="metrics">
+            {metrics.map((m) => (
+              <div key={m.label} className="metric">
+                <dt className="metric__label">{m.label}</dt>
+                <dd className="metric__value">{m.value}</dd>
+                <dd className="metric__context mono">{m.context}</dd>
+              </div>
             ))}
-          </Grid>
-        </Column>
-      )}
+          </dl>
+        </div>
+      </section>
+
+      {/* The Bridge */}
+      <Section id="approach">
+        <SectionHead id="approach-title" eyebrow={approach.eyebrow} title={approach.title} intro={approach.intro} />
+        <ol className="grid grid--3 crossings">
+          {approach.crossings.map((c, i) => (
+            <li key={c.from} className="card crossing">
+              <p className="mono card__num">Crossing {String(i + 1).padStart(2, "0")}</p>
+              <h3 className="crossing__route">
+                <span>{c.from}</span>
+                <span className="crossing__arrow" aria-hidden="true">
+                  <span className="crossing__line" />
+                </span>
+                <span className="sr-only">to</span>
+                <span>{c.to}</span>
+              </h3>
+              <p className="card__body">{c.body}</p>
+              <p className="mono card__label">What transferred</p>
+              <ul className="tags">
+                {c.tags.map((t) => (
+                  <li key={t} className="tag">
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      {/* Capabilities */}
+      <Section id="capabilities">
+        <SectionHead
+          id="capabilities-title"
+          eyebrow={capabilities.eyebrow}
+          title={capabilities.title}
+          intro={capabilities.intro}
+        />
+        <ul className="grid grid--3 capability-grid">
+          {capabilities.items.map((c, i) => (
+            <li key={c.title} className="capability">
+              <span className="capability__node" aria-hidden="true" />
+              <p className="mono capability__num">{String(i + 1).padStart(2, "0")}</p>
+              <h3>{c.title}</h3>
+              <p className="card__body">{c.body}</p>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* Focus areas */}
+      <Section id="focus">
+        <SectionHead id="focus-title" eyebrow={focus.eyebrow} title={focus.title} intro={focus.intro} />
+        <ul className="grid grid--2">
+          {focus.items.map((f) => (
+            <li key={f.title} className="card">
+              <h3>{f.title}</h3>
+              <p className="card__body">{f.body}</p>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
       {/* Framework */}
-      <Column fillWidth gap="l">
-        <Row fillWidth paddingRight="64">
-          <Line maxWidth={48} />
-        </Row>
-        <SectionHeading eyebrow="How I think" title="How finance creates value." />
-        <Column fillWidth paddingX="l" gap="20" s={{ paddingX: "8" }}>
-          <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
-            The goal sets the test. Analysis, planning and control act through four decisions:
-            what to invest in, how to fund it, what to distribute, and how much liquidity to hold.
-            The market keeps score, and the score feeds the next round of analysis. An interactive
-            map of the framework, with what each piece means inside a hospital.
-          </Text>
-          <Row>
-            <Button
-              data-border="rounded"
-              href="/frameworks/value-creation"
-              variant="secondary"
-              size="m"
-              weight="default"
-              prefixIcon="framework"
-              arrowIcon
-            >
-              Explore the framework
-            </Button>
-          </Row>
-        </Column>
-      </Column>
+      <Section id="framework">
+        <div className="feature">
+          <div>
+            <p className="eyebrow">{framework.eyebrow}</p>
+            <h2 id="framework-title">{framework.title}</h2>
+            <p className="lede">{framework.body}</p>
+            <Link className="btn btn--secondary" href={framework.href}>
+              {framework.cta} <ArrowRight />
+            </Link>
+          </div>
+          <ol className="feature__steps" aria-label="Decision areas">
+            {["Investment", "Financing", "Distribution", "Liquidity"].map((s) => (
+              <li key={s}>
+                <span className="feature__node" aria-hidden="true" />
+                <span className="mono">{s}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Section>
 
       {/* Connect */}
-      {home.connect.display && (
-        <Column
-          id="connect"
-          overflow="hidden"
-          fillWidth
-          padding="xl"
-          radius="l"
-          marginBottom="m"
-          horizontal="center"
-          align="center"
-          background="surface"
-          border="neutral-alpha-weak"
-          position="relative"
-        >
-          <Background
-            top="0"
-            position="absolute"
-            mask={{ x: 50, y: 0, radius: 100, cursor: true }}
-            gradient={{
-              display: true,
-              opacity: 90,
-              x: 50,
-              y: 0,
-              width: 50,
-              height: 50,
-              tilt: 0,
-              colorStart: "brand-background-strong",
-              colorEnd: "static-transparent",
-            }}
-            dots={{
-              display: true,
-              opacity: 20,
-              size: "2",
-              color: "brand-on-background-weak",
-            }}
-          />
-          <Column maxWidth="s" gap="16" horizontal="center" align="center" zIndex={1}>
-            <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              {home.connect.title}
-            </Heading>
-            <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
-              {home.connect.description}
-            </Text>
-            <Row gap="12" wrap horizontal="center" paddingTop="16">
-              <Button
-                href={`mailto:${person.email}`}
-                prefixIcon="email"
-                variant="primary"
-                size="m"
-                data-border="rounded"
-              >
-                {person.email}
-              </Button>
-              {linkedin && (
-                <Button
-                  href={linkedin.link}
-                  prefixIcon="linkedin"
-                  variant="secondary"
-                  size="m"
-                  data-border="rounded"
-                >
-                  LinkedIn
-                </Button>
-              )}
-            </Row>
-          </Column>
-        </Column>
-      )}
-    </Column>
+      <Section id="connect" tone="navy">
+        <div className="connect">
+          <h2 id="connect-title">{connect.title}</h2>
+          <p className="lede">{connect.body}</p>
+          <div className="hero__actions">
+            <a className="btn btn--primary" href={`mailto:${site.email}`}>
+              <Mail /> {site.email}
+            </a>
+            <a className="btn btn--ghost" href={site.linkedin} target="_blank" rel="noopener noreferrer">
+              <LinkedIn /> LinkedIn
+            </a>
+          </div>
+        </div>
+      </Section>
+    </>
   );
 }
