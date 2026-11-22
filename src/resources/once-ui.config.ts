@@ -18,7 +18,11 @@ const routes: RoutesConfig = {
   "/": true,
   "/about": true,
   "/work": true,
+  "/frameworks/value-creation": true,
 };
+
+// Enabled routes that stay out of the nav and sitemap (reachable by direct link).
+const unlistedRoutes: string[] = [];
 
 const display: DisplayConfig = {
   location: true,
@@ -166,6 +170,7 @@ const socialSharing: SocialSharingConfig = {
 export {
   display,
   routes,
+  unlistedRoutes,
   baseURL,
   fonts,
   style,

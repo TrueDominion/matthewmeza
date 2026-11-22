@@ -1,5 +1,5 @@
 import { getPosts } from "@/utils/utils";
-import { baseURL, routes as routesConfig } from "@/resources";
+import { baseURL, routes as routesConfig, unlistedRoutes } from "@/resources";
 
 export const dynamic = "force-static";
 
@@ -10,7 +10,8 @@ export default async function sitemap() {
   }));
 
   const activeRoutes = Object.keys(routesConfig).filter(
-    (route) => routesConfig[route as keyof typeof routesConfig],
+    (route) =>
+      routesConfig[route as keyof typeof routesConfig] && !unlistedRoutes.includes(route),
   );
 
   const routes = activeRoutes.map((route) => ({
