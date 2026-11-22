@@ -13,8 +13,8 @@ export async function generateMetadata() {
     image: home.image,
     path,
   });
-  // Personal reference page: reachable by link, kept out of search and the sitemap.
-  return { ...metadata, robots: { index: false, follow: false } };
+  // Meta.generate writes a canonical only alongside language alternates.
+  return { ...metadata, alternates: { canonical: metadata.openGraph.url } };
 }
 
 export default function ValueCreationPage() {
@@ -30,6 +30,10 @@ export default function ValueCreationPage() {
         <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
           The goal sets the test. Three functions act through four decisions. The market keeps
           score, and the score feeds the next round of analysis.
+        </Text>
+        <Text variant="body-default-s" onBackground="neutral-weak">
+          Adapted from Johns Hopkins Carey Business School EMBA coursework, translated for hospital
+          finance.
         </Text>
       </Column>
       <ValueFramework />

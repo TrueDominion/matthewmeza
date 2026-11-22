@@ -217,6 +217,35 @@ export default function Home() {
         </Column>
       )}
 
+      {/* Framework */}
+      <Column fillWidth gap="l">
+        <Row fillWidth paddingRight="64">
+          <Line maxWidth={48} />
+        </Row>
+        <SectionHeading eyebrow="How I think" title="How finance creates value." />
+        <Column fillWidth paddingX="l" gap="20" s={{ paddingX: "8" }}>
+          <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
+            The goal sets the test. Analysis, planning and control act through four decisions:
+            what to invest in, how to fund it, what to distribute, and how much liquidity to hold.
+            The market keeps score, and the score feeds the next round of analysis. An interactive
+            map of the framework, with what each piece means inside a hospital.
+          </Text>
+          <Row>
+            <Button
+              data-border="rounded"
+              href="/frameworks/value-creation"
+              variant="secondary"
+              size="m"
+              weight="default"
+              prefixIcon="framework"
+              arrowIcon
+            >
+              Explore the framework
+            </Button>
+          </Row>
+        </Column>
+      </Column>
+
       {/* Connect */}
       {home.connect.display && (
         <Column

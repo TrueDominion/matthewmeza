@@ -22,7 +22,7 @@ const routes: RoutesConfig = {
 };
 
 // Enabled routes that stay out of the nav and sitemap (reachable by direct link).
-const unlistedRoutes: string[] = ["/frameworks/value-creation"];
+const unlistedRoutes: string[] = [];
 
 const display: DisplayConfig = {
   location: true,
