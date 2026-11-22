@@ -1,47 +1,32 @@
-import { Row, IconButton, Text } from "@once-ui-system/core";
-import { person, social } from "@/resources";
-import styles from "./Footer.module.scss";
+import Link from "next/link";
+import { site } from "@/content";
+import { Lockup } from "./Brand";
+import { NodeDivider } from "./Truss";
 
-export const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
+export function Footer() {
   return (
-    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
-      <Row
-        className={styles.mobile}
-        maxWidth="m"
-        paddingY="8"
-        paddingX="16"
-        gap="16"
-        horizontal="between"
-        vertical="center"
-        s={{
-          direction: "column",
-          horizontal: "center",
-          align: "center",
-        }}
-      >
-        <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
-        </Text>
-        <Row gap="16">
-          {social.map(
-            (item) =>
-              item.link && (
-                <IconButton
-                  key={item.name}
-                  href={item.link}
-                  icon={item.icon}
-                  tooltip={item.name}
-                  size="s"
-                  variant="ghost"
-                />
-              ),
-          )}
-        </Row>
-      </Row>
-      <Row height="80" hide s={{ hide: false }} />
-    </Row>
+    <footer className="site-footer">
+      <div className="container">
+        <NodeDivider />
+        <div className="site-footer__inner">
+          <Link href="/" aria-label={`${site.name}, home`}>
+            <Lockup compact />
+          </Link>
+          <ul className="site-footer__links">
+            <li>
+              <a href={`mailto:${site.email}`}>Email</a>
+            </li>
+            <li>
+              <a href={site.linkedin} target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+          <p className="mono site-footer__meta">
+            © {new Date().getFullYear()} {site.name} · {site.location}
+          </p>
+        </div>
+      </div>
+    </footer>
   );
-};
+}

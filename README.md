@@ -1,17 +1,25 @@
 # matthewmeza.com
 
-Personal site built on [Magic Portfolio](https://once-ui.com/products/magic-portfolio) by Once UI (Next.js), exported as a static site and hosted on Cloudflare Pages.
+Personal site for Matthew Meza. Next.js, exported as a static site, hosted on Cloudflare Pages.
+Visual system: **Direction 4B brand guidelines** (Paper / Graphite / Signal Orange / Deep Navy, DM Sans + IBM Plex Mono, truss mark).
 
 ## Edit content
 
 | What | Where |
 |---|---|
-| Name, role, email, socials, home page copy, metrics, audiences, About page (experience, education, capabilities) | `src/resources/content.tsx` |
-| Theme, colors, fonts, enabled pages, domain | `src/resources/once-ui.config.ts` |
-| Case studies (Work page) | `src/app/work/projects/*.mdx` (one file per case study; newest `publishedAt` lists first) |
-| Images (avatar, social share card, case study covers) | `public/images/` |
+| All copy: hero, metrics, crossings, capabilities, focus areas, About page | `src/content.ts` |
+| Colors, type, spacing, light and dark mode | `src/app/globals.css` (tokens at the top) |
+| Logo mark and lockup | `src/components/Brand.tsx` |
+| Hero bridge illustration and node divider | `src/components/Truss.tsx` |
+| Value creation framework (interactive) | `src/components/frameworks/` |
+| Portrait, social card, icons | `public/images/`, `public/icon.svg`, `public/favicon.ico`, `public/apple-icon.png` |
 
-`assets/meza-headshot.jpg` is the full resolution original and is not deployed. Web versions live in `public/images/`.
+`assets/meza-headshot.jpg` is the full resolution original and is not deployed.
+
+### Brand rules worth remembering
+- Paper is the primary mode; graphite is the dark mode (toggle in the header).
+- Signal Orange is for nodes, accents and buttons with **graphite text**. Never orange text on paper (2.9:1, fails contrast).
+- Do not recolor, stretch, rotate or add effects to the mark.
 
 ## Local development
 
@@ -23,15 +31,8 @@ npm run build    # static export to /out
 
 ## Deployment (Cloudflare Pages)
 
-Project settings → Builds & deployments:
-
-- Framework preset: **None** (or Next.js (Static HTML Export))
 - Build command: `npm run build`
 - Build output directory: `out`
 - Environment variable: `NODE_VERSION` = `22`
 
-Push to `main` and Cloudflare rebuilds automatically.
-
-## License
-
-Built on [Magic Portfolio](https://once-ui.com/products/magic-portfolio) by Once UI, licensed CC BY-NC 4.0 (see `LICENSE`). The visible footer credit was removed; Once UI asks for it to stay unless a Pro license is held.
+Push to `main` and Cloudflare rebuilds automatically. If a change does not appear, purge the Cloudflare cache.

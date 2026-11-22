@@ -1,14 +1,8 @@
-import { baseURL } from "@/resources";
+import type { MetadataRoute } from "next";
+import { site } from "@/content";
 
 export const dynamic = "force-static";
 
-export default function robots() {
-  return {
-    rules: [
-      {
-        userAgent: "*",
-      },
-    ],
-    sitemap: `${baseURL}/sitemap.xml`,
-  };
+export default function robots(): MetadataRoute.Robots {
+  return { rules: [{ userAgent: "*" }], sitemap: `${site.url}/sitemap.xml` };
 }

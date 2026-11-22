@@ -38,11 +38,12 @@ export interface FrameworkEdge {
 }
 
 export const EDGE_COLORS: Record<EdgeKind, [string, string]> = {
-  mandate: ["#818cf8", "#a78bfa"],
-  lateral: ["#64748b", "#94a3b8"],
-  decision: ["#38bdf8", "#818cf8"],
-  monitoring: ["#34d399", "#2dd4bf"],
-  feedback: ["#fbbf24", "#f97316"],
+  // Brand palette (Direction 4B): Signal Orange for value flow, Steel and Mist for structure.
+  mandate: ["#6B7480", "#9AA1AB"],
+  lateral: ["#9AA1AB", "#D9DCE0"],
+  decision: ["#FF5A1F", "#FF8A5C"],
+  monitoring: ["#6B7480", "#D9DCE0"],
+  feedback: ["#FF5A1F", "#6B7480"],
 };
 
 export const EDGE_LABELS: Record<EdgeKind, string> = {

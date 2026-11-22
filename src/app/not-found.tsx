@@ -1,15 +1,17 @@
-import { Column, Heading, Text } from "@once-ui-system/core";
+import Link from "next/link";
+import { Mark } from "@/components/Brand";
+import { ArrowRight } from "@/components/Icons";
 
 export default function NotFound() {
   return (
-    <Column as="section" fill center paddingBottom="160">
-      <Text marginBottom="s" variant="display-strong-xl">
-        404
-      </Text>
-      <Heading marginBottom="l" variant="display-default-xs">
-        Page Not Found
-      </Heading>
-      <Text onBackground="neutral-weak">The page you are looking for does not exist.</Text>
-    </Column>
+    <div className="container not-found">
+      <Mark size={40} />
+      <p className="eyebrow eyebrow--center">404</p>
+      <h1>This span doesn&apos;t connect.</h1>
+      <p className="lede">The page you&apos;re looking for doesn&apos;t exist or has moved.</p>
+      <Link className="btn btn--primary" href="/">
+        Back home <ArrowRight />
+      </Link>
+    </div>
   );
 }

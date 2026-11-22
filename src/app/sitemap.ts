@@ -1,23 +1,12 @@
-import { getPosts } from "@/utils/utils";
-import { baseURL, routes as routesConfig, unlistedRoutes } from "@/resources";
+import type { MetadataRoute } from "next";
+import { site } from "@/content";
 
 export const dynamic = "force-static";
 
-export default async function sitemap() {
-  const works = getPosts(["src", "app", "work", "projects"]).map((post) => ({
-    url: `${baseURL}/work/${post.slug}/`,
-    lastModified: post.metadata.publishedAt,
+export default function sitemap(): MetadataRoute.Sitemap {
+  const today = new Date().toISOString().split("T")[0];
+  return ["/", "/about/", "/frameworks/value-creation/"].map((path) => ({
+    url: `${site.url}${path === "/" ? "" : path}`,
+    lastModified: today,
   }));
-
-  const activeRoutes = Object.keys(routesConfig).filter(
-    (route) =>
-      routesConfig[route as keyof typeof routesConfig] && !unlistedRoutes.includes(route),
-  );
-
-  const routes = activeRoutes.map((route) => ({
-    url: `${baseURL}${route !== "/" ? `${route}/` : ""}`,
-    lastModified: new Date().toISOString().split("T")[0],
-  }));
-
-  return [...routes, ...works];
 }
