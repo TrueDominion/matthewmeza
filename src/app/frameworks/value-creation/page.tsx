@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ValueFramework } from "@/components/frameworks/ValueFramework";
+import { Reveal } from "@/components/Reveal";
 
 const description =
   "How the finance function creates value: analysis, planning and control acting through four decision areas.";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function ValueCreationPage() {
   return (
     <div className="container framework-page">
-      <header className="section-head section-head--center">
+      <Reveal as="header" className="section-head section-head--center" y="0.25rem">
         <p className="eyebrow eyebrow--center">Framework / Corporate finance</p>
         <h1>How finance creates value</h1>
         <p className="lede">
@@ -25,8 +26,10 @@ export default function ValueCreationPage() {
           Adapted from Johns Hopkins Carey Business School EMBA coursework, translated for hospital
           finance.
         </p>
-      </header>
-      <ValueFramework />
+      </Reveal>
+      <Reveal delay={400}>
+        <ValueFramework />
+      </Reveal>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { about, site } from "@/content";
 import { ArrowRight, LinkedIn, Mail, Pin } from "@/components/Icons";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: about.title,
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <div className="container about">
-      <aside className="about__side">
+      <Reveal as="aside" className="about__side" y="1rem">
         <div className="about__portrait">
           <Image
             src="/images/portrait.jpg"
@@ -36,19 +37,23 @@ export default function About() {
             <LinkedIn size={16} /> LinkedIn
           </a>
         </div>
-      </aside>
+      </Reveal>
 
       <div className="about__main">
-        <p className="eyebrow">{site.tagline}</p>
-        <h1 className="about__name">{site.name}</h1>
-        <p className="about__role">{site.role}</p>
-        <div className="about__intro">
+        <Reveal>
+          <p className="eyebrow">{site.tagline}</p>
+        </Reveal>
+        <Reveal y="0.25rem" delay={100}>
+          <h1 className="about__name">{site.name}</h1>
+          <p className="about__role">{site.role}</p>
+        </Reveal>
+        <Reveal y="0.5rem" delay={300} className="about__intro">
           {about.intro.map((p) => (
             <p key={p.slice(0, 24)}>{p}</p>
           ))}
-        </div>
+        </Reveal>
 
-        <section aria-labelledby="experience" className="about__block">
+        <Reveal as="section" aria-labelledby="experience" className="about__block" onScroll y="1rem" duration={1400}>
           <p className="eyebrow">01 / Experience</p>
           <h2 id="experience">Experience</h2>
           {about.experience.map((e) => (
@@ -65,9 +70,9 @@ export default function About() {
               </ul>
             </article>
           ))}
-        </section>
+        </Reveal>
 
-        <section aria-labelledby="education" className="about__block">
+        <Reveal as="section" aria-labelledby="education" className="about__block" onScroll y="1rem" duration={1400}>
           <p className="eyebrow">02 / Education</p>
           <h2 id="education">Education</h2>
           {about.education.map((e) => (
@@ -76,7 +81,7 @@ export default function About() {
               <p className="role__title">{e.detail}</p>
             </article>
           ))}
-        </section>
+        </Reveal>
 
         <Link className="btn btn--secondary" href="/#capabilities">
           View capabilities <ArrowRight />

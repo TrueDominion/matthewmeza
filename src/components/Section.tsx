@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Reveal } from "./Reveal";
 
 export function SectionHead({
   eyebrow,
@@ -12,11 +13,11 @@ export function SectionHead({
   id: string;
 }) {
   return (
-    <header className="section-head">
+    <Reveal as="header" className="section-head" onScroll y="0.5rem" duration={1400}>
       <p className="eyebrow">{eyebrow}</p>
       <h2 id={id}>{title}</h2>
       {intro && <p className="lede">{intro}</p>}
-    </header>
+    </Reveal>
   );
 }
 
