@@ -19,8 +19,8 @@ export default function About() {
           <Image
             src="/images/portrait.jpg"
             alt={`Portrait of ${site.name}`}
-            width={720}
-            height={900}
+            width={1440}
+            height={1800}
             priority
             sizes="(max-width: 860px) 60vw, 320px"
           />
