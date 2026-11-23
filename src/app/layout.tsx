@@ -3,6 +3,8 @@ import { DM_Sans, IBM_Plex_Mono } from "next/font/google";
 import { site } from "@/content";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Reveal } from "@/components/Reveal";
+import { RevealObserver } from "@/components/RevealObserver";
 import "./globals.css";
 
 const sans = DM_Sans({
@@ -52,7 +54,7 @@ export const viewport: Viewport = {
 };
 
 // Paper (light) is the primary brand mode. A saved choice from the toggle wins.
-const themeScript = `try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}`;
+const themeScript = `document.documentElement.dataset.js="1";try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}`;
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -80,9 +82,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#main">
           Skip to content
         </a>
+        <Reveal className="page-backdrop" aria-hidden="true">
+          <div className="page-backdrop__grid" />
+        </Reveal>
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <RevealObserver />
       </body>
     </html>
   );

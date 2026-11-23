@@ -448,6 +448,16 @@ img {
   height: 100%;
   object-fit: cover;
 }
+.animated-mark__still {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+[data-js] .animated-mark__still,
+:root:not([data-js]) video.animated-mark__video {
+  display: none !important;
+}
 /* The clip backgrounds are graded a touch past the page color, so these
    blend modes always resolve to the page itself: no visible box. */
 .animated-mark__video--paper {
@@ -1042,4 +1052,72 @@ img {
     transition: none !important;
     animation: none !important;
   }
+}
+
+/* ==========================================================================
+   Page reveal and transitions (modeled on Magic Portfolio's RevealFx)
+   A left-to-right gradient wipe + blur-in + small lift, ease-in-out.
+   Runs on first load and again on each page navigation (new content mounts).
+   Gated on [data-js] so content is never hidden without JavaScript.
+   The final keyframe clears mask, filter and transform so finished elements
+   leave no stacking context behind (the logo clip relies on blend modes).
+   ========================================================================== */
+
+@keyframes reveal {
+  0% {
+    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 25%, transparent 50%);
+    mask-image: linear-gradient(to right, #000 0%, #000 25%, transparent 50%);
+    -webkit-mask-size: 400% 100%;
+    mask-size: 400% 100%;
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+    filter: blur(1rem);
+    transform: translateY(var(--reveal-y, 0));
+  }
+  99.9% {
+    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 25%, transparent 50%);
+    mask-image: linear-gradient(to right, #000 0%, #000 25%, transparent 50%);
+    -webkit-mask-size: 400% 100%;
+    mask-size: 400% 100%;
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-mask-image: none;
+    mask-image: none;
+    filter: none;
+    transform: none;
+  }
+}
+
+[data-js] .reveal {
+  animation: reveal var(--reveal-duration, 2000ms) ease-in-out var(--reveal-delay, 0ms) both;
+}
+[data-js] .reveal[data-reveal="scroll"]:not(.is-inview) {
+  animation-play-state: paused;
+}
+
+/* Page backdrop: the brand's graph-paper grid, fading out down the page. */
+.page-backdrop {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 110vh;
+  z-index: -1;
+  pointer-events: none;
+}
+.page-backdrop__grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center top;
+  opacity: 0.45;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 30%, transparent 75%);
+}
+body {
+  position: relative;
 }

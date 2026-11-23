@@ -33,6 +33,17 @@ export function AnimatedMark() {
 
   return (
     <div className="animated-mark" onMouseEnter={replay} role="img" aria-label="Matthew Meza truss mark">
+      {/* Without JavaScript, browsers show video controls; show the finished mark instead. */}
+      {(["paper", "graphite"] as const).map((tone) => (
+        <img
+          key={`still-${tone}`}
+          className={`animated-mark__still animated-mark__video--${tone}`}
+          src={`/media/mark-${tone}.jpg`}
+          width={720}
+          height={360}
+          alt=""
+        />
+      ))}
       {(["paper", "graphite"] as const).map((tone, i) => (
         <video
           key={tone}
