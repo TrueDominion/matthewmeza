@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { approach, capabilities, connect, focus, framework, hero, metrics, site } from "@/content";
-import { Truss } from "@/components/Truss";
+import { AnimatedMark } from "@/components/AnimatedMark";
 import { Section, SectionHead } from "@/components/Section";
 import { ArrowRight, LinkedIn, Mail } from "@/components/Icons";
 
@@ -10,7 +10,7 @@ export default function Home() {
       {/* Hero */}
       <section className="hero" aria-labelledby="hero-title">
         <div className="container">
-          <Truss className="hero__truss" />
+          <AnimatedMark />
           <p className="eyebrow eyebrow--center">{hero.eyebrow}</p>
           <h1 id="hero-title" className="hero__title">
             {hero.headlineLead} <span className="underline">{hero.headlineMark}</span>
@@ -24,6 +24,17 @@ export default function Home() {
               About Matthew <ArrowRight />
             </Link>
           </div>
+          <figure className="hero__band">
+            <img
+              src="/images/bridge-1600.jpg"
+              srcSet="/images/bridge-1600.jpg 1600w, /images/bridge-2800.jpg 2800w"
+              sizes="(max-width: 1240px) 100vw, 1200px"
+              width={2800}
+              height={1200}
+              alt="A steel truss bridge in profile across still water at first light"
+              fetchPriority="high"
+            />
+          </figure>
           <dl className="metrics">
             {metrics.map((m) => (
               <div key={m.label} className="metric">
@@ -42,6 +53,17 @@ export default function Home() {
         <ol className="grid grid--3 crossings">
           {approach.crossings.map((c, i) => (
             <li key={c.from} className="card crossing">
+              <div className="crossing__media">
+                <img
+                  src={`/images/${c.image}-720.jpg`}
+                  srcSet={`/images/${c.image}-720.jpg 720w, /images/${c.image}-1200.jpg 1200w`}
+                  sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 380px"
+                  width={1200}
+                  height={900}
+                  alt={c.imageAlt}
+                  loading="lazy"
+                />
+              </div>
               <p className="mono card__num">Crossing {String(i + 1).padStart(2, "0")}</p>
               <h3 className="crossing__route">
                 <span>{c.from}</span>

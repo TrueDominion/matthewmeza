@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { site } from "@/content";
 import { Lockup } from "./Brand";
-import { NodeDivider } from "./Truss";
+import { NodeDivider } from "./NodeDivider";
 
 export function Footer() {
   return (

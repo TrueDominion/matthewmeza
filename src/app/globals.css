@@ -434,13 +434,60 @@ img {
   padding: clamp(32px, 6vw, 72px) 0 clamp(56px, 8vw, 96px);
   text-align: center;
 }
-.hero__truss {
+/* Official logo animation (Higgsfield). */
+.animated-mark {
+  width: min(320px, 70vw);
+  aspect-ratio: 2 / 1;
+  margin: 0 auto clamp(12px, 2vw, 24px);
+  position: relative;
+}
+.animated-mark__video {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  max-width: 980px;
-  height: auto;
-  margin: 0 auto clamp(20px, 4vw, 40px);
-  color: var(--fg);
+  height: 100%;
+  object-fit: cover;
+}
+/* The clip backgrounds are graded a touch past the page color, so these
+   blend modes always resolve to the page itself: no visible box. */
+.animated-mark__video--paper {
+  mix-blend-mode: darken;
+}
+.animated-mark__video--graphite {
+  mix-blend-mode: lighten;
+}
+.animated-mark__video--graphite,
+[data-theme="dark"] .animated-mark__video--paper {
+  display: none;
+}
+[data-theme="dark"] .animated-mark__video--graphite {
   display: block;
+}
+
+/* Wide editorial photograph under the hero copy. */
+.hero__band {
+  margin: clamp(48px, 7vw, 80px) 0 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  aspect-ratio: 7 / 3;
+  background: var(--mist);
+}
+.hero__band img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+[data-theme="dark"] .hero__band img {
+  filter: brightness(0.9);
+}
+@media (max-width: 640px) {
+  .hero__band {
+    aspect-ratio: 16 / 10;
+  }
+  .hero__band img {
+    object-position: 50% 60%;
+  }
 }
 .hero__title {
   max-width: 14ch;
@@ -462,7 +509,7 @@ img {
 }
 
 .metrics {
-  margin: clamp(48px, 7vw, 80px) auto 0;
+  margin: clamp(40px, 5vw, 56px) auto 0;
   max-width: 1040px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -585,6 +632,24 @@ img {
 }
 
 /* Crossings */
+.crossing {
+  padding-top: 0;
+  overflow: hidden;
+}
+.crossing__media {
+  margin: 0 -28px 8px;
+  aspect-ratio: 4 / 3;
+  background: var(--mist);
+  border-bottom: 1px solid var(--card-border);
+}
+.crossing__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+[data-theme="dark"] .crossing__media img {
+  filter: brightness(0.88);
+}
 .crossing__route {
   display: flex;
   flex-direction: column;
@@ -717,23 +782,44 @@ img {
 .section--navy {
   --fg: var(--paper);
   --muted: #c3c9d4;
-  background-color: var(--navy);
-  color: var(--paper);
+  position: relative;
+  overflow: hidden;
   border-top: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='72' viewBox='0 0 200 100'%3E%3Cg fill='none' stroke='%23F7F5F0' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' opacity='0.05'%3E%3Cpath d='M10 86 L55 14 L100 86 L145 14 L190 86 M55 14 L55 62 M10 86 L55 62 L100 86 M145 14 L145 62 M100 86 L145 62 L190 86'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 120px 72px;
+  color: var(--paper);
+  background-color: var(--navy);
+  /* Steel joint photograph (Higgsfield), weighted to the right so copy sits on navy. */
+  background-image: linear-gradient(90deg, var(--navy) 30%, rgba(15, 27, 51, 0.55) 60%, rgba(15, 27, 51, 0) 85%),
+    image-set(url("/images/steel-navy-1600.jpg") 1x, url("/images/steel-navy-2800.jpg") 2x);
+  background-size: cover;
+  background-position: right center;
 }
 .connect {
-  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  max-width: 560px;
+  padding: clamp(16px, 3vw, 40px) 0;
 }
 .connect h2 {
   margin-bottom: 16px;
 }
 .connect .lede {
-  max-width: 52ch;
+  max-width: 44ch;
+}
+.connect .hero__actions {
+  justify-content: flex-start;
+}
+@media (max-width: 760px) {
+  .section--navy {
+    background-image: linear-gradient(180deg, rgba(15, 27, 51, 0.7), var(--navy) 70%),
+      image-set(url("/images/steel-navy-1600.jpg") 1x, url("/images/steel-navy-2800.jpg") 2x);
+    background-position: 70% top;
+    background-size: auto 60%;
+    background-repeat: no-repeat;
+  }
+  .connect {
+    padding-top: 160px;
+  }
 }
 
 /* ---------- Divider (truss nodes) ---------- */

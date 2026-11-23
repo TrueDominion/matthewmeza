@@ -10,8 +10,11 @@ Visual system: **Direction 4B brand guidelines** (Paper / Graphite / Signal Oran
 | All copy: hero, metrics, crossings, capabilities, focus areas, About page | `src/content.ts` |
 | Colors, type, spacing, light and dark mode | `src/app/globals.css` (tokens at the top) |
 | Logo mark and lockup | `src/components/Brand.tsx` |
-| Hero bridge illustration and node divider | `src/components/Truss.tsx` |
+| Logo animation in the hero | `src/components/AnimatedMark.tsx`, clips in `public/media/` |
+| Node divider | `src/components/NodeDivider.tsx` |
 | Value creation framework (interactive) | `src/components/frameworks/` |
+| Photography (generated with Higgsfield) | `public/images/bridge-*`, `crossing-*`, `steel-navy-*` |
+| Official logo animation, full length (paper and graphite) | `public/brand/logo-animation-*.mp4` |
 | Portrait, social card, icons | `public/images/`, `public/icon.svg`, `public/favicon.ico`, `public/apple-icon.png` |
 
 `assets/meza-headshot.jpg` is the full resolution original and is not deployed.
